@@ -28,5 +28,5 @@ class Post(models.Model):
     thread = models.ForeignKey(Thread)
 
     def __str__(self):
-        return self.thread + ' ' + self.creator + ' ' + self.time_of_creation
+        return self.thread.subject + ' ' + self.creator
 
