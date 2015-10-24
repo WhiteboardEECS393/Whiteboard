@@ -1,9 +1,15 @@
-{% if thread_list and board %}
-    <ul>
-    {% for thread in thread_list %}
-        <li><a href="/boards/{{ board }}/{{ thread.id }}">{{ thread.subject }}</a></li>
-    {% endfor %}
-    </ul>
+{% if board %}
+    <h1>Threads</h1>
+    {% if thread_list %}
+        <ul>
+        {% for thread in thread_list %}
+            <li><a href="/boards/{{ board }}/{{ thread.id }}">{{ thread.subject }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Threads available</p>
+    {% endif %}
 {% else %}
+    <h1>Boards</h1>
     <p>No boards are available.</p>
 {% endif %}
