@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Profile',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -78,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'vagrant',
-        'USER' : 'vagrant',
+        'USER': 'vagrant',
     }
 }
 
