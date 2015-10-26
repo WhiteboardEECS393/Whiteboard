@@ -49,6 +49,6 @@ class TeachingAssistantUser(StudentUser):
 
 
 class ProfessorUser(BasicUser):
-    current_department = models.ForeignKey('Department')
+    current_department = models.ForeignKey('Department', blank=True, null=True)
     classes = models.CharField(max_length=100)  # to change to be many to one field from class profile
     office_location = models.CharField(max_length=100)

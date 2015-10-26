@@ -1,0 +1,13 @@
+<h1>Profiles</h1>
+{% if student_profile_list or professor_profile_list%}
+    {% if student_profile_list%}
+	<h2>Student Users</h2>
+	<ul>
+    {% for profile in student_profile_list %}
+		<li><a href="/profiles/{{ profile.id }}/">{{ printf("%s - %s", profile, profile.major) }}</a></li>
+    {% endfor %}
+    </ul>
+	{% endif %}
+{% else %}
+    <p>No profiles are available.</p>
+{% endif %}
