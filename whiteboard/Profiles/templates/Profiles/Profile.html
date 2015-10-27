@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>eecs 393</title>
+		<title>my profile</title>
 
 		<!-- Bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
@@ -35,8 +35,8 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">my classes <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">EECS 325: Computer Networks</a></li>
-						<li><a href="#">EECS 393: Software Engineering</a></li>
+						<li><a href="EECS325">EECS 325: Computer Networks</a></li>
+						<li><a href="EECS393">EECS 393: Software Engineering</a></li>
 						<li><a href="#">SOCI 113: Problems in Modern Society</a></li>
 						<li><a href="#">PHIL 201: Intro to Logic</a></li>
 						<li><a href="#">MATH 201: Intro to Linear Algebra</a></li>
@@ -44,38 +44,15 @@
 						<li><a href="#">Older Courses</a></li>
 					</ul>
 				</li>
-				<li><a href="..">my profile</a></li>
+				<li><a href="#">my profile</a></li>
 				
 			  </ul>
 			</div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		<hr/>
 		</nav>
-		<h1>Profiles</h1>
-		{% if student_profile_list or professor_profile_list%}
-			<h2>Student Users</h2>
-			{% if student_profile_list%}
-				<ul>
-				{% for profile in student_profile_list %}
-					<li><a href="/profiles/{{ profile.id }}/">{{ profile }}</a></li>
-				{% endfor %}
-				</ul>
-			{% else %}
-				<p>{{"There are no student users."}}</p>
-			{% endif %}
-			<h2>Professor Users</h2>
-			{% if professor_profile_list%}
-				<ul>
-				{% for profile in professor_profile_list %}
-					<li><a href="/profiles/{{ profile.id }}/">{{ profile }}</a></li>
-				{% endfor %}
-				</ul>
-			{% else %}
-				<p>{{"There are no professor users."}}</p>
-			{% endif %}
-		{% else %}
-			<p>No profiles are available.</p>
-		{% endif %}
+		<h1>{{"Hello: (username)!"}}</h1>
+		
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
