@@ -1,11 +1,11 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from .models import StudentUser, ProfessorUser, TeachingAssistantUser
+from .models import StudentUser, Professor, TeachingAssistantUser
 
 
 def index(request):
     student_profile_list = StudentUser.objects.all()
-    professor_profile_list = ProfessorUser.objects.all()
+    professor_profile_list = Professor.objects.all()
     teaching_assistant_profile_list = TeachingAssistantUser.objects.all()
 
     template = 'Profiles/index.html'
