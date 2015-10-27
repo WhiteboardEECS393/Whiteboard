@@ -13,8 +13,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Course',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
-                ('course_number', models.CharField(max_length=8)),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, primary_key=True, serialize=False)),
+                ('department', models.CharField(max_length=4)),
+                ('course_number', models.IntegerField(default=999)),
                 ('course_name', models.CharField(max_length=200)),
                 ('description', models.CharField(blank=True, max_length=300)),
             ],
@@ -22,7 +23,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Document',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=100)),
                 ('path', models.CharField(max_length=100)),
                 ('description', models.CharField(blank=True, max_length=300)),
@@ -31,10 +32,23 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Section',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, primary_key=True, serialize=False)),
                 ('professor_name', models.CharField(max_length=50)),
-                ('semester', models.CharField(max_length=50)),
+                ('season', models.CharField(max_length=10)),
+                ('year', models.IntegerField(default=2015)),
+                ('teaching_assistants', models.CharField(blank=True, max_length=200)),
+                ('location', models.CharField(max_length=50)),
+                ('time_of_day', models.CharField(max_length=20)),
+                ('days_of_week', models.CharField(max_length=7)),
+                ('section_number', models.IntegerField(default=0)),
+                ('students', models.CharField(blank=True, max_length=1000)),
+                ('syllabus_path', models.CharField(blank=True, max_length=100)),
                 ('course', models.ForeignKey(to='class_overviews.Course')),
             ],
+        ),
+        migrations.AddField(
+            model_name='document',
+            name='course_section',
+            field=models.ForeignKey(to='class_overviews.Section'),
         ),
     ]
