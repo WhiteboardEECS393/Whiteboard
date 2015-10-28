@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Login</title>
+
+    <!-- Bootstrap -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/userloginstylesheet.css"%}"/>
+
+  </head>
+  <body>
+
+  	<!-- Navigation bar -->
+    <div class="col-md-12">
+	    <div class="site-container thread-list">
+
+	      <div class="link-list">
+	        <ul class="list-group">
+
+	            <h4 class="list-group-item-heading">Whiteboard</h4>
+                {% if login_form.non_field_errors %}
+					{% for error in login_form.non_field_errors %}
+						<p class="login-error-msg">{{ error }}</p>
+					{% endfor %}
+				{% endif %}
+                <form id="login_form" method="post" class="username-pass-fields" action="">
+					{% csrf_token %}
+                    Username:<br/>
+                    <input type="text" name="username"/>
+                    <br/>
+                    Password:<br/>
+                    <input type="password" name="password"/>
+					<br/>
+					<button type="sumbit" class="login">Login</button>
+                </form>
+                
+                
+                <p class="list-group-item-text">Don&lsquo;t have an account? <a href="/create_new_user">Sign up</a></p>
+                
+	        </ul>
+	      </div>
+
+	    </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+  </body>
+ </html>
