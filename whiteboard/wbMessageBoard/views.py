@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
+from django.utils import timezone
 from .models import DiscussionBoard, Thread, Post
-from .forms import BoardForm
+from .forms import BoardForm, ThreadForm, ReplyForm
+
 
 # Create your views here.
 
@@ -44,11 +46,41 @@ def create_board(request):
 def thread(request, thread_id, start_post=None):
     if start_post is None:
         start_post = 0
-    post_list = Post.objects.filter(thread=thread_id).order_by('time_of_creation')[start_post:start_post+10]
-    current_thread = Thread.objects.filter(id=thread_id)
+    post_list = Post.objects.filter(thread=thread_id).order_by('time_of_creation')[start_post:start_post + 10]
+    current_thread = Thread.objects.filter(id=thread_id)[0]
     context = {
         'post_list': post_list,
         'thread': current_thread,
     }
     return render(request, 'wbMessageBoard/thread.html', context)
 
+
+def create_thread(request, board_id):
+    if request.method == 'POST':
+        form = ThreadForm(request.POST)
+        if form.is_valid():
+            new_thread = Thread(subject=form.cleaned_data['thread_subject'],
+                                message=form.cleaned_data['thread_message'],
+                                time_of_creation=timezone.localtime(timezone.now()),
+                                creator='Test User',
+                                board=DiscussionBoard.objects.filter(id=board_id)[0], )
+            new_thread.save()
+            return HttpResponseRedirect('/boards/' + board_id)
+    else:
+        form = ThreadForm()
+    return render(request, 'wbMessageBoard/create_thread.html', {'form': form, 'board_id': board_id})
+
+
+def create_post(request, thread_id):
+    if request.method == 'POST':
+        form = ReplyForm(request.POST)
+        if form.is_valid():
+            new_post = Post(content=form.cleaned_data['reply_message'],
+                            time_of_creation=timezone.localtime(timezone.now()),
+                            creator='Test User',
+                            thread=Thread.objects.filter(id=thread_id)[0], )
+            new_post.save()
+            return HttpResponseRedirect('/boards/thread/' + thread_id)
+    else:
+        form = ReplyForm()
+    return render(request, 'wbMessageBoard/create_reply.html', {'form': form, 'thread_id': thread_id})
