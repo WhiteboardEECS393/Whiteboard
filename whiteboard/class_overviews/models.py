@@ -13,7 +13,7 @@ class Course(models.Model):
 
 class Section(models.Model):
     professor_name = models.CharField(max_length=50)    #will later be foreign key
-    season = models.CharField(max_length=10)
+    season = models.CharField(max_length=10, default="Fall")
     year = models.IntegerField(default=2015)
     teaching_assistants = models.CharField(max_length=200, blank=True) #foreign key
     location = models.CharField(max_length=50)
@@ -25,7 +25,7 @@ class Section(models.Model):
     course = models.ForeignKey(Course)
 
     def __str__(self):
-        return self.course.course_number + "(" + str(self.section_number) + ")" + " " + self.season + str(self.year)
+        return self.professor_name
 
 
 class Document(models.Model):
