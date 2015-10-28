@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^create_new_user/', views.create_new_user, name='create_new_user'),
     url(r'^AllProfiles/', views.index, name='index'),
     url(r'^MyProfile/', include('Profiles.urls')),
+    url(r'^boards/', include('wbMessageBoard.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
 ]

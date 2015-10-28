@@ -11,7 +11,8 @@ class PostInLine(admin.StackedInline):
 class ThreadAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Thread Content', {'fields':['subject', 'creator', 'message']}),
-        ("Date Information", {'fields':['time_of_creation']})
+        ("Date Information", {'fields':['time_of_creation']}),
+        ("Board", {'fields' : ['board']}),
 
     ]
     inlines = [PostInLine]
