@@ -21,7 +21,6 @@ class Section(models.Model):
     days_of_week = models.CharField(max_length=7)
     section_number = models.IntegerField(default=0)
     students = models.CharField(max_length=1000, blank=True) #foreign key
-    syllabus_path = models.CharField(max_length=100, blank=True)
     course = models.ForeignKey(Course)
 
     def __str__(self):
