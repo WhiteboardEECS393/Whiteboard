@@ -10,7 +10,7 @@ def course(request):
     return HttpResponse("Hello, world. You're at the course homepage.")
 
 
-def courseDetail(request, depart, course_num, sea="Fall", yr=2015, section_num=0):
+def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
 
     template = 'class_overviews/course.html'
     c = Course.objects.filter(department = depart, course_number=course_num)
@@ -21,7 +21,15 @@ def courseDetail(request, depart, course_num, sea="Fall", yr=2015, section_num=0
     else:
         c = c[0]
 
-    s = Section.objects.filter(course = c, season = sea, year = yr)
+    if section_num == 0 and sea == "":
+        s = Section.objects.filter(course = c)
+    elif section_num != 0:
+        s = Section.objects.filter(course = c, section_number = section_num)
+    elif sea != "":
+        s = Section.objects.filter(course = c, season = sea, year = yr)
+    else:
+        s = Section.objects.filter(course = c, season = sea, year = yr, section_number = section_num)
+
     if len(s) == 0:
         template = 'class_overviews/classnotfoundpage.html'
         context = RequestContext(request,)
