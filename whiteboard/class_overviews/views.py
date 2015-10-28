@@ -11,24 +11,21 @@ def course(request):
 
 
 def courseDetail(request, depart, course_num, sea="Fall", yr=2015, section_num=0):
-    #return course that matches this data
 
     template = 'class_overviews/course.html'
     c = Course.objects.filter(department = depart, course_number=course_num)
     if len(c) == 0:
-        template = '' #later add template for error 404
+        template = 'class_overviews/classnotfoundpage.html'
         context = RequestContext(request,)
-        #return render_to_response(template, locals(), context)
-        return HttpResponse("We could not find the course %s%s." % (depart, course_num))
+        return render_to_response(template, locals(), context)
     else:
         c = c[0]
 
     s = Section.objects.filter(course = c, season = sea, year = yr)
     if len(s) == 0:
-        template = '' #later add template for error 404
+        template = 'class_overviews/classnotfoundpage.html'
         context = RequestContext(request,)
-        #return render_to_response(template, locals(), context)
-        return HttpResponse("We could not find the course %s%s." % (depart, course_num))
+        return render_to_response(template, locals(), context)
     else:
         s = s[0]
         #later add the check for most recent class

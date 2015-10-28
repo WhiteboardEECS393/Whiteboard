@@ -77,18 +77,18 @@
 
 	    	<div class="link-list">
 	    		<ul class="list-group">
-	    			<a href="#" class="list-group-item">
-	    				<p class="list-group-item-text">syllabus</p>
-	    			</a>
-	    			<a href="#" class="list-group-item">
-	    				<p class="list-group-item-text">lecture 1</p>
-	    			</a>
-	    			<a href="#" class="list-group-item">
-	    				<p class="list-group-item-text">lecture 2</p>
-	    			</a>
-	    			<a href="#" class="list-group-item">
-	    				<p class="list-group-item-text">lecture 3</p>
-	    			</a>
+
+            {% if documents %}
+              {% for d in documents %}
+                <a href={{d.path}} class="list-group-item">
+                  <p class="list-group-item-text">{{d.name}}</p>
+                </a>
+              {% endfor %}
+            {% else %}
+              <a href="#" class="list-group-item">
+                <p class="list-group-item-text">No documents have been posted yet.</p>
+              </a>
+            {% endif %}  
 	    		</ul>
 	    	</div>
 	    </div>

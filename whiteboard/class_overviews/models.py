@@ -24,7 +24,7 @@ class Section(models.Model):
     course = models.ForeignKey(Course)
 
     def __str__(self):
-        return self.professor_name
+        return str(self.course) + " (" + str(self.section_number) + ") " + self.season + str(self.year)
 
 
 class Document(models.Model):
