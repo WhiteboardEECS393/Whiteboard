@@ -17,7 +17,7 @@ install:
   - pip install -r requirements.txt
 
 before_script:
-  - psql -c 'create database travisci;' -U postgresql
+  - psql -c 'create database travisci;' -U postgres
 
 script:
   - python whiteboard/manage.py makemigrations
