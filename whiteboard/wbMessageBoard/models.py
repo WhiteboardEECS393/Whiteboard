@@ -22,7 +22,7 @@ class Thread(models.Model):
 
 
 class Post(models.Model):
-    creator = models.CharField(max_length=60) #change to fit account later
+    creator = models.CharField(max_length=60)  # change to fit account later
     time_of_creation = models.DateTimeField('Created on')
     content = models.CharField(max_length=1000)
     thread = models.ForeignKey(Thread)

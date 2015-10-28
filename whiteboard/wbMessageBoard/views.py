@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import RequestContext, loader
-from .models import DiscussionBoard, Thread
+from .models import DiscussionBoard, Thread, Post
 from .forms import BoardForm
 
 # Create your views here.
@@ -39,3 +39,16 @@ def create_board(request):
     else:
         form = BoardForm()
     return render(request, 'wbMessageBoard/create_board.html', {'form': form})
+
+
+def thread(request, thread_id, start_post=None):
+    if start_post is None:
+        start_post = 0
+    post_list = Post.objects.filter(thread=thread_id).order_by('time_of_creation')[start_post:start_post+10]
+    current_thread = Thread.objects.filter(id=thread_id)
+    context = {
+        'post_list': post_list,
+        'thread': current_thread,
+    }
+    return render(request, 'wbMessageBoard/thread.html', context)
+
