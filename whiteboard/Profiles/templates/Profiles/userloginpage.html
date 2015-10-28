@@ -22,7 +22,11 @@
 	        <ul class="list-group">
 
 	            <h4 class="list-group-item-heading">Whiteboard</h4>
-                
+                {% if login_form.non_field_errors %}
+					{% for error in login_form.non_field_errors %}
+						<p class="login-error-msg">{{ error }}</p>
+					{% endfor %}
+				{% endif %}
                 <form id="login_form" method="post" class="username-pass-fields" action="">
 					{% csrf_token %}
                     Username:<br/>
@@ -35,7 +39,7 @@
                 </form>
                 
                 
-                <p class="list-group-item-text">Don&lsquo;t have an account? <a href="/create_user">Sign up</a></p>
+                <p class="list-group-item-text">Don&lsquo;t have an account? <a href="/create_new_user">Sign up</a></p>
                 
 	        </ul>
 	      </div>

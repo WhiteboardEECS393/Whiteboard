@@ -1,8 +1,11 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from django.template import RequestContext
 from Profiles.models import StudentUser, Professor, TeachingAssistantUser
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import login
+from .forms import LoginForm, CreateUserForm
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 
 def index(request):
@@ -20,60 +23,36 @@ def index(request):
 
 
 def main_redirect(request,):
-    context = RequestContext(request,)
-
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
+    form = LoginForm(request.POST or None)
+    if request.POST and form.is_valid():
+        user = form.login(request)
         if user is not None:
             if user.is_active:
                 login(request, user)
                 return HttpResponseRedirect('/MyProfile/')
             else:
                 return HttpResponse('Your User is not active.')
-        else:
-            return HttpResponseRedirect('/login_retry/')
-    else:
-        return render_to_response('Profiles/userloginpage.html', {}, context)
-
-
-def failed_login_redirect(request,):
-    context = RequestContext(request)
-
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect('/MyProfile/')
-            else:
-                return HttpResponse('Your User is not active.')
-        else:
-            return HttpResponseRedirect('/login_retry/')
-    else:
-        return render_to_response('Profiles/userloginfailedpage.html', {}, context)
+    return render(request, 'Profiles/userloginpage.html', {'login_form': form})
 
 
 def create_new_user(request,):
-    context = RequestContext(request,)
+    form = CreateUserForm(request.POST or None)
+    if request.POST and form.is_valid():
+            user = form.create_new_user(request)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    '''
+                    if tabool:
+                        return HttpResponseRedirect('../create_ta/')
+                    else:
+                        return HttpResponseRedirect('../create_student/')
+                    '''
+                    return HttpResponseRedirect('../MyProfile/')
+                else:
+                    return HttpResponse('Your User is not active.')
+    return render(request, 'Profiles/createuser.html', {'create_user_form': form})
 
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        confirm_password = request.POST['confirmpass']
 
-        if password == confirm_password and authenticate(username=username, password=password) is None:
-            User.objects.create_user(username=username, password=password)
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect('/MyProfile/')
-            else:
-                return HttpResponse('Your User is not active.')
-        else:
-            return HttpResponse('passwords do not match')
-            # return HttpResponseRedirect('/login_retry/')
-    else:
-        return render_to_response('Profiles/createuser.html/', {}, context)
+def create_student(request, ):
+    return HttpResponse('created student')
