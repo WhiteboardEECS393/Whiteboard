@@ -1,0 +1,24 @@
+branches:
+  only:
+    - master
+
+language: python
+
+python:
+  - 3.4
+
+services:
+  - postgresql
+
+before_install:
+  - pip install -U pip
+
+install:
+  - pip install -r requirements.txt
+
+before_script:
+  - psql -c 'create database travisci;' -U postresql
+
+script:
+  - python whiteboard/manage.py makemigrations
+  - python whiteboard/manage.py migrate
