@@ -20,6 +20,8 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.main_redirect, name='main_redirect'),
+    url(r'^login_retry/', views.failed_login_redirect, name='failed_login_redirect'),
+    url(r'^create_new_user', views.create_new_user, name='create_new_user'),
     url(r'^AllProfiles/', views.index, name='index'),
     url(r'^MyProfile/', include('Profiles.urls')),
     url(r'^admin/', include(admin.site.urls)),

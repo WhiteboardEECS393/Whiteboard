@@ -4,7 +4,7 @@ from .models import StudentUser, Professor, TeachingAssistantUser
 
 
 def profile(request):
-    template = 'Profiles/Profile.html'
+    template = 'Profiles/userprofile.html'
     current_user = StudentUser.objects.filter(user=request.user.id)[0]
     context = RequestContext(request, {
         'current_user': current_user,
