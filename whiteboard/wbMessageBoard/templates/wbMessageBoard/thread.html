@@ -1,11 +1,13 @@
 <h1>Thread</h1>
 {% if thread %}
     <h1>{{ thread.subject }}</h1>
-    <h2>By: {{ thread.creator }} at {{ thread.time_of_creation }}</h2>
+    <h2>By: {{ thread.creator.first_name }} {{ thread.creator.last_name }} at {{ thread.time_of_creation }}</h2>
     <p>{{ thread.message }}</p>
     {% if post_list %}
         {% for post in post_list %}
-            <h2>Reply by: {{ post.creator }} at {{ post.time_of_creation }}</h2>
+            <h2>Reply by:
+                <a href='/profiles/{{ post.creator.id }}'>{{ post.creator.first_name }} {{ post.creator.last_name }}</a>
+                at {{ post.time_of_creation }}</h2>
             <p>{{ post.content }}</p>
         {% endfor %}
     {% else %}

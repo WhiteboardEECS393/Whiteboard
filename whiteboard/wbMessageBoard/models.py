@@ -12,7 +12,7 @@ class DiscussionBoard(models.Model):
 
 class Thread(models.Model):
     subject = models.CharField(max_length=200)
-    creator = models.CharField(max_length=60)  # Change this to fit account later
+    creator = models.ForeignKey('Profiles.StudentUser')
     message = models.CharField(max_length=1000)
     time_of_creation = models.DateTimeField('Created on')
     board = models.ForeignKey(DiscussionBoard)
@@ -22,7 +22,7 @@ class Thread(models.Model):
 
 
 class Post(models.Model):
-    creator = models.CharField(max_length=60)  # change to fit account later
+    creator = models.ForeignKey('Profiles.StudentUser')
     time_of_creation = models.DateTimeField('Created on')
     content = models.CharField(max_length=1000)
     thread = models.ForeignKey(Thread)
