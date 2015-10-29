@@ -37,9 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Profiles',
     'wbMessageBoard',
     'class_overviews',
-    'Profiles',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+from Profiles.models import StudentUser
 from .models import DiscussionBoard, Thread, Post
 from .forms import BoardForm, ThreadForm, ReplyForm
 
@@ -9,6 +11,7 @@ from .forms import BoardForm, ThreadForm, ReplyForm
 # Create your views here.
 
 
+@login_required
 def index(request):
     board_list = DiscussionBoard.objects.all()
 
@@ -19,6 +22,7 @@ def index(request):
     return HttpResponse(template.render(context))
 
 
+@login_required
 def boards(request, board_id):
     thread_list = Thread.objects.filter(board=board_id).order_by('-time_of_creation')
 
@@ -30,6 +34,7 @@ def boards(request, board_id):
     return HttpResponse(template.render(context))
 
 
+@login_required
 def create_board(request):
     if request.method == 'POST':
         form = BoardForm(request.POST)
@@ -43,6 +48,7 @@ def create_board(request):
     return render(request, 'wbMessageBoard/create_board.html', {'form': form})
 
 
+@login_required
 def thread(request, thread_id, start_post=None):
     if start_post is None:
         start_post = 0
@@ -55,32 +61,37 @@ def thread(request, thread_id, start_post=None):
     return render(request, 'wbMessageBoard/thread.html', context)
 
 
+@login_required
 def create_thread(request, board_id):
+    user = StudentUser.objects.get(user=request.user.id)
     if request.method == 'POST':
+
         form = ThreadForm(request.POST)
         if form.is_valid():
             new_thread = Thread(subject=form.cleaned_data['thread_subject'],
                                 message=form.cleaned_data['thread_message'],
                                 time_of_creation=timezone.localtime(timezone.now()),
-                                creator='Test User',
+                                creator=user,
                                 board=DiscussionBoard.objects.filter(id=board_id)[0], )
             new_thread.save()
             return HttpResponseRedirect('/boards/' + board_id)
     else:
         form = ThreadForm()
-    return render(request, 'wbMessageBoard/create_thread.html', {'form': form, 'board_id': board_id})
+    return render(request, 'wbMessageBoard/create_thread.html', {'form': form, 'board_id': board_id, 'user': user})
 
 
+@login_required
 def create_post(request, thread_id):
+    user = StudentUser.objects.get(user=request.user.id)
     if request.method == 'POST':
         form = ReplyForm(request.POST)
         if form.is_valid():
             new_post = Post(content=form.cleaned_data['reply_message'],
                             time_of_creation=timezone.localtime(timezone.now()),
-                            creator='Test User',
+                            creator=user,
                             thread=Thread.objects.filter(id=thread_id)[0], )
             new_post.save()
             return HttpResponseRedirect('/boards/thread/' + thread_id)
     else:
         form = ReplyForm()
-    return render(request, 'wbMessageBoard/create_reply.html', {'form': form, 'thread_id': thread_id})
+    return render(request, 'wbMessageBoard/create_reply.html', {'form': form, 'thread_id': thread_id, 'user': user})
