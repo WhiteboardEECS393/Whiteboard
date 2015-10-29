@@ -55,7 +55,7 @@ class Migration(migrations.Migration):
                 ('bio', models.CharField(max_length=500)),
                 ('classes', models.CharField(max_length=100)),
                 ('office_location', models.CharField(max_length=100)),
-                ('current_department', models.ForeignKey(blank=True, to='Profiles.Department', null=True)),
+                ('current_department', models.ForeignKey(to='Profiles.Department', null=True, blank=True)),
             ],
             options={
                 'ordering': ['last_name', 'first_name'],
@@ -65,11 +65,11 @@ class Migration(migrations.Migration):
             name='StudentUser',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
-                ('first_name', models.CharField(max_length=100, default='First')),
-                ('last_name', models.CharField(max_length=100, default='Last')),
-                ('email_id', models.EmailField(max_length=254, default='abc123@case.edu')),
-                ('bio', models.CharField(max_length=500, default='none')),
-                ('photo', models.CharField(max_length=200, default='none')),
+                ('first_name', models.CharField(default='First', max_length=100)),
+                ('last_name', models.CharField(default='Last', max_length=100)),
+                ('email_id', models.EmailField(default='abc123@case.edu', max_length=254)),
+                ('bio', models.CharField(default='none', max_length=500)),
+                ('photo', models.CharField(default='none', max_length=200)),
                 ('grad_year', models.IntegerField(default=2016)),
                 ('classes', models.CharField(max_length=100)),
             ],
@@ -80,7 +80,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='TeachingAssistantUser',
             fields=[
-                ('studentuser_ptr', models.OneToOneField(parent_link=True, auto_created=True, to='Profiles.StudentUser', primary_key=True, serialize=False)),
+                ('studentuser_ptr', models.OneToOneField(primary_key=True, to='Profiles.StudentUser', serialize=False, parent_link=True, auto_created=True)),
                 ('teaching_classes', models.CharField(max_length=100)),
             ],
             options={
@@ -91,12 +91,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='studentuser',
             name='majors',
-            field=models.ManyToManyField(to='Profiles.Major'),
+            field=models.ManyToManyField(blank=True, to='Profiles.Major'),
         ),
         migrations.AddField(
             model_name='studentuser',
             name='minors',
-            field=models.ManyToManyField(to='Profiles.Minor'),
+            field=models.ManyToManyField(blank=True, to='Profiles.Minor'),
         ),
         migrations.AddField(
             model_name='studentuser',
@@ -106,7 +106,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='department',
             name='department_head',
-            field=models.ForeignKey(to='Profiles.Professor'),
+            field=models.ForeignKey(blank=True, to='Profiles.Professor'),
         ),
         migrations.AddField(
             model_name='department',

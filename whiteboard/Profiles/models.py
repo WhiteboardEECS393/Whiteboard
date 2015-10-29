@@ -38,7 +38,7 @@ class Minor(models.Model):
 
 class StudentUser(BasicUser):
     grad_year = models.IntegerField(default=2016)
-    majors = models.ManyToManyField('Major')
+    majors = models.ManyToManyField('Major', blank=True)
     minors = models.ManyToManyField('Minor', blank=True)
     classes = models.CharField(max_length=100)  # to change to be many to one field from class profile
 
@@ -51,7 +51,7 @@ class StudentUser(BasicUser):
 
 class Department(models.Model):
     department_name = models.CharField(max_length=100)
-    department_head = models.ForeignKey('Professor')
+    department_head = models.ForeignKey('Professor', blank=True)
     department_info = models.CharField(max_length=500)
     majors = models.ForeignKey('Major')
     minors = models.ForeignKey('Minor')

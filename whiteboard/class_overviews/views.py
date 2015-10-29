@@ -1,10 +1,8 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from .models import Course, Section, Document
-from django.db.models.query import QuerySet
-
+from wbMessageBoard.models import DiscussionBoard, Thread
 
 def course(request):
     return HttpResponse("Hello, world. You're at the course homepage.")
@@ -40,10 +38,24 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
 
     documents = Document.objects.filter(course_section = s)
 
+    b = DiscussionBoard.objects.filter(course = s)
+    if len(b):
+        threads = Thread.objects.filter(board = b)
+    else:
+        threads = []
+
     context = RequestContext(request, {
         'course': c,
         'section' : s,
-        'documents' : documents
+        'documents' : documents,
+        'threads' : threads,
     })
     return render_to_response(template, locals(), context)
 
+
+def getThreads(s):
+    b = DiscussionBoard.objects.filter(course = s)
+
+
+    threads = Thread.objects.filter(board = b)
+    return threads

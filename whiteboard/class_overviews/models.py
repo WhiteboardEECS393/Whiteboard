@@ -12,7 +12,7 @@ class Course(models.Model):
 
 
 class Section(models.Model):
-    professor_name = models.CharField(max_length=50)    #will later be foreign key
+    professor_name = models.CharField(max_length=40)
     season = models.CharField(max_length=10, default="Fall")
     year = models.IntegerField(default=2015)
     teaching_assistants = models.CharField(max_length=200, blank=True) #foreign key
@@ -20,7 +20,6 @@ class Section(models.Model):
     time_of_day = models.CharField(max_length=20)
     days_of_week = models.CharField(max_length=7)
     section_number = models.IntegerField(default=0)
-    students = models.CharField(max_length=1000, blank=True) #foreign key
     course = models.ForeignKey(Course)
 
     def __str__(self):
