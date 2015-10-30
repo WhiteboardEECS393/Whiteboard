@@ -2,7 +2,7 @@ from django.test import TestCase
 from .models import DiscussionBoard
 from .models import Thread
 from .models import Post
-from class_overviews.tests import createCourse
+from class_overviews.tests import createSection
 from Profiles.tests import createStudentUser
 from django.utils import timezone
 
@@ -26,7 +26,7 @@ global testcontent
 testcontent = 'Some content'
 
 def createDiscussionBoard(self):
-    return DiscussionBoard(name = testname, description = testdescription, course = createCourse)
+    return DiscussionBoard(name = testname, description = testdescription, course = createSection(self))
 
 def createThread(self):
     return Thread(subject = testsubject, creator = createStudentUser(self), message = testmessage, time_of_creation = testtime_of_creation, board = createDiscussionBoard())
