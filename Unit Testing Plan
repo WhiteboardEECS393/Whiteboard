@@ -1,0 +1,42 @@
+Unit Testing Plan
+-Class Overviews
+	-Constructors For Models
+		-Course
+		-Section
+		-Document
+	-Views
+		-CourseDetail
+		-getThreads
+
+	
+-wbMessageboard
+	-Constructor for Models
+		-DiscussionBoard
+		-Thread
+		-Post
+	-Views
+		-index
+		-boards
+		-create_board
+		-thread
+		-create_thread
+		-create_post
+
+-Profiles
+	-Constructor for Models
+		-Basic User
+		-Major
+		-Minor
+		-Student User
+		-Department
+		-TeachingAssistnatUser
+		-Professor
+	-Views
+		-profile
+		-classes
+		-classestwo
+-Calendar
+	-Constructor
+		-Needs to be started
+	-Views
+		-needs to be started
