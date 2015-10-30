@@ -3,6 +3,7 @@ from .models import DiscussionBoard
 from .models import Thread
 from .models import Post
 from class_overviews.tests import createSection
+from class_overviews.tests import createCourse
 from Profiles.tests import createStudentUser
 from django.utils import timezone
 
