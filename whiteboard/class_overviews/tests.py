@@ -7,9 +7,9 @@ from .models import Document
 global testdepartment
 testdepartment = 'EECS'
 global testcourse_number
-testcourse_Number =393
+testcourse_number =393
 global testcourse_name
-testcourse_Name ='EECS 393 Software Engineering'
+testcourse_name ='EECS 393 Software Engineering'
 global testdescription
 #Needed for testing Section
 testdescription = 'A class about software engineering'
