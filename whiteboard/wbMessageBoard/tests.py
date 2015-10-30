@@ -4,7 +4,8 @@ from .models import Thread
 from .models import Post
 from class_overviews.tests import createCourse
 from Profiles.tests import createStudentUser
-from django.db import models
+from django.utils import timezone
+
 
 #Needed for testing DicsussionBoard
 global testname
@@ -19,7 +20,7 @@ testcreator = 'Daniel'
 global testmessage
 testmessage = 'We come in peace'
 global testtime_of_creation
-testtime_of_creation = models.timezone.now()
+testtime_of_creation = timezone.now()
 #Needed for testing Post
 global testcontent
 testcontent = 'Some content'
