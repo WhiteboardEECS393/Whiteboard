@@ -25,7 +25,7 @@ global testcontent
 testcontent = 'Some content'
 
 def createDiscussionBoard(self):
-    return DiscussionBoard(name = testname, description = testdescription, course = createcourse)
+    return DiscussionBoard(name = testname, description = testdescription, course = createCourse)
 
 def createThread(self):
     return Thread(subject = testsubject, creator = createStudentUser(self), message = testmessage, time_of_creation = testtime_of_creation, board = createDiscussionBoard())

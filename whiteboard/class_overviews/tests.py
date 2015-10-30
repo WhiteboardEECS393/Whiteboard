@@ -42,7 +42,7 @@ def createCourse(self):
         return Course(department=testdepartment,course_number=testcourse_number, course_name=testcourse_name,description=testdescription)
 
 def createSection(self):
-    return Section(professor_name = testprofessor, season = testseason, year = testyear, teaching_assistants = testteachingassitants, location = testlocation, time_of_day = testtime_of_day, days_of_week = testdays_of_week, section_number = testsection_number, course = createcourse(self))
+    return Section(professor_name = testprofessor, season = testseason, year = testyear, teaching_assistants = testteachingassitants, location = testlocation, time_of_day = testtime_of_day, days_of_week = testdays_of_week, section_number = testsection_number, course = createCourse(self))
 
 def createDocument(self):
     return Document(name = testdocument_name, path = testpath, description = testdocument_description, course_section = createSection(self))
@@ -50,14 +50,14 @@ def createDocument(self):
 class ClassOverViewsMethodTests(TestCase):
 
     def test_Course_Constructor(self):
-        testcourse = createcourse(self)
+        testcourse = createCourse(self)
         self.assertEquals(testcourse.department,testdepartment)
         self.assertEquals(testcourse.course_number, testcourse_number)
         self.assertEquals(testcourse.course_name, testcourse_name)
         self.assertEquals(testcourse.description,testdescription)
 
     def test_Section_Constructor(self):
-        testcourse = createcourse(self)
+        testcourse = createCourse(self)
         testsection = createSection(self)
         self.assertEquals(testsection.professor_name,testprofessor)
         self.assertEquals(testsection.season, testseason)
