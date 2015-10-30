@@ -44,21 +44,19 @@ testdepartment_head = 'Not sure'
 global testdepartment_info
 testdepartment_info = 'Some info'
 global testdepartment_majors
-teststudent_majors = 'Comp. Sci, Comp E, Systems, EE'
+testdepartment_majors = 'Comp. Sci, Comp E, Systems, EE'
 global testdepartment_minors
 testdepartment_minors = 'Game design and other minors'
 #Needed for teaching assistant
 global testteaching_classes
 testteaching_classes = 'Java 132'
-global testassistant_department
-testassistant_department = 'EECS'
 #Needed to test Professor
 global testprofessor_first_name
-testprofessor_first_namefirst_namefirst_name = 'Andy'
+testprofessor_first_name = 'Andy'
 global testprofessor_last_name
 testprofessor_last_name = 'Podgurski'
 global testprofessor_email_id
-testprofessor_email_idemail_id = 'hap@case.edu'
+testprofessor_email_id = 'hap@case.edu'
 global testprofessor_bio
 testprofessor_bio = 'This is the story of Podgurski\'s life'
 global testprofessor_department
@@ -70,7 +68,7 @@ testoffice_location = 'Somewhere on the quad'
 
 
 def createBasicUuser(self):
-    return BasicUser(first_name = testfirst_name, last_name = testlast_name, email_id = testemail_id, bio = testbio, phtot = testphoto)
+    return BasicUser(first_name = testfirst_name, last_name = testlast_name, email_id = testemail_id, bio = testbio, photo = testphoto)
 
 def createMajor(self):
     return Major(major = testmajor, required_classes = testrequired_classes)
@@ -82,7 +80,7 @@ def createStudentUser(self):
     return StudentUser(grad_year = testgrad_year, majors = teststudent_majors, minors = teststudent_minors, classes = teststudent_classes)
 
 def createDepartment(self):
-    return Department(department_Name = testdepartment_name, department_head = testdepartment_head, department_info = testdepartment_info, majors = testdepartment_majors, minors = testdepartment_minors)
+    return Department(department_Name = testdepartment_name, department_head = testdepartment_head, department_info = createDepartment(self), majors = testdepartment_majors, minors = testdepartment_minors)
 
 def createTeachingAssisstant(self):
     return TeachingAssistantUser(teaching_classes = testteaching_classes, department = testassistant_department)
