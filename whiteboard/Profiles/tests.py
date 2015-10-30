@@ -80,10 +80,10 @@ def createStudentUser(self):
     return StudentUser(grad_year = testgrad_year, majors = teststudent_majors, minors = teststudent_minors, classes = teststudent_classes)
 
 def createDepartment(self):
-    return Department(department_Name = testdepartment_name, department_head = testdepartment_head, department_info = createDepartment(self), majors = testdepartment_majors, minors = testdepartment_minors)
+    return Department(department_Name = testdepartment_name, department_head = testdepartment_head, department_info = testdepartment_info, majors = testdepartment_majors, minors = testdepartment_minors)
 
 def createTeachingAssisstant(self):
-    return TeachingAssistantUser(teaching_classes = testteaching_classes, department = testassistant_department)
+    return TeachingAssistantUser(teaching_classes = testteaching_classes, department = createDepartment(self))
 
 def createProfessor(self):
     return Professor(first_name = testprofessor_first_name, last_name = testprofessor_last_name, email_id = testprofessor_email_id, bio = testprofessor_bio, current_department = testprofessor_department, classes=testprofessor_classes, office_Location = testoffice_location)
