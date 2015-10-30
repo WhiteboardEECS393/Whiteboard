@@ -1,0 +1,88 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>EECS 393</title>
+
+    <!-- Bootstrap -->
+    <!--link rel="stylesheet" type="text/css" href="/Users/adamdefranco/Desktop/Case/Senior/EECS 393 Software Engineering/bootstrap-3.3.5-dist/css/bootstrap.min.css"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/stylesheet.css" %}" />
+
+  </head>
+  <body>
+
+  	<!-- Navigation bar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">WhiteBoard</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+          	<li><a href="#">my calendar</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">my classes <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">EECS 325: Computer Networks</a></li>
+                    <li><a href="#">EECS 393: Software Engineering</a></li>
+                    <li><a href="#">SOCI 113: Problems in Modern Society</a></li>
+                    <li><a href="#">PHIL 201: Intro to Logic</a></li>
+                    <li><a href="#">MATH 201: Intro to Linear Algebra</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Older Courses</a></li>
+                </ul>
+            </li>
+            <li><a href="#">my profile</a></li>
+            
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    <hr/>
+    </nav>
+    
+    <div class="class-title">
+        <h2>Create post for {{ board.course.course.department }} {{ board.course.course.course_number }}: {{ board.course.course.course_name }}</h2>
+    </div>
+    
+    <div class="col-md-12">
+        <div class="site-container-post thread-list">
+            
+            <div class="new-post">
+                <ul class="new-post-content">
+                    
+                        <h4 class="new-post-header">New Post</h4>
+                        <form action="." method="post">
+                            {% csrf_token %}
+                            Subject:<br>
+                            <input class="thread_subject" type="text" name="thread_subject">
+                                <br>
+                                Message:<br>
+                                <textarea class="thread_message" name="thread_message"></textarea>
+                                    <br><br>
+                                    <input class="submit-button" type="submit" value="Submit">
+                        </form>
+                    
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+  </body>
+ </html>

@@ -49,6 +49,7 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
         'section' : s,
         'documents' : documents,
         'threads' : threads,
+        'board_id': b[0].id,
     })
     return render_to_response(template, locals(), context)
 
