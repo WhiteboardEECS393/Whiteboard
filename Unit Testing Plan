@@ -1,4 +1,7 @@
 Unit Testing Plan
+-The tests for all the consturctors, but calendar have been for have been finished and are being checked for completeness
+-The views will be the next thigns to be tested
+
 -Class Overviews
 	-Constructors For Models
 		-Course
