@@ -55,7 +55,7 @@ class Migration(migrations.Migration):
                 ('bio', models.CharField(max_length=500)),
                 ('classes', models.CharField(max_length=100)),
                 ('office_location', models.CharField(max_length=100)),
-                ('current_department', models.ForeignKey(to='Profiles.Department', null=True, blank=True)),
+                ('current_department', models.ForeignKey(blank=True, null=True, to='Profiles.Department')),
             ],
             options={
                 'ordering': ['last_name', 'first_name'],
@@ -80,7 +80,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='TeachingAssistantUser',
             fields=[
-                ('studentuser_ptr', models.OneToOneField(primary_key=True, to='Profiles.StudentUser', serialize=False, parent_link=True, auto_created=True)),
+                ('studentuser_ptr', models.OneToOneField(parent_link=True, primary_key=True, to='Profiles.StudentUser', auto_created=True, serialize=False)),
                 ('teaching_classes', models.CharField(max_length=100)),
             ],
             options={
