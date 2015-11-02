@@ -36,6 +36,8 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
         s = s[0]
         #later add the check for most recent class
 
+    sections = Section.objects.filter(course = c)
+
     documents = Document.objects.filter(course_section = s)
 
     b = DiscussionBoard.objects.filter(course = s)
@@ -47,6 +49,7 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
     context = RequestContext(request, {
         'course': c,
         'section' : s,
+        'sections' : sections,
         'documents' : documents,
         'threads' : threads,
         'board_id': b[0].id,

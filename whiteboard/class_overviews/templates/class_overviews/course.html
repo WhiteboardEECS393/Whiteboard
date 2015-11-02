@@ -123,6 +123,24 @@
 	    		</ul>
 	    	</div>
 	    </div>
+
+        {% if sections %}
+        <div class="site-container">
+
+	    	<div class="title-link"><a href="#">other semesters</a></div>
+
+	    	<div class="link-list">
+	    		<ul class="list-group">
+
+              {% for s in sections %}
+                <a href="/course/{{course.department}}{{course.course_number}}/{{s.season}}{{s.year}}/{{s.section_number}}" class="list-group-item">
+                  <p class="list-group-item-text">{{s}}</p>
+                </a>
+              {% endfor %}
+	    		</ul>
+	    	</div>
+	    </div>
+        {% endif %}
     </div>
 
     <div class="col-md-8">
