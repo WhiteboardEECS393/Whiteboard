@@ -46,6 +46,8 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
     else:
         threads = []
 
+    students = s.students.all()
+
     context = RequestContext(request, {
         'course': c,
         'section' : s,
@@ -53,13 +55,7 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
         'documents' : documents,
         'threads' : threads,
         'board_id': b[0].id,
+        'students' : students,
     })
     return render_to_response(template, locals(), context)
 
-
-def getThreads(s):
-    b = DiscussionBoard.objects.filter(course = s)
-
-
-    threads = Thread.objects.filter(board = b)
-    return threads

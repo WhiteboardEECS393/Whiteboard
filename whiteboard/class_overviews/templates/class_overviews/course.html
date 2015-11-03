@@ -53,7 +53,7 @@
     </nav>
     
     <div class="class-title">
-        <h2>{{course.department}}{{course.course_number}}: {{course.course_name}}</h2>
+        <h2>{{course.department}}{{course.course_number}}: {{course.course_name}} {{section.season}}{{section.year}}</h2>
     </div>
 
     <div class="col-md-4">
@@ -141,6 +141,28 @@
 	    	</div>
 	    </div>
         {% endif %}
+
+        <div class="site-container">
+
+	    	<div class="title-link"><a href="#">students</a></div>
+
+	    	<div class="link-list">
+	    		<ul class="list-group">
+
+            {% if students %}
+              {% for s in students %}
+                <a href=# class="list-group-item">
+                  <p class="list-group-item-text">{{s.first_name}} {{s.last_name}}</p>
+                </a>
+              {% endfor %}
+            {% else %}
+              <a href="#" class="list-group-item">
+                <p class="list-group-item-text">There are no students registered for this class.</p>
+              </a>
+            {% endif %}
+	    		</ul>
+	    	</div>
+	    </div>
     </div>
 
     <div class="col-md-8">

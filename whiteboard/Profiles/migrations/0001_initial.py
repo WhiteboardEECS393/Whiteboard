@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Department',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('department_name', models.CharField(max_length=100)),
                 ('department_info', models.CharField(max_length=500)),
             ],
@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Major',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('major', models.CharField(max_length=50)),
                 ('required_classes', models.CharField(max_length=100)),
             ],
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Minor',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('minor', models.CharField(max_length=50)),
                 ('required_classes', models.CharField(max_length=100)),
             ],
@@ -48,14 +48,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Professor',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('first_name', models.CharField(max_length=100)),
                 ('last_name', models.CharField(max_length=100)),
                 ('email_id', models.EmailField(max_length=254)),
                 ('bio', models.CharField(max_length=500)),
                 ('classes', models.CharField(max_length=100)),
                 ('office_location', models.CharField(max_length=100)),
-                ('current_department', models.ForeignKey(blank=True, null=True, to='Profiles.Department')),
+                ('current_department', models.ForeignKey(blank=True, to='Profiles.Department', null=True)),
             ],
             options={
                 'ordering': ['last_name', 'first_name'],
@@ -64,14 +64,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='StudentUser',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('first_name', models.CharField(default='First', max_length=100)),
                 ('last_name', models.CharField(default='Last', max_length=100)),
                 ('email_id', models.EmailField(default='abc123@case.edu', max_length=254)),
                 ('bio', models.CharField(default='none', max_length=500)),
                 ('photo', models.CharField(default='none', max_length=200)),
                 ('grad_year', models.IntegerField(default=2016)),
-                ('classes', models.CharField(max_length=100)),
             ],
             options={
                 'ordering': ['last_name', 'first_name'],
@@ -80,7 +79,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='TeachingAssistantUser',
             fields=[
-                ('studentuser_ptr', models.OneToOneField(parent_link=True, primary_key=True, to='Profiles.StudentUser', auto_created=True, serialize=False)),
+                ('studentuser_ptr', models.OneToOneField(to='Profiles.StudentUser', auto_created=True, serialize=False, parent_link=True, primary_key=True)),
                 ('teaching_classes', models.CharField(max_length=100)),
             ],
             options={

@@ -21,6 +21,10 @@ class Section(models.Model):
     days_of_week = models.CharField(max_length=7)
     section_number = models.IntegerField(default=0)
     course = models.ForeignKey(Course)
+    students = models.ManyToManyField('Profiles.StudentUser', blank=True)
+
+    class Meta:
+        ordering = ['-year', 'season']
 
     def __str__(self):
         return str(self.course) + " (" + str(self.section_number) + ") " + self.season + str(self.year)
