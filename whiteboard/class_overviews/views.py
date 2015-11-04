@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from .models import Course, Section, Document
 from wbMessageBoard.models import DiscussionBoard, Thread
+from Profiles.models import StudentUser
 
 
 def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
@@ -45,6 +46,9 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
     students = s.studentuser_student.all()
     tas = s.studentuser_ta.all()
 
+    user = StudentUser.objects.filter(user=request.user)[0]
+    classes = user.student_classes.all()
+
     context = RequestContext(request, {
         'course': c,
         'section' : s,
@@ -54,6 +58,7 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
         'board_id': b[0].id,
         'students' : students,
         'teaching_assistants' : tas,
+        'classes' : classes,
     })
     return render_to_response(template, locals(), context)
 
