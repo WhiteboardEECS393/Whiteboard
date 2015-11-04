@@ -12,16 +12,14 @@ class Course(models.Model):
 
 
 class Section(models.Model):
-    professor_name = models.CharField(max_length=40)
+    professor_name = models.CharField(max_length=40) # change to foreign key to Professor class
     season = models.CharField(max_length=10, default="Fall")
     year = models.IntegerField(default=2015)
-    teaching_assistants = models.ManyToManyField('Profiles.StudentUser', related_name='%(class)s_ta', blank=True)
     location = models.CharField(max_length=50)
     time_of_day = models.CharField(max_length=20)
     days_of_week = models.CharField(max_length=7)
     section_number = models.IntegerField(default=0)
     course = models.ForeignKey(Course)
-    students = models.ManyToManyField('Profiles.StudentUser', related_name='%(class)s_student', blank=True)
 
     class Meta:
         ordering = ['-year', 'season']

@@ -42,8 +42,8 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
     else:
         threads =   []
 
-    students = s.students.all()
-    tas = s.teaching_assistants.all()
+    students = s.studentuser_student.all()
+    tas = s.studentuser_ta.all()
 
     context = RequestContext(request, {
         'course': c,

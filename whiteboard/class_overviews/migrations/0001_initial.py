@@ -7,7 +7,6 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Profiles', '0001_initial'),
     ]
 
     operations = [
@@ -18,7 +17,7 @@ class Migration(migrations.Migration):
                 ('department', models.CharField(max_length=4)),
                 ('course_number', models.IntegerField(default=999)),
                 ('course_name', models.CharField(max_length=200)),
-                ('description', models.CharField(blank=True, max_length=300)),
+                ('description', models.CharField(max_length=300, blank=True)),
             ],
         ),
         migrations.CreateModel(
@@ -27,7 +26,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
                 ('name', models.CharField(max_length=100)),
                 ('path', models.CharField(max_length=100)),
-                ('description', models.CharField(blank=True, max_length=300)),
+                ('description', models.CharField(max_length=300, blank=True)),
             ],
         ),
         migrations.CreateModel(
@@ -42,8 +41,6 @@ class Migration(migrations.Migration):
                 ('days_of_week', models.CharField(max_length=7)),
                 ('section_number', models.IntegerField(default=0)),
                 ('course', models.ForeignKey(to='class_overviews.Course')),
-                ('students', models.ManyToManyField(blank=True, to='Profiles.StudentUser', related_name='section_student')),
-                ('teaching_assistants', models.ManyToManyField(blank=True, to='Profiles.StudentUser', related_name='section_ta')),
             ],
             options={
                 'ordering': ['-year', 'season'],
