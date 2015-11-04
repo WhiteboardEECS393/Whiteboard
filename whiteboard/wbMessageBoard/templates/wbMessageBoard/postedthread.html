@@ -62,8 +62,9 @@
 
                 <div class="new-post">
                     <ul class="new-post-content">
-
-                        <h4 class="post-user">By: {{ thread.creator.first_name }} {{ thread.creator.last_name }}</h4>
+                        
+                        <h4 class="post-user"><a href='/Profiles/{{thread.creator.first_name}}{{thread.creator.last_name}}/{{thread.creator.id}}'>{{ thread.creator.first_name }}
+                                    {{ thread.creator.last_name }}</a></h4>
                         <h5 class="post-time">Posted on {{ thread.time_of_creation }}</h5>
 
                         <p class="text-post">{{ thread.message }}</p>
@@ -84,7 +85,7 @@
                         <div class="new-post">
                             <ul class="new-post-content">
 
-                                <h4 class="post-user"><a href='/profiles/{{ post.creator.id }}'>{{ post.creator.first_name }}
+                                <h4 class="post-user"><a href='/Profiles/{{post.creator.first_name}}{{post.creator.last_name}}/{{post.creator.id}}'>{{ post.creator.first_name }}
                                     {{ post.creator.last_name }}</a></h4>
                                 <h5 class="post-time">Posted on {{ post.time_of_creation }}</h5>
 
