@@ -62,22 +62,14 @@
 
                 <div class="new-post">
                     <ul class="new-post-content">
-                        
+
                         <h4 class="post-user"><a href='/Profiles/{{thread.creator.first_name}}{{thread.creator.last_name}}/{{thread.creator.id}}'>{{ thread.creator.first_name }}
                                     {{ thread.creator.last_name }}</a></h4>
                         <h5 class="post-time">Posted on {{ thread.time_of_creation }}</h5>
 
                         <p class="text-post">{{ thread.message }}</p>
-
-                            <form action="/boards/thread/{{ thread.id }}/create/" method="post">
-                                    {% csrf_token %}
-                                    <br/>Submit a reply:<br/>
-                                    <textarea class="submit-reply-text" name="reply_message"></textarea>
-                                        <br/><br/>
-                                        <input class="submit-button" type="submit" value="Submit Reply">
-                            </form>
-
                     </ul>
+                    <br/>
                 </div>
 
                 {% if post_list %}
@@ -97,6 +89,18 @@
                 {% else %}
 
                 {% endif %}
+
+                <div class="reply-to-post">
+                    <ul class="reply-to-post-content">
+                        <form action="/boards/thread/{{ thread.id }}/create/" method="post">
+                            {% csrf_token %}
+                            <br/>Submit a reply:<br/>
+                            <textarea class="submit-reply-text" name="reply_message"></textarea>
+                            <br/><br/>
+                            <input class="submit-button" type="submit" value="Submit Reply">
+                        </form>
+                    </ul>
+                </div>
     {% endif %}
 
             
