@@ -32,8 +32,6 @@ class CreateUserForm(forms.Form):
     email_id = forms.EmailField(max_length=254)
     bio = forms.CharField(max_length=500)
     grad_year = forms.IntegerField()
-    # majors = forms.MultipleChoiceField(choices=Major.objects.all().order_by('major')) Need to correct
-    # minors = forms.ModelChoiceField(choices=Minor.objects.all().order_by('minor')) Need to correct
     classes = forms.CharField(max_length=100)
 
     def clean(self):
@@ -56,17 +54,15 @@ class CreateUserForm(forms.Form):
         grad_year = self.cleaned_data.get('grad_year')
         # majors = self.cleaned_data.get('majors')
         # minors = self.cleaned_data.get('minors')
-        classes = self.cleaned_data.get('classes')
         User.objects.create_user(username=username, password=password)
         user = authenticate(username=username, password=password)
         new_student = StudentUser(
             user=user,
             first_name=first_name,
             last_name=last_name,
-            email_id=email_id, bio=bio,
+            email_id=email_id,
+            bio=bio,
             grad_year=grad_year,
-            # majors=Major.objects.filter(major="Electrical Engineering"),
-            classes=classes)
+            )
         new_student.save()
-        new_student.majors.add(Major.objects.all()[0])
         return user
