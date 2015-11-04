@@ -12,7 +12,6 @@ class Course(models.Model):
 
 
 class Section(models.Model):
-    professor_name = models.CharField(max_length=40) # change to foreign key to Professor class
     season = models.CharField(max_length=10, default="Fall")
     year = models.IntegerField(default=2015)
     location = models.CharField(max_length=50)

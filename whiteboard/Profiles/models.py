@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Major(models.Model):
     major = models.CharField(max_length=50)
-    #required_classes = models.ManyToManyField('class_overviews.Course', blank=True)
+    required_classes = models.ManyToManyField('class_overviews.Course', blank=True)
 
     def __str__(self):
         return self.major
@@ -14,7 +14,7 @@ class Major(models.Model):
 
 class Minor(models.Model):
     minor = models.CharField(max_length=50)
-    #required_classes = models.ManyToManyField('class_overviews.Course', blank=True)
+    required_classes = models.ManyToManyField('class_overviews.Course', blank=True)
 
     def __str__(self):
         return self.minor
@@ -44,10 +44,13 @@ class StudentUser(models.Model):
 
 class Department(models.Model):
     department_name = models.CharField(max_length=100)
-    department_head = models.ForeignKey('Professor', blank=True)
+    department_head = models.ForeignKey('Professor', blank=True, null=True)
     department_info = models.CharField(max_length=500)
     majors = models.ManyToManyField('Major', blank=True)
     minors = models.ManyToManyField('Minor', blank=True)
+
+    def __str__(self):
+        return self.department_name
 
     class Meta:
         ordering = ['department_name']
@@ -60,9 +63,10 @@ class Professor(models.Model):
     bio = models.CharField(max_length=500)
     current_department = models.ForeignKey('Department', blank=True, null=True)
     office_location = models.CharField(max_length=100)
+    classes = models.ManyToManyField('class_overviews.Section', blank=True)
 
     def __str__(self):
-        return self.first_name + self.last_name
+        return self.first_name + " " + self.last_name
 
     class Meta:
             ordering = ['last_name', 'first_name']
