@@ -48,7 +48,7 @@
                     <li><a href="#">Older Courses</a></li>
                 </ul>
             </li>
-            <li><a href="..">my profile</a></li>
+            <li><a href="../../../Profiles/{{curr_user.first_name}}{{curr_user.last_name}}/{{curr_user.pk}}">my profile</a></li>
             
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -130,6 +130,8 @@
                     {% for d in documents %}
                         <a href={{d.path}} class="list-group-item">
                             <p class="list-group-item-text">{{d.name}}</p>
+                            <!--Add an if statement for if there is a description -->
+                            <p class="list-group-item-text">{{d.description}}</p>
                         </a>
                     {% endfor %}
                 {% else %}
@@ -141,7 +143,7 @@
 	    	</div>
 	    </div>
 
-        {% if sections %}
+        {% if sections|length > 1 %}
         <div class="site-container">
 	    	<div class="title-link"><a href="#">other semesters</a></div>
 	    	<div class="link-list">

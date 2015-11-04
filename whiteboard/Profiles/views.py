@@ -17,11 +17,10 @@ def profile(request, first, last, student_id):
 
         user = StudentUser.objects.filter(user=request.user)[0]
         curr_user_classes = user.student_classes.all()
-        #current_user = StudentUser.objects.filter(user=request.user)[0]
         context = RequestContext(request, {
-            #'current_user': current_user,
             'student': student,
             'classes' : classes,
+            'curr_user' : user,
             'curr_user_classes' : curr_user_classes
         })
     return render_to_response(template, locals(), context)
