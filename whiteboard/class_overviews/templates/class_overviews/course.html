@@ -89,17 +89,32 @@
             <a href="#" class="list-group-item">
               <p class="list-group-item-text">Days of the Week: {{section.days_of_week}}</p>
             </a>
-            <!-- 
-            <a href="#" class="list-group-item">
-              <p class="list-group-item-text">TAs: {{section.teaching_assistants}}</p>
-            </a>
-            <a href="#" class="list-group-item">
-              <p class="list-group-item-text">Students Enrolled: {{section.students}}</p>
-            </a> 
-            -->
+
           </ul>
         </div>
 
+      </div>
+
+      <div class="site-container">
+
+	    	<div class="title-link"><a href="#">teaching assistants</a></div>
+
+	    	<div class="link-list">
+	    		<ul class="list-group">
+
+            {% if teaching_assistants %}
+              {% for ta in teaching_assistants %}
+                <a href="../../../Profiles/{{ta.first_name}}{{ta.last_name}}/{{ta.pk}}" class="list-group-item">
+                  <p class="list-group-item-text">{{ta.first_name}} {{ta.last_name}}</p>
+                </a>
+              {% endfor %}
+            {% else %}
+              <a href="#" class="list-group-item">
+                <p class="list-group-item-text">There are no TAs listed for this course yet.</p>
+              </a>
+            {% endif %}
+	    		</ul>
+	    	</div>
       </div>
 
 	    <div class="site-container">
@@ -151,7 +166,7 @@
 
             {% if students %}
               {% for s in students %}
-                <a href=# class="list-group-item">
+                <a href="../../../Profiles/{{s.first_name}}{{s.last_name}}/{{s.pk}}" class="list-group-item">
                   <p class="list-group-item-text">{{s.first_name}} {{s.last_name}}</p>
                 </a>
               {% endfor %}

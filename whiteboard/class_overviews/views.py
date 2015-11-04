@@ -4,9 +4,6 @@ from django.template import RequestContext
 from .models import Course, Section, Document
 from wbMessageBoard.models import DiscussionBoard, Thread
 
-def course(request):
-    return HttpResponse("Hello, world. You're at the course homepage.")
-
 
 def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
 
@@ -34,7 +31,6 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
         return render_to_response(template, locals(), context)
     else:
         s = s[0]
-        #later add the check for most recent class
 
     sections = Section.objects.filter(course = c)
 
@@ -44,9 +40,10 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
     if len(b):
         threads = Thread.objects.filter(board = b)
     else:
-        threads = []
+        threads =   []
 
     students = s.students.all()
+    tas = s.teaching_assistants.all()
 
     context = RequestContext(request, {
         'course': c,
@@ -56,6 +53,7 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
         'threads' : threads,
         'board_id': b[0].id,
         'students' : students,
+        'teaching_assistants' : tas,
     })
     return render_to_response(template, locals(), context)
 

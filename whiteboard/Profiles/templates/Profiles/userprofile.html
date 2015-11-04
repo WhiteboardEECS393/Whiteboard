@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>{{current_user.first_name}} {{current_user.last_name}}</title>
+    <title>{{student.first_name}} {{student.last_name}}</title>
 
     <!-- Bootstrap -->
     <!--link rel="stylesheet" type="text/css" href="/Users/adamdefranco/Desktop/Case/Senior/EECS 393 Software Engineering/bootstrap-3.3.5-dist/css/bootstrap.min.css"-->
@@ -54,27 +54,27 @@
     </nav>
     
     <div class="class-title">
-        <h2>{{current_user.first_name}} {{current_user.last_name}}</h2>
+        <h2>{{student.first_name}} {{student.last_name}}</h2>
     </div>
 
     <div class="col-md-4">
 	    <div class="site-container">
             
-          <img class="profile-picture" src="{% static current_user.photo %}" alt="Tekin">
+          <img class="profile-picture" src="{% static student.photo %}" alt="No Photo Selected">
 
 	      <div class="title-link"><a href="#">overview</a></div>
 
 	      <div class="link-list">
 	        <ul class="list-group">
 	          <a href="#" class="list-group-item">
-				<p class="list-group-item-text">Name:&emsp;&emsp;&emsp;&emsp;{{current_user.first_name}} {{current_user.last_name}}</p>
-				<!--{% if current_user.majors.all|length > 1 %}
-					<p class="list-group-item-text">Majors:&emsp;&emsp;&emsp;&emsp;{% for major in current_user.majors.all %}<a href="#">{{ major }}, </a>{% endfor %}</p>
+				<p class="list-group-item-text">Name:&emsp;&emsp;&emsp;&emsp;{{student.first_name}} {{student.last_name}}</p>
+				<!--{% if student.majors.all|length > 1 %}
+					<p class="list-group-item-text">Majors:&emsp;&emsp;&emsp;&emsp;{% for major in student.majors.all %}<a href="#">{{ major }}, </a>{% endfor %}</p>
 				{% else %}-->
-					<p class="list-group-item-text">Major:&emsp;&emsp;&emsp;&emsp;{% for major in current_user.majors.all %}{{ major }}{% endfor %}</p>
+					<p class="list-group-item-text">Major:&emsp;&emsp;&emsp;&emsp;{% for major in student.majors.all %}{{ major }}{% endfor %}</p>
 				<!--{% endif %}-->
-				<p class="list-group-item-text">Minor:&emsp;&emsp;&emsp;&emsp;{% for minor in current_user.minors.all %}{{ minor }}{% endfor %}</p>
-				<p class="list-group-item-text">Bio:&emsp;&emsp;<br>&emsp;&emsp;&emsp;{{ current_user.bio }}</p>
+				<p class="list-group-item-text">Minor:&emsp;&emsp;&emsp;&emsp;{% for minor in student.minors.all %}{{ minor }}{% endfor %}</p>
+				<p class="list-group-item-text">Bio:&emsp;&emsp;<br>&emsp;&emsp;&emsp;{{ student.bio }}</p>
 	          </a>
 	        </ul>
 	      </div>
@@ -83,7 +83,7 @@
 
 	    <div class="site-container">
 
-	    	<div class="title-link"><a href="#">classes</a></div>
+	    	<div class="title-link"><a href="#">current classes</a></div>
 
 	    	<div class="link-list">
 	    		<ul class="list-group">

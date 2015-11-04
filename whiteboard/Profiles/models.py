@@ -59,14 +59,6 @@ class Department(models.Model):
         ordering = ['department_name']
 
 
-class TeachingAssistantUser(StudentUser):
-    teaching_classes = models.CharField(max_length=100)  # to change to be many to one field from class profile
-    department = models.ForeignKey('Department')
-
-    class Meta:
-            ordering = ['last_name', 'first_name']
-
-
 class Professor(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)

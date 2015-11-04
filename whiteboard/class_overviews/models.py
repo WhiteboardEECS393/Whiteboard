@@ -15,13 +15,13 @@ class Section(models.Model):
     professor_name = models.CharField(max_length=40)
     season = models.CharField(max_length=10, default="Fall")
     year = models.IntegerField(default=2015)
-    teaching_assistants = models.CharField(max_length=200, blank=True) #foreign key
+    teaching_assistants = models.ManyToManyField('Profiles.StudentUser', related_name='%(class)s_ta', blank=True)
     location = models.CharField(max_length=50)
     time_of_day = models.CharField(max_length=20)
     days_of_week = models.CharField(max_length=7)
     section_number = models.IntegerField(default=0)
     course = models.ForeignKey(Course)
-    students = models.ManyToManyField('Profiles.StudentUser', blank=True)
+    students = models.ManyToManyField('Profiles.StudentUser', related_name='%(class)s_student', blank=True)
 
     class Meta:
         ordering = ['-year', 'season']
