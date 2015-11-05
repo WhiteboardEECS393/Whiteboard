@@ -8,15 +8,16 @@ from django.conf import settings
 class Migration(migrations.Migration):
 
     dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('class_overviews', '__first__'),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Department',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('department_code', models.CharField(max_length=4)),
                 ('department_name', models.CharField(max_length=100)),
                 ('department_info', models.CharField(max_length=500)),
             ],
@@ -27,9 +28,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Major',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('major', models.CharField(max_length=50)),
-                ('required_classes', models.ManyToManyField(blank=True, to='class_overviews.Course')),
+                ('required_classes', models.ManyToManyField(to='class_overviews.Course', blank=True)),
             ],
             options={
                 'ordering': ['major'],
@@ -38,9 +39,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Minor',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('minor', models.CharField(max_length=50)),
-                ('required_classes', models.ManyToManyField(blank=True, to='class_overviews.Course')),
+                ('required_classes', models.ManyToManyField(to='class_overviews.Course', blank=True)),
             ],
             options={
                 'ordering': ['minor'],
@@ -49,14 +50,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Professor',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('first_name', models.CharField(max_length=100)),
                 ('last_name', models.CharField(max_length=100)),
                 ('email_id', models.EmailField(max_length=254)),
                 ('bio', models.CharField(max_length=500)),
                 ('office_location', models.CharField(max_length=100)),
-                ('classes', models.ManyToManyField(blank=True, to='class_overviews.Section')),
-                ('current_department', models.ForeignKey(null=True, blank=True, to='Profiles.Department')),
+                ('photo', models.CharField(default='none', max_length=200)),
+                ('classes', models.ManyToManyField(to='class_overviews.Section', blank=True)),
+                ('current_department', models.ForeignKey(to='Profiles.Department', blank=True, null=True)),
             ],
             options={
                 'ordering': ['last_name', 'first_name'],
@@ -65,17 +67,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='StudentUser',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('first_name', models.CharField(default='First', max_length=100)),
                 ('last_name', models.CharField(default='Last', max_length=100)),
                 ('email_id', models.EmailField(default='abc123@case.edu', max_length=254)),
                 ('bio', models.CharField(default='none', max_length=500)),
                 ('photo', models.CharField(default='none', max_length=200)),
                 ('grad_year', models.IntegerField(default=2016)),
-                ('majors', models.ForeignKey(null=True, blank=True, to='Profiles.Major')),
-                ('minors', models.ForeignKey(null=True, blank=True, to='Profiles.Minor')),
-                ('student_classes', models.ManyToManyField(blank=True, related_name='studentuser_student', to='class_overviews.Section')),
-                ('ta_classes', models.ManyToManyField(blank=True, related_name='studentuser_ta', to='class_overviews.Section')),
+                ('majors', models.ManyToManyField(to='Profiles.Major', blank=True)),
+                ('minors', models.ManyToManyField(to='Profiles.Minor', blank=True)),
+                ('student_classes', models.ManyToManyField(related_name='studentuser_student', to='class_overviews.Section', blank=True)),
+                ('ta_classes', models.ManyToManyField(related_name='studentuser_ta', to='class_overviews.Section', blank=True)),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
             options={
@@ -85,16 +87,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='department',
             name='department_head',
-            field=models.ForeignKey(null=True, blank=True, to='Profiles.Professor'),
+            field=models.ForeignKey(to='Profiles.Professor', blank=True, null=True),
         ),
         migrations.AddField(
             model_name='department',
             name='majors',
-            field=models.ManyToManyField(blank=True, to='Profiles.Major'),
+            field=models.ManyToManyField(to='Profiles.Major', blank=True),
         ),
         migrations.AddField(
             model_name='department',
             name='minors',
-            field=models.ManyToManyField(blank=True, to='Profiles.Minor'),
+            field=models.ManyToManyField(to='Profiles.Minor', blank=True),
         ),
     ]

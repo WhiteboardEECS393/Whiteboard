@@ -72,14 +72,22 @@
 	        <ul class="list-group">
 	          <a href="#" class="list-group-item">
 				<p class="list-group-item-text">Name:&emsp;&emsp;&emsp;&emsp;{{student.first_name}} {{student.last_name}}</p>
-				<!--{% if student.majors.all|length > 1 %}
-					<p class="list-group-item-text">Majors:&emsp;&emsp;&emsp;&emsp;{% for major in student.majors.all %}<a href="#">{{ major }}, </a>{% endfor %}</p>
-				{% else %}-->
-					<!--<p class="list-group-item-text">Major:&emsp;&emsp;&emsp;&emsp;{% for major in student.majors.all %}{{ major }}{% endfor %}</p>
-				<!--{% endif %}-->
-				<!--<p class="list-group-item-text">Minor:&emsp;&emsp;&emsp;&emsp;{% for minor in student.minors.all %}{{ minor }}{% endfor %}</p>-->
-                <p class="list-group-item-text">Major:&emsp;&emsp;&emsp;&emsp;{{student.majors.major}}</p>
-                  <p class="list-group-item-text">Minor:&emsp;&emsp;&emsp;&emsp;{{student.minors.minor}}</p>
+                <p class="list-group-item-text">Major:&emsp;&emsp;&emsp;&emsp;
+                    {% if majors %}
+                        {% for maj in majors %}
+                            {{maj.major}}
+                        {% endfor %}
+                    {% else %}
+                        Undecided
+                    {% endif %}
+                </p>
+                {% if minors %}
+                  <p class="list-group-item-text">Minor:&emsp;&emsp;&emsp;&emsp;
+                      {% for min in minors %}
+                        {{min.minor}}
+                      {% endfor %}
+                  </p>
+                {% endif %}
 				<p class="list-group-item-text">Bio:&emsp;&emsp;&emsp;&emsp;&emsp;{{ student.bio }}</p>
 	          </a>
 	        </ul>
@@ -93,8 +101,8 @@
 
 	    	<div class="link-list">
 	    		<ul class="list-group">
-	    			{% if classes %}
-                        {% for c in classes %}
+	    			{% if curr_user_classes %}
+                        {% for c in curr_user_classes %}
                         <a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
                             <p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}}</p>
                         </a>

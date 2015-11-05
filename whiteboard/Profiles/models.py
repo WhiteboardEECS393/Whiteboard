@@ -30,19 +30,28 @@ class StudentUser(models.Model):
     bio = models.CharField(max_length=500, default='none')
     photo = models.CharField(max_length=200, default='none')  # stores a string that holds the photo file path
     grad_year = models.IntegerField(default=2016)
-    majors = models.ForeignKey('Major', blank=True, null=True)
-    minors = models.ForeignKey('Minor', blank=True, null=True)
+    majors = models.ManyToManyField('Major', blank=True)
+    minors = models.ManyToManyField('Minor', blank=True)
     student_classes = models.ManyToManyField('class_overviews.Section', related_name='%(class)s_student', blank=True)
     ta_classes = models.ManyToManyField('class_overviews.Section', related_name='%(class)s_ta', blank=True)
 
     def __str__(self):
         return self.first_name + " " + self.last_name
 
+    def getCurrentClasses(self):
+        classes = self.student_classes.filter(season = "Fall", year = 2015)
+        return classes
+
+    def getOlderClasses(self):
+        classes = self.student_classes.exclude(season = "Fall", year = 2015)
+        return classes
+
     class Meta:
         ordering = ['last_name', 'first_name']
 
 
 class Department(models.Model):
+    department_code = models.CharField(max_length = 4)
     department_name = models.CharField(max_length=100)
     department_head = models.ForeignKey('Professor', blank=True, null=True)
     department_info = models.CharField(max_length=500)
@@ -63,6 +72,7 @@ class Professor(models.Model):
     bio = models.CharField(max_length=500)
     current_department = models.ForeignKey('Department', blank=True, null=True)
     office_location = models.CharField(max_length=100)
+    photo = models.CharField(max_length=200, default='none')  # stores a string that holds the photo file path
     classes = models.ManyToManyField('class_overviews.Section', blank=True)
 
     def __str__(self):
