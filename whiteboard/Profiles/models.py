@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Major(models.Model):
     major = models.CharField(max_length=50)
     required_classes = models.ManyToManyField('class_overviews.Course', blank=True)
@@ -21,6 +22,7 @@ class Minor(models.Model):
 
     class Meta:
         ordering = ['minor']
+
 
 class StudentUser(models.Model):
     user = models.OneToOneField(User)
@@ -48,7 +50,6 @@ class StudentUser(models.Model):
 
     class Meta:
         ordering = ['last_name', 'first_name']
-
 
 class Department(models.Model):
     department_code = models.CharField(max_length = 4)

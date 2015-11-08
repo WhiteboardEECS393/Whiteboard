@@ -4,8 +4,10 @@ from django.template import RequestContext
 from .models import Course, Section, Document
 from wbMessageBoard.models import DiscussionBoard, Thread
 from Profiles.models import StudentUser, Professor
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
 
     template = 'class_overviews/course.html'
@@ -65,4 +67,12 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
         'professor' : professor,
     })
     return render_to_response(template, locals(), context)
+
+
+@login_required
+def getThreads(s):
+    b = DiscussionBoard.objects.filter(course = s)
+
+    threads = Thread.objects.filter(board = b)
+    return threads
 
