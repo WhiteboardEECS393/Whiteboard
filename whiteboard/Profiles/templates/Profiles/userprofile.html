@@ -22,13 +22,9 @@
 		<ul class="list-group">
 		  <a href="#" class="list-group-item">
 			<p class="list-group-item-text">Name:&emsp;&emsp;&emsp;&emsp;{{student.first_name}} {{student.last_name}}</p>
-			<!--{% if current_user.majors.all|length > 1 %}
-				<p class="list-group-item-text">Majors:&emsp;&emsp;&emsp;&emsp;{% for major in current_user.majors.all %}<a href="#">{{ major }}, </a>{% endfor %}</p>
-			{% else %}-->
-				<p class="list-group-item-text">Major:&emsp;&emsp;&emsp;&emsp;{% for major in student.majors.all %}{{ major }}{% endfor %}</p>
-			<!--{% endif %}-->
-			<p class="list-group-item-text">Minor:&emsp;&emsp;&emsp;&emsp;{% for minor in student.minors.all %}{{ minor }}{% endfor %}</p>
-			<p class="list-group-item-text">Bio:&emsp;&emsp;<br>&emsp;&emsp;&emsp;{{ student.bio }}</p>
+			<p class="list-group-item-text">Major(s):&emsp;<br/>{% for major in student.majors.all %}<a href="#">{{ major }}, </a>{% endfor %}</p>
+			<p class="list-group-item-text">Minor(s):&emsp;<{% for minor in student.minors.all %}<a href="#">{{ minor }}, </a>{% endfor %}</p>
+			<p class="list-group-item-text">Bio:&emsp;&emsp;<br/>&emsp;&emsp;&emsp;{{ student.bio }}</p>
 		  </a>
 		</ul>
 	  </div>
@@ -70,6 +66,7 @@
 						{% for thread in threads %}
 							  <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">{{ thread.subject }}</h4>
+								<p class="list-group-item-text">Posted at: {{thread.time_of_creation}}</p>
 								<p class="list-group-item-text">{{ thread.message }}</p>
 							  </a>
 						{% endfor %}
