@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'Profiles',
     'wbMessageBoard',
     'class_overviews',
+    'wb_calendar',
 )
 
 MIDDLEWARE_CLASSES = (
