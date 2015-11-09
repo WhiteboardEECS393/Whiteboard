@@ -1,9 +1,9 @@
 {% extends "basic_page.html" %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">	
 {% block body %}
-<title>{{student.first_name}} {{student.last_name}}</title>
+<title>{{student.first_name}} {{student.last_name}}</title>	
 <div class="class-title">
 	<h2>{{student.first_name}} {{student.last_name}}</h2>
 	{% if curr_user == student %}
@@ -11,18 +11,18 @@
 	{% endif %}
 </div>
 
-    <div class="col-md-4">
-	    <div class="site-container">
-            
-          <img class="profile-picture" src="{% static student.photo %}" alt="No Photo Selected">
+<div class="col-md-4">
+	<div class="site-container">
+		
+	  <img class="profile-picture" src="{% static curr_user.photo %}" alt="Tekin">
 
-	      <div class="title-link"><a href="#">overview</a></div>
+	  <div class="title-link"><a href="#">overview</a></div>
 
-	      <div class="link-list">
-	        <ul class="list-group">
-	          <a href="#" class="list-group-item">
-				<p class="list-group-item-text">Name:&emsp;&emsp;&emsp;&emsp;{{student.first_name}} {{student.last_name}}</p>
-                <p class="list-group-item-text">Major:&emsp;&emsp;&emsp;&emsp;
+	  <div class="link-list">
+		<ul class="list-group">
+		  <a href="#" class="list-group-item">
+			<p class="list-group-item-text">Name:&emsp;&emsp;&emsp;&emsp;{{student.first_name}} {{student.last_name}}</p>
+			<p class="list-group-item-text">Major:&emsp;&emsp;&emsp;&emsp;
                     {% if majors %}
                         {% for maj in majors %}
                             {{maj.major}}
@@ -30,50 +30,50 @@
                     {% else %}
                         Undecided
                     {% endif %}
-                </p>
-                {% if minors %}
-                  <p class="list-group-item-text">Minor:&emsp;&emsp;&emsp;&emsp;
+            </p>
+			{% if minors %}
+                  <p> class="list-group-item-text">Minor:&emsp;&emsp;&emsp;&emsp;
                       {% for min in minors %}
                         {{min.minor}}
                       {% endfor %}
                   </p>
+            {% endif %}
+			<p class="list-group-item-text">Bio:&emsp;&emsp;<br/>&emsp;&emsp;&emsp;{{ student.bio }}</p>
+		  </a>
+		</ul>
+	  </div>
+
+	</div>
+
+	<div class="site-container">
+
+		<div class="title-link"><a href="#">current classes</a></div>
+
+		<div class="link-list">
+			<ul class="list-group">
+				{% if curr_user_classes %}
+					{% for c in curr_user_classes %}
+					<a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
+						<p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}}</p>
+					</a>
+					{% endfor %}
+                {% else %}
+					<a href="#" class="list-group-item">
+						<p class="list-group-item-text">You are not registered for any courses at this time.</p>
+					</a>
                 {% endif %}
-				<p class="list-group-item-text">Bio:&emsp;&emsp;&emsp;&emsp;&emsp;{{ student.bio }}</p>
-	          </a>
-	        </ul>
-	      </div>
+			</ul>
+		</div>
+	</div>
+</div>
 
-	    </div>
-
-	    <div class="site-container">
-
-	    	<div class="title-link"><a href="#">current classes</a></div>
-
-	    	<div class="link-list">
-	    		<ul class="list-group">
-	    			{% if curr_user_classes %}
-                        {% for c in curr_user_classes %}
-                        <a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
-                            <p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}}</p>
-                        </a>
-                        {% endfor %}
-                    {% else %}
-                        <a href="#" class="list-group-item">
-                            <p class="list-group-item-text">You are not registered for any courses at this time.</p>
-                        </a>
-                    {% endif %}
-	    		</ul>
-	    	</div>
-	    </div>
-    </div>
-
-    <div class="col-md-8">
+<div class="col-md-8">
 	<div class="site-container thread-list">
 		<div class="title-link">recent posts</div>
 			<div class="link-list">
-				{% if threads|length > 0 %}
+				{% if curr_user.thread_set.all|length > 0 %}
 					<ul class="list-group">
-						{% for thread in threads %}
+						{% for thread in curr_user.thread_set.all %}
 							  <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">{{ thread.subject }}</h4>
 								<p class="list-group-item-text">Posted at: {{thread.time_of_creation}}</p>
@@ -88,9 +88,5 @@
 		</div>
 	</div>
 </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-
 {% endblock %}
- </html>
+</html>
