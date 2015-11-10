@@ -52,7 +52,7 @@ def create_board(request):
 def thread(request, thread_id, start_post=None):
     if start_post is None:
         start_post = 0
-    post_list = Post.objects.filter(thread=thread_id).order_by('time_of_creation')[start_post:start_post + 10]
+    post_list = Post.objects.filter(thread=thread_id).order_by('time_of_creation')
     current_thread = Thread.objects.filter(id=thread_id)[0]
     context = {
         'post_list': post_list,
@@ -64,6 +64,8 @@ def thread(request, thread_id, start_post=None):
 @login_required
 def create_thread(request, board_id):
     user = StudentUser.objects.get(user=request.user.id)
+    if not user:
+        return HttpResponseRedirect('/')
     board = DiscussionBoard.objects.get(id=board_id)
     if request.method == 'POST':
 

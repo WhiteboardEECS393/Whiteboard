@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^boards/', include('wbMessageBoard.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^logout', views.logout_view, name='logout_view'),
+    url(r'^calendars/', include('wb_calendar.urls')),
 ]

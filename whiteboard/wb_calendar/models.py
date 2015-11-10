@@ -8,12 +8,13 @@ class Event(models.Model):
     description = models.CharField(max_length=300)
     calendar = models.ForeignKey('Calendar')
     course_section = models.ForeignKey('class_overviews.Section')
-    start_time = models.TimeField()
-    end_time = models.TimeField()
+    start = models.TimeField()
+    end = models.TimeField()
+    allDay = models.BooleanField(default=False)
     start_date = models.DateField()
     end_date = models.DateField()
     recurring = models.BooleanField(default=False)
-    recurring_days = models.CharField(max_length=7, null=True, blank=True)
+    dow = models.CharField(max_length=7, null=True, blank=True)
 
 
 class Calendar(models.Model):
