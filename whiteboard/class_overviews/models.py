@@ -12,15 +12,17 @@ class Course(models.Model):
 
 
 class Section(models.Model):
-    professor_name = models.CharField(max_length=40)
     season = models.CharField(max_length=10, default="Fall")
     year = models.IntegerField(default=2015)
-    teaching_assistants = models.CharField(max_length=200, blank=True) #foreign key
     location = models.CharField(max_length=50)
-    time_of_day = models.CharField(max_length=20)
+    start_time = models.TimeField(auto_now=False, blank=True)
+    end_time = models.TimeField(auto_now=False, blank=True)
     days_of_week = models.CharField(max_length=7)
     section_number = models.IntegerField(default=0)
     course = models.ForeignKey(Course)
+
+    class Meta:
+        ordering = ['-year', 'season']
 
     def __str__(self):
         return str(self.course) + " (" + str(self.section_number) + ") " + self.season + str(self.year)

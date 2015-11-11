@@ -35,16 +35,20 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">my classes <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="../EECS325">EECS 325: Computer Networks</a></li>
-                    <li><a href="../EECS393">EECS 393: Software Engineering</a></li>
-                    <li><a href="#">SOCI 113: Problems in Modern Society</a></li>
-                    <li><a href="#">PHIL 201: Intro to Logic</a></li>
-                    <li><a href="#">MATH 201: Intro to Linear Algebra</a></li>
+                    {% if classes %}
+                        {% for c in classes %}
+                        <li><a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}}</a></li>
+                        {% endfor %}
+                    {% else %}
+                        <a href="#" class="list-group-item">
+                            <p class="list-group-item-text">You are not registered for any courses at this time.</p>
+                        </a>
+                    {% endif %}
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Older Courses</a></li>
                 </ul>
             </li>
-            <li><a href="..">my profile</a></li>
+            <li><a href="../../../Profiles/{{curr_user.first_name}}{{curr_user.last_name}}/{{curr_user.pk}}">my profile</a></li>
             
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -53,7 +57,7 @@
     </nav>
     
     <div class="class-title">
-        <h2>{{course.department}}{{course.course_number}}: {{course.course_name}}</h2>
+        <h2>{{course.department}}{{course.course_number}}: {{course.course_name}} {{section.season}}{{section.year}}</h2>
     </div>
 
     <div class="col-md-4">
@@ -78,28 +82,42 @@
         <div class="link-list">
           <ul class="list-group">
             <a href="#" class="list-group-item">
-              <p class="list-group-item-text">Professor: {{section.professor_name}}</p>
+              <p class="list-group-item-text">Professor: {{professor.first_name}} {{professor.last_name}}</p>
             </a>
             <a href="#" class="list-group-item">
               <p class="list-group-item-text">Location: {{section.location}}</p>
             </a>
             <a href="#" class="list-group-item">
-              <p class="list-group-item-text">Time: {{section.time_of_day}}</p>
+              <p class="list-group-item-text">Time: {{section.start_time}}-{{section.end_time}}</p>
             </a>
             <a href="#" class="list-group-item">
               <p class="list-group-item-text">Days of the Week: {{section.days_of_week}}</p>
             </a>
-            <!-- 
-            <a href="#" class="list-group-item">
-              <p class="list-group-item-text">TAs: {{section.teaching_assistants}}</p>
-            </a>
-            <a href="#" class="list-group-item">
-              <p class="list-group-item-text">Students Enrolled: {{section.students}}</p>
-            </a> 
-            -->
+
           </ul>
         </div>
 
+      </div>
+
+      <div class="site-container">
+
+	    	<div class="title-link"><a href="#">teaching assistants</a></div>
+
+	    	<div class="link-list">
+	    		<ul class="list-group">
+                {% if teaching_assistants %}
+                    {% for ta in teaching_assistants %}
+                        <a href="../../../Profiles/{{ta.first_name}}{{ta.last_name}}/{{ta.pk}}" class="list-group-item">
+                            <p class="list-group-item-text">{{ta.first_name}} {{ta.last_name}}</p>
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <a href="#" class="list-group-item">
+                        <p class="list-group-item-text">There are no TAs listed for this course yet.</p>
+                    </a>
+                {% endif %}
+	    		</ul>
+	    	</div>
       </div>
 
 	    <div class="site-container">
@@ -108,18 +126,53 @@
 
 	    	<div class="link-list">
 	    		<ul class="list-group">
+                {% if documents %}
+                    {% for d in documents %}
+                        <a href={{d.path}} class="list-group-item">
+                            <p class="list-group-item-text">{{d.name}}</p>
+                            <!--Add an if statement for if there is a description -->
+                            <p class="list-group-item-text">{{d.description}}</p>
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <a href="#" class="list-group-item">
+                        <p class="list-group-item-text">No documents have been posted yet.</p>
+                    </a>
+                {% endif %}
+	    		</ul>
+	    	</div>
+	    </div>
 
-            {% if documents %}
-              {% for d in documents %}
-                <a href={{d.path}} class="list-group-item">
-                  <p class="list-group-item-text">{{d.name}}</p>
-                </a>
-              {% endfor %}
-            {% else %}
-              <a href="#" class="list-group-item">
-                <p class="list-group-item-text">No documents have been posted yet.</p>
-              </a>
-            {% endif %}  
+        {% if sections|length > 1 %}
+        <div class="site-container">
+	    	<div class="title-link"><a href="#">other semesters</a></div>
+	    	<div class="link-list">
+	    		<ul class="list-group">
+                    {% for s in sections %}
+                        <a href="/course/{{course.department}}{{course.course_number}}/{{s.season}}{{s.year}}/{{s.section_number}}" class="list-group-item">
+                            <p class="list-group-item-text">{{s}}</p>
+                        </a>
+                    {% endfor %}
+	    		</ul>
+	    	</div>
+	    </div>
+        {% endif %}
+
+        <div class="site-container">
+	    	<div class="title-link"><a href="#">students</a></div>
+	    	<div class="link-list">
+	    		<ul class="list-group">
+                    {% if students %}
+                        {% for s in students %}
+                            <a href="../../../Profiles/{{s.first_name}}{{s.last_name}}/{{s.pk}}" class="list-group-item">
+                                <p class="list-group-item-text">{{s.first_name}} {{s.last_name}}</p>
+                            </a>
+                        {% endfor %}
+                    {% else %}
+                        <a href="#" class="list-group-item">
+                            <p class="list-group-item-text">There are no students registered for this class.</p>
+                        </a>
+                    {% endif %}
 	    		</ul>
 	    	</div>
 	    </div>
@@ -128,8 +181,9 @@
     <div class="col-md-8">
 	    <div class="site-container thread-list">
 
-	      <div class="title-link">threads</div>
 
+	      <div class="title-link">threads</div>
+            <a href="/boards/{{ board_id }}/create">Create new thread</a>
 	      <div class="link-list">
 	        <ul class="list-group">
             {% if threads %}

@@ -58,12 +58,13 @@ def thread(request, thread_id, start_post=None):
         'post_list': post_list,
         'thread': current_thread,
     }
-    return render(request, 'wbMessageBoard/thread.html', context)
+    return render(request, 'wbMessageBoard/postedthread.html', context)
 
 
 @login_required
 def create_thread(request, board_id):
     user = StudentUser.objects.get(user=request.user.id)
+    board = DiscussionBoard.objects.get(id=board_id)
     if request.method == 'POST':
 
         form = ThreadForm(request.POST)
@@ -74,10 +75,12 @@ def create_thread(request, board_id):
                                 creator=user,
                                 board=DiscussionBoard.objects.filter(id=board_id)[0], )
             new_thread.save()
-            return HttpResponseRedirect('/boards/' + board_id)
+            return HttpResponseRedirect('/course/' + board.course.course.department
+                                        + str(board.course.course.course_number) + '/'
+                                        + str(board.course.section_number))
     else:
         form = ThreadForm()
-    return render(request, 'wbMessageBoard/create_thread.html', {'form': form, 'board_id': board_id, 'user': user})
+    return render(request, 'wbMessageBoard/createpost.html', {'form': form, 'board': board, 'user': user})
 
 
 @login_required

@@ -12,6 +12,7 @@ services:
 
 before_install:
   - pip install -U pip
+  - pip install codecov
 
 install:
   - pip install -r requirements.txt
@@ -22,3 +23,8 @@ before_script:
 script:
   - python whiteboard/manage.py makemigrations
   - python whiteboard/manage.py migrate
+  - cd whiteboard
+  - coverage run manage.py test
+
+after_success:
+  - codecov
