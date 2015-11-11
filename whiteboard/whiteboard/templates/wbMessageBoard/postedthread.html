@@ -1,0 +1,67 @@
+{% extends "basic_page.html" %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">1
+{% block body %}
+    {% if thread %}
+        <div class="class-title">
+            <h2>{{ thread.subject }}</h2>
+        </div>
+
+        <div class="col-md-12">
+            <div class="site-container-post thread-list">
+
+                <div class="new-post">
+                    <ul class="new-post-content">
+
+                        <h4 class="post-user"><a href='/Profiles/{{thread.creator.first_name}}{{thread.creator.last_name}}/{{thread.creator.id}}'>{{ thread.creator.first_name }}
+                                    {{ thread.creator.last_name }}</a></h4>
+                        <h5 class="post-time">Posted on {{ thread.time_of_creation }}</h5>
+
+                        <p class="text-post">{{ thread.message }}</p>
+                    </ul>
+                    <br/>
+                </div>
+
+                {% if post_list %}
+                    {% for post in post_list %}
+                        <div class="new-post">
+                            <ul class="new-post-content">
+
+                                <h4 class="post-user"><a href='/Profiles/{{post.creator.first_name}}{{post.creator.last_name}}/{{post.creator.id}}'>{{ post.creator.first_name }}
+                                    {{ post.creator.last_name }}</a></h4>
+                                <h5 class="post-time">Posted on {{ post.time_of_creation }}</h5>
+
+                                <p class="text-post">{{ post.content }}</p>
+
+                            </ul>
+                        </div>
+                    {% endfor %}
+                {% else %}
+
+                {% endif %}
+
+                <div class="reply-to-post">
+                    <ul class="reply-to-post-content">
+                        <form action="/boards/thread/{{ thread.id }}/create/" method="post">
+                            {% csrf_token %}
+                            <br/>Submit a reply:<br/>
+                            <textarea class="submit-reply-text" name="reply_message"></textarea>
+                            <br/><br/>
+                            <input class="submit-button" type="submit" value="Submit Reply">
+                        </form>
+                    </ul>
+                </div>
+    {% endif %}
+
+            
+        </div>
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+{% endblock %}
+ </html>
