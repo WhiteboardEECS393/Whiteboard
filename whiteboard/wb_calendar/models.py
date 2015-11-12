@@ -7,7 +7,6 @@ class Event(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=300)
     calendar = models.ForeignKey('Calendar')
-    course_section = models.ForeignKey('class_overviews.Section')
     start = models.TimeField()
     end = models.TimeField()
     allDay = models.BooleanField(default=False)

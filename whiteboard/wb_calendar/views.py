@@ -31,6 +31,23 @@ def calendar(request, start_date=None, end_date=None):
 
     return HttpResponse(json.dumps(fields))
 
+
+# Not sure if we'll need this, but it'll be for custom events
+# def createEvent(request):
+#     if request.method == 'POST':
+#         user = StudentUser.objects.get(user=request.user.id)
+#         if not user:
+#             return HttpResponseRedirect('/')
+#         calendar = Calendar.objects.get(owner=user)
+
+
+def saveEvent(title, description, calendar, start, end, allDay, start_date, end_date, recurring, dow):
+    event = Event(title=title, description=description, calendar=calendar, start=start,
+                  end=end, allDay=allDay, start_date=start_date, end_date=end_date, recurring=recurring,
+                  dow=dow)
+    event.save()
+
+
 def getDOW(dowString):
     dow = []
     if 'M' in dowString:
