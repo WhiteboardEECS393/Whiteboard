@@ -25,7 +25,6 @@ def index(request):
 @login_required
 def boards(request, board_id):
     thread_list = Thread.objects.filter(board=board_id).order_by('-time_of_creation')
-
     template = loader.get_template('wbMessageBoard/board.html')
     context = RequestContext(request, {
         'thread_list': thread_list,
@@ -50,13 +49,16 @@ def create_board(request):
 
 @login_required
 def thread(request, thread_id, start_post=None):
+
     if start_post is None:
         start_post = 0
     post_list = Post.objects.filter(thread=thread_id).order_by('time_of_creation')[start_post:start_post + 10]
     current_thread = Thread.objects.filter(id=thread_id)[0]
+    curr_user = StudentUser.objects.get(user=request.user)
     context = {
         'post_list': post_list,
         'thread': current_thread,
+        'curr_user': curr_user,
     }
     return render(request, 'wbMessageBoard/postedthread.html', context)
 
