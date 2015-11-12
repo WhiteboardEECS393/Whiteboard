@@ -10,8 +10,6 @@ class Event(models.Model):
     start = models.TimeField()
     end = models.TimeField()
     allDay = models.BooleanField(default=False)
-    start_date = models.DateField()
-    end_date = models.DateField()
     recurring = models.BooleanField(default=False)
     dow = models.CharField(max_length=7, null=True, blank=True)
 

@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 import json
 from .models import Calendar, Event
 from Profiles.models import StudentUser
+from class_overviews.models import Course, Section
 
 
 # Create your views here.
@@ -40,10 +41,25 @@ def calendar(request, start_date=None, end_date=None):
 #             return HttpResponseRedirect('/')
 #         calendar = Calendar.objects.get(owner=user)
 
+@login_required
+def importClasses(request):
+    user = StudentUser.objects.get(user=request.user.id)
+    if not user:
+        return HttpResponseRedirect('/')
+    calendar = Calendar.objects.get(owner=user)
+    classes = user.student_classes.all()
+    for c in classes:
+        #course = Course.objects.get(pk=c.course)
+        saveEvent(title=c.course.course_name + ' ' +str(c.course.course_number), description=c.section_number,
+                  calendar=calendar, start=c.start_time, end=c.end_time, allDay=False, recurring=True,
+                  dow=c.days_of_week)
+    return HttpResponseRedirect('/')
 
-def saveEvent(title, description, calendar, start, end, allDay, start_date, end_date, recurring, dow):
+
+
+def saveEvent(title, description, calendar, start, end, allDay, recurring, dow):
     event = Event(title=title, description=description, calendar=calendar, start=start,
-                  end=end, allDay=allDay, start_date=start_date, end_date=end_date, recurring=recurring,
+                  end=end, allDay=allDay, recurring=recurring,
                   dow=dow)
     event.save()
 
