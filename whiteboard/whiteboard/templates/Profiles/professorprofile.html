@@ -38,7 +38,7 @@
               </div>
             
             <div class="row" id="bio">
-                <p class="list-group-item-text">This is where a professors bio would go. This bio is about tekin jjasd hjasd anD THE NAD EHAI DJED HE DERP DERP DERP DERP</p>
+                <p class="list-group-item-text">{{ professor.bio }}</p>
                 
             </div>
             
@@ -68,15 +68,15 @@
                                             
                                             <div class="link-list">
                                                 <ul class="list-group">
-                                                    {% if curr_user_classes %}
-                                                    {% for c in curr_user_classes %}
+                                                    {% if prof_curr_classes %}
+                                                    {% for c in prof_curr_classes %}
                                                     <a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
                                                         <p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}}</p>
                                                     </a>
                                                     {% endfor %}
                                                     {% else %}
                                                     <a href="#" class="list-group-item">
-                                                        <p class="list-group-item-text">You are not registered for any courses at this time.</p>
+                                                        <p class="list-group-item-text">{{ professor.first_name }} {{ professor.last_name }} is not teaching any courses at this time.</p>
                                                     </a>
                                                     {% endif %}
                                                 </ul>
@@ -95,15 +95,15 @@
                                             
                                             <div class="link-list">
                                                 <ul class="list-group">
-                                                    {% if curr_user_classes %}
-                                                    {% for c in curr_user_classes %}
+                                                    {% if prof_past_classes %}
+                                                    {% for c in prof_past_classes %}
                                                     <a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
                                                         <p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}} and Memes</p>
                                                     </a>
                                                     {% endfor %}
                                                     {% else %}
                                                     <a href="#" class="list-group-item">
-                                                        <p class="list-group-item-text">You are not registered for any courses at this time.</p>
+                                                        <p class="list-group-item-text">{{ professor.first_name }} {{ professor.last_name }} has not taught any courses in the past.</p>
                                                     </a>
                                                     {% endif %}
                                                 </ul>
