@@ -1,10 +1,55 @@
 from django.test import TestCase
+from django.db import models
+from django.contrib.auth.models import User
 from .models import Major
 from .models import Minor
 from .models import StudentUser
 from .models import Department
 from .models import Professor
+from class_overviews.models import Section
+from class_overviews.models import Course
 
+def createMajor(self):
+    newMajor = Major(major = "Computer Science")
+    return newMajor
+def createMinor(self):
+    newMinor = Minor(minor = "Game Design")
+    return newMinor
+def createStudentUser(self):
+    user = User.objects.create_user(
+            username='jacob', email='jacob@…', password='top_secret')
+def createDepartment(self):
+    departement_code = "EECS"
+    departement_name = "Electrical Engineering and Computer Science"
+    departement_info = "Stuff about the department"
+def createProfessor(self):
+    first_name = "Tekin"
+    last_name = "Osoy....glu"
+    email_id = "abc@case.edu"
+    bio = "Something or the other"
+    office_Location = "Where the sun don't shine"
+
+class ProfilesMethodTests(TestCase):
+    def test_Major_str(self):
+        testMajor = createMajor(self)
+        self.assertEquals(testMajor.major, testMajor.__str__(self))
+
+    def test_Minor_str(self):
+        test_Minor = createMinor(self)
+        self.assertEquals(test_Minor.minor, test_Minor.__str__(self))
+
+    def test_Student_str(self):
+        testStudentUser = createStudentUser(self)
+        self.assertEquals(testStudentUser.first_name + " " + testStudentUser.last_name, testStudentUser.__str__(self))
+
+    def test_Department_str(self):
+        testDepartment = createDepartment(self)
+        self.assertEquals(testDepartment.department_name, testDepartment.__str__(self))
+
+    def test_Professor_str(self):
+        testProfessor = createProfessor(self)
+        self.assertEquals(testProfessor.first_name + " " + testProfessor.last_name, testProfessor.__str__(self))
+'''
 #Needed for testing BasicUser
 #How do you make a user?
 global testfirst_name
@@ -20,8 +65,6 @@ testphoto = 'Filepath'
 #Needed to test Major
 global testmajor
 testmajor = 'Computer Science'
-global testrequired_classes
-testrequired_classes = 'Required classes'
 #Needed to test minor
 global testminor
 testminor = 'Sociology'
@@ -32,8 +75,14 @@ global teststudent_majors
 teststudent_majors = 'Computer Science and Cog Scie'
 global teststudent_minors
 teststudent_minors = 'Sociology and Theater'
-global teststudent_classes
-teststudent_classes = 'Networks, Stats, Software Engineering, Sociology'
+global testsection_OS
+testsection_OS= Section(location = "DeGrace",
+                                         start_time = models.TimeField(auto_now=True, auto_now_add=True),
+                                         end_time = models.TimeField(auto_now=True, auto_now_add=True),
+                                         days_of_week = "MWF",
+                                         course = Course(department = createDepartment(self),
+                                                         course_number = 338,
+                                                         course_name = "Operating Systems")))
 #Needed to test Department
 global testdepartment_name
 testdepartment_name = 'EECS'
@@ -71,7 +120,17 @@ def createMinor(self):
     return Minor(minor = testminor, required_classes = testrequired_classes)
 
 def createStudentUser(self):
-    return StudentUser(grad_year = testgrad_year, majors = teststudent_majors, minors = teststudent_minors, classes = teststudent_classes)
+    new_User = StudentUser(grad_year = testgrad_year,
+                           majors = teststudent_majors,
+                           minors = teststudent_minors)
+    new_User.student_classes.add(Section(location = "Nord 410",
+                                         start_time = models.TimeField(auto_now=True, auto_now_add=True),
+                                         end_time = models.TimeField(auto_now=True, auto_now_add=True),
+                                         days_of_week = "MWF",
+                                         course = Course(department = createDepartment(self),
+                                                         course_number = 345,
+                                                         course_name = "PLC")))
+
 
 def createDepartment(self):
     return Department(department_Name = testdepartment_name, department_head = createProfessor(self), department_info = testdepartment_info, majors = testdepartment_majors, minors = testdepartment_minors)
@@ -79,32 +138,23 @@ def createDepartment(self):
 def createProfessor(self):
     return Professor(first_name = testprofessor_first_name, last_name = testprofessor_last_name, email_id = testprofessor_email_id, bio = testprofessor_bio, current_department = createDepartment(self), classes=testprofessor_classes, office_Location = testoffice_location)
 
-class ProfilesMethodTest(TestCase):
-
-    def test_Major_Constructor(self):
+class ProfilesMethodTests(TestCase):
+    def test_Major_str(self):
         testMajor = createMajor(self)
-        self.assertEquals(testMajor.required_classes,testrequired_classes)
-        self.assertEquals(testMajor.major, testmajor)
+        self.assertEquals(testMajor.major, testMajor.__str__(self))
 
-    def test_Minor_Constructor(self):
-        testMinor = createMinor(self)
-        self.assertEquals(testMinor.required_classes,testrequired_classes)
-        self.assertEquals(testMinor.minor, testminor)
+    def test_Minor_srt(self):
+        test_Minor = createMinor(self)
+        self.assertEquals(test_Minor.minor, test_Minor.__str__(self))
 
-    def test_Student_User_Constructor(self):
+    def test_Student_str(self):
         testStudentUser = createStudentUser(self)
-        self.assertEquals(testStudentUser.grad_year,testgrad_year)
-        self.assertEquals(testStudentUser.majors, teststudent_majors)
-        self.assertEquals(testStudentUser.minors, teststudent_minors)
-        self.assertEquals(testStudentUser.classes,teststudent_classes)
+        self.assertEquals(testStudentUser.first_name + " " + testStudentUser.last_name, testStudentUser.__str__(self))
 
-    def test_Department_Constructor(self):
+
+    def test_Department_str(self):
         testDepartment = createDepartment(self)
-        self.assertEquals(testDepartment.department_name,testdepartment_name)
-        self.assertEquals(testDepartment.department_head, testdepartment_head)
-        self.assertEquals(testDepartment.department_info, testdepartment_info)
-        self.assertEquals(testDepartment.majors,testdepartment_majors)
-        self.assertEquals(testDepartment.minors,testdepartment_minors)
+        self.assertEquals(testDepartment.department_name, testDepartment.__str__(self))
 
     def test_Professor_Constructor(self):
         testProfessor = createProfessor(self)
@@ -115,3 +165,4 @@ class ProfilesMethodTest(TestCase):
         self.assertEquals(testProfessor.current_department,testprofessor_department)
         self.assertEquals(testProfessor.classes,testprofessor_classes)
         self.assertEquals(testProfessor.office_location, testoffice_location)
+'''
