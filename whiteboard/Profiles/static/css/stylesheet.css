@@ -195,6 +195,12 @@ hr {
     margin-top: 60px;
 }
 
+#department_name {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 400px;
+}
+
 .row {
     margin-left: 20px;
 }
@@ -285,6 +291,10 @@ hr {
     z-index: 1000;
     transition: all 0.4s ease 0s;
     padding-top: 15px;
+}
+
+.department_info {
+
 }
 
 #page-content-wrapper {

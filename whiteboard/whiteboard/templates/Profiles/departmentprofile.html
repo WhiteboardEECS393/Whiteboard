@@ -14,40 +14,13 @@
 
 <div class = "site-container">
     
-    <p>MEMEMEMEMEMEMEMEMEMEMEMEMES</p>
-    
     <div id="wrapper">
         <div id="sidebar-wrapper">
             <div class="row">
                 
-                <div class="col-md-1">
-                    <!--img class="profile-picture" src="{% static curr_user.photo %}" alt="Tekin"-->
-                    <img class="profile-picture" src="http://art.case.edu/images/2005.10.jpg">
-                </div>
-                
-                <div class="col-md-2" id="student_name_bio">
-                    <h3 id="prof-pic-name">{{student.first_name}} {{student.last_name}}</h3>
+                <div class="col-md-4" id="department_name">
+                    <h3 id="prof-pic-name">{{department.department_name}}</h3>
                     <div class="link-list" id="overview">
-                        <ul class="list-group">
-                            <a href="#" class="list-group-item">
-                                <p class="list-group-item-text">Major:&emsp;&emsp;&emsp;&emsp;
-                                {% if majors %}
-                                {% for maj in majors %}
-                                {{maj.major}}
-                                {% endfor %}
-                                {% else %}
-                                Undecided
-                                {% endif %}
-                                </p>
-                                {% if minors %}
-                                <p> class="list-group-item-text">Minor:&emsp;&emsp;&emsp;&emsp;
-                                {% for min in minors %}
-                                {{min.minor}}
-                                {% endfor %}
-                                </p>
-                                {% endif %}
-                            </a>
-                        </ul>
                     </div>
                 </div>
                 
