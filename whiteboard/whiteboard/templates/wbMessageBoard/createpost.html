@@ -1,0 +1,39 @@
+{% extends "basic_page.html" %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  {% block body %}
+    
+    <div class="class-title">
+        <h2>Create post for {{ board.course.course.department }} {{ board.course.course.course_number }}: {{ board.course.course.course_name }}</h2>
+    </div>
+    
+    <div class="col-md-12">
+        <div class="site-container-post thread-list">
+            
+            <div class="new-post">
+                <ul class="new-post-content">
+                    
+                        <h4 class="new-post-header">New Post</h4>
+                        <form action="." method="post">
+                            {% csrf_token %}
+                            Subject:<br>
+                            <input class="thread_subject" type="text" name="thread_subject">
+                                <br>
+                                Message:<br>
+                                <textarea class="thread_message" name="thread_message"></textarea>
+                                    <br><br>
+                                    <input class="submit-button" type="submit" value="Submit">
+                        </form>
+                    
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+{% endblock %}
+ </html>

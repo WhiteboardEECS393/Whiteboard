@@ -1,8 +1,4 @@
 
-.site-container .thread-list {
-	
-}
-
 * {
     border-radius: 0 !important;
 }
@@ -12,16 +8,14 @@
 }
 
 .site-container {
-	margin: 50px 20px;
-	padding: 0px 0px;
+	margin: 0px 20px;
+    padding-top: 80px;
 }
 
 .site-container .thread-list {
-	float: right;
-}
-
-.link-list {
-	
+    margin-left: 50px;
+    margin-top: -80px;
+    position: relative;
 }
 
 .link-list {
@@ -29,11 +23,23 @@
 }
 
 .class-title {
-    margin: 25px 35px 0px 35px;
+    margin: 100px 35px 0px 35px;
     font-weight: normal;
     color: rgb(140, 140, 140);
     font-style: inherit;
     border-bottom: solid 1px rgb(179, 73, 47);
+}
+
+#overview {
+    border: none;
+}
+
+#prof-pic-name {
+    padding-left: 15px;
+    margin-top: -16px;
+    color: rgb(179, 73, 47);
+    text-decoration: none;
+    margin-bottom: 0px;
 }
 
 a.list-group-item .list-group-item-heading, 
@@ -42,6 +48,12 @@ button.list-group-item .list-group-item-heading{
     text-decoration: none;
 	font-size: 14px;
 	font-weight: normal;
+}
+
+#professor_info {
+    color: rgb(111, 67, 57);
+    margin-left: 15px;
+    padding-top: 10px;
 }
 
 a.list-group-item .list-group-item-heading h4{
@@ -83,6 +95,10 @@ a.list-group-item, li.list-group-item {
 	margin-top: 0px;
     padding-top: 20px;
     padding-bottom: 0px;
+    
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
 }
 
 .navbar-default .navbar-brand {
@@ -104,8 +120,8 @@ a.list-group-item, li.list-group-item {
 	margin-bottom: 6px;
 }
 
-.navbar-default .navbar-nav a {
-
+.professor_prof_sidebar {
+    margin-top: 30px;
 }
 
 .nav.navbar-nav.navbar-right > li > a{
@@ -159,9 +175,158 @@ hr {
 }
 
 .profile-picture {
-    width:250px;
-    height:320px;
-    margin-left: 40px;
+    width:130px;
+    height:160px;
+    margin-left: 0px;
     margin-bottom: 20px;
-    border-radius: 10px !important;
+    margin-top: 40px;
+    border-radius: 2px !important;
+    
+    box-shadow: 3px 3px 6px #999;
+}
+
+.sidebar {
+    background-color: rgba(179, 73, 47, .24);
+    height: 100%;
+}
+
+#student_name_bio {
+    margin-left: 100px;
+    margin-top: 60px;
+}
+
+.row {
+    margin-left: 20px;
+}
+
+.nav-pills > li.active > a:hover{
+    color: white;
+    background-color: rgba(179, 73, 47, .80);
+}
+
+.nav-pills > li > a {
+    color: rgb(179, 73, 47);
+}
+
+.righty {
+    margin-left:-2px;
+}
+
+.nav-pills > li > a:hover{
+    background-color: rgba(179, 73, 47, .14);
+}
+
+.nav-pills > li.active > a {
+    background-color: rgb(179, 73, 47);
+}
+
+#pill_tabs {
+    margin: auto;
+    width: 19.75%;
+    border: solid 1px rgb(179, 73, 47);
+    border-radius: 5px !important;
+    margin-bottom: 20px;
+    margin-top: -15px;
+}
+
+#pill_tabs_professor {
+    margin: auto;
+    width: 23.5%;
+    border: solid 1px rgb(179, 73, 47);
+    border-radius: 5px !important;
+    margin-bottom: 20px;
+    margin-top: -15px;
+}
+
+.nav-pills > li{
+    padding: 0;
+}
+
+.thread_divide {
+    margin-top: 15px;
+    color: gray;
+}
+
+.editbutton {
+}
+
+#bio {
+    margin-left: 30px;
+    margin-top: 10px;
+    width: 290px;
+    color: rgb(111, 67, 57);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.profile-classes {
+    margin-top: 30px;
+    width: 300px;
+    margin-left: 20px;
+}
+
+
+
+#wrapper {
+    padding-left: 250px;
+    transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+    margin-left: -250px;
+    margin-top: -49px;
+    left: 250px;
+    width: 340px;
+    background-color: rgba(179, 73, 47, .24);
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: all 0.4s ease 0s;
+    padding-top: 15px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width:767px) {
+    
+    #wrapper {
+        padding-left: 0;
+    }
+    
+    #sidebar-wrapper {
+        left: 0;
+    }
+    
+    #wrapper.active {
+        position: relative;
+        left: 250px;
+    }
+    
+    #wrapper.active #sidebar-wrapper {
+        left: 340px;
+        width: 250px;
+        transition: all 0.4s ease 0s;
+    }
+    
+}
+
+.department {
+    margin-top: -10px;
+}
+
+.office {
+    margin-top: -10px;
 }
