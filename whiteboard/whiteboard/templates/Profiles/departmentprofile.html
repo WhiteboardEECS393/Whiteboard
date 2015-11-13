@@ -1,4 +1,4 @@
-{% extends "basic_page.html" %}
+ {% extends "basic_page.html" %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -21,9 +21,12 @@
                 <div class="col-md-4" id="department_name">
                     <h3 id="prof-pic-name">{{department.department_name}}</h3>
                     <div class="link-list" id="overview">
-                        <p class="department_head">Department Head: Kennith Something</p>
-                        <p class="department_head">Location: Olin</p>
-                        <p class="department_info">Info: The department for losers who spend all their god damn time on their computers</p>
+                        {% if department.department_head != null %}
+						<a href="../../../Profiles/Professor/{{professor.first_name}}/{{professor.last_name}}" class="department_head">Department Head: {{ department.department_head.first_name }} {{ department.department_head.last_name }}</a>
+						{% else %}
+						<p>There is not currently a department head.</p>
+						{% endif %}
+                        <p class="department_info">Info: {{ department.department_info }}</p>
                     </div>
                 </div>
                 
@@ -39,25 +42,40 @@
                 
                 <div class="link-list">
                     <ul class="list-group" id="prof_and_majors_lists">
-                        <p>Professor butt butt</p>
-                        <p>Tekin</p>
-                        <p>Meral</p>
+                        {% for professor in department.professor_set.all %}
+							<li><a href="../../../Profiles/Professor/{{professor.first_name}}/{{professor.last_name}}">{{ professor.first_name }} {{ professor.last_name }}</a></li>
+						{% endfor %}
                     </ul>
                     
                 </div>
                 
-                <div class="title-link"><a href="#">department majors/minors</a></div>
+                <div class="title-link"><a href="#">department majors</a></div>
                 
                 <div class="link-list">
                     <ul class="list-group" id="prof_and_majors_lists">
-                        <p>Computer Science</p>
-                        <p>Computer Engineering</p>
-                        <p>Electrical Engineering</p>
-                        <p>Systems and Control</p>
+                        {% for major in department.majors %}
+						<li><p>{{ major }}</p></li>
+						{% endfor %}
                     </ul>
                     
                 </div>
                 
+				<div class="title-link"><a href="#">department minors</a></div>
+                
+                <div class="link-list">
+                    <ul class="list-group" id="prof_and_majors_lists">
+                        {% for minor in department.minors %}
+						<li><p>{{ minor }}<def getCurrentClasses(self):
+        classes = self.classes.filter(season = "Fall", year = 2015)
+        return classes
+
+    def getOlderClasses(self):
+        classes = self.classes.exclude(season = "Fall", year = 2015)
+        return classes/p></li>
+						{% endfor %}
+                    </ul>
+                    
+                </div>
 
                 
             </div>
@@ -88,8 +106,8 @@
                                                 
                                                 <div class="link-list">
                                                     <ul class="list-group">
-                                                        {% if curr_user_classes %}
-                                                        {% for c in curr_user_classes %}
+                                                        {% if dept_curr_classes %}
+                                                        {% for c in dept_curr_classes %}
                                                         <a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
                                                             <p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}}</p>
                                                         </a>
@@ -115,8 +133,8 @@
                                                 
                                                 <div class="link-list">
                                                     <ul class="list-group">
-                                                        {% if curr_user_classes %}
-                                                        {% for c in curr_user_classes %}
+                                                        {% if dept_past_classes %}
+                                                        {% for c in dept_past_classes %}
                                                         <a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
                                                             <p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}} and Memes</p>
                                                         </a>
