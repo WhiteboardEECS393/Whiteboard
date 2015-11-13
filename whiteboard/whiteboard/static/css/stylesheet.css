@@ -18,6 +18,33 @@
     position: relative;
 }
 
+.department_head {
+    color: rgb(111, 67, 57);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.department_info {
+    color: rgb(111, 67, 57);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 15px;
+    margin-top: 10px;
+    width: 300px;
+}
+
+#prof_and_majors_lists {
+    color: rgb(111, 67, 57);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
 .link-list {
 	border: solid 1px rgb(179, 73, 47);
 }
@@ -226,6 +253,10 @@ hr {
     background-color: rgb(179, 73, 47);
 }
 
+#professor_list {
+    margin-top: -30px;
+}
+
 #pill_tabs {
     margin: auto;
     width: 19.75%;
@@ -242,6 +273,15 @@ hr {
     border-radius: 5px !important;
     margin-bottom: 20px;
     margin-top: -15px;
+}
+
+#pill_tabs_department {
+    margin: auto;
+    width: 23.5%;
+    border: solid 1px rgb(179, 73, 47);
+    border-radius: 5px !important;
+    margin-bottom: 20px;
+    margin-top: 15px;
 }
 
 .nav-pills > li{
