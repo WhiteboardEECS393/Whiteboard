@@ -72,10 +72,10 @@ button.list-group-item .list-group-item-heading{
 
 .login {
     margin-top: 10px;
-    margin-left: 5px;
+    margin-left: -2px;
     background-color: rgb(179, 73, 47);
     color: rgb(255, 255, 255);
-    width: 160px;
+    width: 164px;
 }
     
 .ta-check{
