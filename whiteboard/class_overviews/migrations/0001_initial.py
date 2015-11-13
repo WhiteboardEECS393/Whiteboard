@@ -13,30 +13,31 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Course',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
                 ('department', models.CharField(max_length=4)),
                 ('course_number', models.IntegerField(default=999)),
                 ('course_name', models.CharField(max_length=200)),
-                ('description', models.CharField(max_length=300, blank=True)),
+                ('description', models.CharField(blank=True, max_length=300)),
             ],
         ),
         migrations.CreateModel(
             name='Document',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
                 ('name', models.CharField(max_length=100)),
                 ('path', models.CharField(max_length=100)),
-                ('description', models.CharField(max_length=300, blank=True)),
+                ('description', models.CharField(blank=True, max_length=300)),
             ],
         ),
         migrations.CreateModel(
             name='Section',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
-                ('season', models.CharField(max_length=10, default='Fall')),
+                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
+                ('season', models.CharField(default='Fall', max_length=10)),
                 ('year', models.IntegerField(default=2015)),
                 ('location', models.CharField(max_length=50)),
-                ('time_of_day', models.CharField(max_length=20)),
+                ('start_time', models.TimeField(blank=True)),
+                ('end_time', models.TimeField(blank=True)),
                 ('days_of_week', models.CharField(max_length=7)),
                 ('section_number', models.IntegerField(default=0)),
                 ('course', models.ForeignKey(to='class_overviews.Course')),

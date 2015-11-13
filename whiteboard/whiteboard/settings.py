@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'Profiles',
     'wbMessageBoard',
     'class_overviews',
+    'wb_calendar',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'whiteboard.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'Profiles/templates/Profiles')],
+        'DIRS': [os.path.join(BASE_DIR, 'whiteboard/templates'), os.path.join(BASE_DIR, 'whiteboard/templates/general'), os.path.join(BASE_DIR, 'whiteboard/templates/wbMessageBoard'), os.path.join(BASE_DIR, 'whiteboard/templates/class_overviews'), os.path.join(BASE_DIR, 'whiteboard/templates/Profiles')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response, HttpResponseRedirect, render, HttpResponse
 from django.template import RequestContext
-from .models import StudentUser, Minor, Major
+from .models import StudentUser, Minor, Major, Professor, Department
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from .forms import EditProfileForm
@@ -32,6 +32,48 @@ def profile(request, first, last, student_id):
             'minors': minors,
         })
     return render_to_response(template, locals(), context)
+
+@login_required
+def professorProfile(request, first, last):
+    template = 'Profiles/professorprofile.html'
+    prof=Professor.objects.filter(first_name=first, last_name=last)
+
+    if len(prof) != 1:
+        template = 'Profiles/usernotfound.html'
+        context = RequestContext(request,)
+    else:
+        professor = prof[0]
+        user = StudentUser.objects.filter(user=request.user)[0]
+        curr_user_classes = StudentUser.getCurrentClasses(user)
+
+        context = RequestContext(request, {
+                                 'professor': professor,
+                                 'curr_user': user,
+                                 'curr_user_classes': curr_user_classes,
+                                 })
+    return render_to_response(template, locals(), context)
+
+@login_required
+def departmentProfile(request, code):
+    template = 'Profiles/departmentprofile.html'
+    depart=Department.objects.filter(department_code=code)
+    
+    if len(depart) != 1:
+        template = 'Profiles/usernotfound.html'
+        context = RequestContext(request,)
+    else:
+        department = depart[0]
+        user = StudentUser.objects.filter(user=request.user)[0]
+        curr_user_classes = StudentUser.getCurrentClasses(user)
+        
+        context = RequestContext(request, {
+                                 'department': department,
+                                 'curr_user': user,
+                                 'curr_user_classes': curr_user_classes,
+                                 })
+    return render_to_response(template, locals(), context)
+
+
 
 
 @login_required
