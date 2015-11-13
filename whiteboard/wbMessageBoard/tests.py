@@ -1,52 +1,46 @@
 from django.test import TestCase
+from django.db import models
+from django.contrib.auth.models import User
 from .models import DiscussionBoard
 from .models import Thread
 from .models import Post
 from class_overviews.tests import createSection
-from class_overviews.tests import createCourse
-from Profiles.tests import createStudentUser
-from django.utils import timezone
-
-
-#Needed for testing DicsussionBoard
-global testname
-testname = 'Board name'
-global testdescription
-testdescription = 'The board can be described as...'
-#Needed for testing Thread
-global testsubject
-testsubject = 'Thread subject'
-global testcreator
-testcreator = 'Daniel'
-global testmessage
-testmessage = 'We come in peace'
-global testtime_of_creation
-testtime_of_creation = timezone.now()
-#Needed for testing Post
-global testcontent
-testcontent = 'Some content'
+from Profiles.models import StudentUser
 
 def createDiscussionBoard(self):
-    return DiscussionBoard(name = testname, description = testdescription, course = createSection(self))
-
+    newBoard = DiscussionBoard(name="testBored",
+                               description = "What this bored is all about",
+                               course = createSection(self))
+    return newBoard
 def createThread(self):
-    return Thread(subject = testsubject, creator = createStudentUser(self), message = testmessage, time_of_creation = testtime_of_creation, board = createDiscussionBoard())
-
+    newThread = Thread(subject = "Dijkstra",
+                       creator = StudentUser(user = User.objects.create_user(username='Daniel',
+                                                         email='abc@case.edu',
+                                                         password='password')),
+                       message = "He is the supreme being",
+                       time_of_creation = models.DateTimeField(auto_now=True,
+                                                               auto_now_add=True),
+                       board = createDiscussionBoard(self))
+    return newThread
 def createPost(self):
-    return Post(creator = createStudentUser(self), time_of_creation = testtime_of_creation, content = testcontent, thread = createThread(self))
+    newPost = Post(creator = StudentUser(user = User.objects.create_user(username='Danny',
+                                                         email='abc@case.edu',
+                                                         password='password')),
+                   time_of_creation = models.DateTimeField(auto_now=True,
+                                                           auto_now_add=True),
+                   content = "Some type of content",
+                   thread = createThread(self))
+    return newPost
 
 class wbMessageBoard(TestCase):
+    def test_Discussion_Board_str(self):
+        testBoard = createDiscussionBoard(self)
+        self.assertEquals(testBoard.name, testBoard.__str__())
 
-    def test_Discussion_Board(self):
-        testdiscussionboard = createDiscussionBoard(self)
-        self.assertEquals(testdiscussionboard.name,testname)
-        self.assertEquals(testdiscussionboard.description, testdescription)
-        self.assertEquals(testdiscussionboard.course, createCourse(self))
-
-    def test_Thread(self):
+    def test_Thread_str(self):
         testThread = createThread(self)
-        self.assertEquals(testThread.subject,testsubject)
-        self.assertEquals(testThread.creator, createStudentUser(self))
-        self.assertEquals(testThread.message, testmessage)
-        self.assertEquals(testThread.time_of_creation,testtime_of_creation)
-        self.assertEquals(testThread.board,createDiscussionBoard(self))
+        self.assertEquals(testThread.subject, testThread.__str__())
+
+    def test_Post_str(self):
+        testPost = createPost(self)
+        self.assertEquals(testPost.thread.subject + ' ' + str(testPost.creator), testPost.__str__())

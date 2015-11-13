@@ -1,13 +1,10 @@
 from django.test import TestCase
-from django.db import models
 from django.contrib.auth.models import User
 from .models import Major
 from .models import Minor
 from .models import StudentUser
 from .models import Department
 from .models import Professor
-from class_overviews.models import Section
-from class_overviews.models import Course
 
 def createMajor(self):
     newMajor = Major(major = "Computer Science")
@@ -19,7 +16,6 @@ def createStudentUser(self):
     newStudent = StudentUser(user = User.objects.create_user(username='Daniel',
                                                          email='abc@case.edu',
                                                          password='password'))
-
     return  newStudent
 def createDepartment(self):
     newdepartment = Department(department_code = "EECS",
