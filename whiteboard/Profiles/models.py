@@ -59,6 +59,14 @@ class Department(models.Model):
     majors = models.ManyToManyField('Major', blank=True)
     minors = models.ManyToManyField('Minor', blank=True)
 
+    def getCurrentClasses(self):
+        classes = self.classes.filter(season = "Fall", year = 2015)
+        return classes
+
+    def getOlderClasses(self):
+        classes = self.classes.exclude(season = "Fall", year = 2015)
+        return classes
+
     def __str__(self):
         return self.department_name
 
@@ -78,6 +86,14 @@ class Professor(models.Model):
 
     def __str__(self):
         return self.first_name + " " + self.last_name
+
+    def getCurrentClasses(self):
+        classes = self.classes.filter(season = "Fall", year = 2015)
+        return classes
+
+    def getOlderClasses(self):
+        classes = self.classes.exclude(season = "Fall", year = 2015)
+        return classes
 
     class Meta:
             ordering = ['last_name', 'first_name']

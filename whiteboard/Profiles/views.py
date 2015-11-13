@@ -45,12 +45,17 @@ def professorProfile(request, first, last):
         professor = prof[0]
         user = StudentUser.objects.filter(user=request.user)[0]
         curr_user_classes = StudentUser.getCurrentClasses(user)
+        prof_curr_classes = Professor.getCurrentClasses(prof)
+        prof_past_classes = Professor.getCurrentClasses(prof)
+
 
         context = RequestContext(request, {
                                  'professor': professor,
                                  'curr_user': user,
                                  'curr_user_classes': curr_user_classes,
-                                 })
+                                 'prof_curr_classes': prof_curr_classes,
+                                 'prof_past_classes': prof_past_classes,
+                                  })
     return render_to_response(template, locals(), context)
 
 @login_required
@@ -65,11 +70,15 @@ def departmentProfile(request, code):
         department = depart[0]
         user = StudentUser.objects.filter(user=request.user)[0]
         curr_user_classes = StudentUser.getCurrentClasses(user)
-        
+        dept_curr_classes = Professor.getCurrentClasses(prof)
+        dept_past_classes = Professor.getCurrentClasses(prof)
+
         context = RequestContext(request, {
                                  'department': department,
                                  'curr_user': user,
                                  'curr_user_classes': curr_user_classes,
+                                 'dept_curr_classes': prof_curr_classes,
+                                 'dept_past_classes': prof_past_classes,
                                  })
     return render_to_response(template, locals(), context)
 
