@@ -5,3 +5,5 @@ bin/*
 lib/*
 include/*
 .idea/*
+whiteboard/*/.idea/*
+whiteboard/.idea/*
