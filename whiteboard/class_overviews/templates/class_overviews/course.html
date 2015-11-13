@@ -123,15 +123,17 @@
 	    <div class="site-container">
 
 	    	<div class="title-link"><a href="#">class documents</a></div>
-
+                <a href="/course/{{section.course.department}}{{section.course.course_number}}/{{section.section_number}}/upload_document">Upload document</a>
 	    	<div class="link-list">
 	    		<ul class="list-group">
                 {% if documents %}
                     {% for d in documents %}
-                        <a href={{d.path}} class="list-group-item">
-                            <p class="list-group-item-text">{{d.name}}</p>
+                        <a href="{{d.file.path}}" download target="_self" class="list-group-item" download>
+                            <p class="list-group-item-text">
+                                {{d.name}}
+                            </p>
                             <!--Add an if statement for if there is a description -->
-                            <p class="list-group-item-text">{{d.description}}</p>
+                            <!--<p class="list-group-item-text">{{d.description}}</p>-->
                         </a>
                     {% endfor %}
                 {% else %}

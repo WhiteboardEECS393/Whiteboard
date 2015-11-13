@@ -1,0 +1,56 @@
+{% extends "basic_page.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block body %}
+<title>Upload Document</title>
+    <div class="class-title">
+        <h2>Upload Document for {{course.department}}{{course.course_number}}: {{course.course_name}} {{section.season}}{{section.year}}</h2>
+    </div>
+
+    <div class="col-md-12">
+        <div class="site-container-post thread-list">
+
+            <div class="new-post">
+                <ul class="new-post-content">
+
+                        <h4 class="new-post-header">New Document</h4>
+                        <!--<form id="upload_file_form" action="." method="post">
+                            {% csrf_token %}
+                            <p><label for="id_name">Name:</label>
+                                <input id="id_name" type="text" name="name" maxlength="100" /></p>
+                            <p><label for="id_description">Description:</label>
+                                <input type="text" name="description" id="id_description" /></p>
+                            <p><label for="id_path">Path:</label>
+                                <input type="text" name="path" id="id_path" /></p>
+                            <input class="submit-button" type="submit" value="Submit">
+                        </form>/course/{{c.department}}{{c.course_number}}/{{s.section_number}}-->
+                        <form action="/course/{{course.department}}{{course.course_number}}/{{section.section_number}}/upload_document" method="post" enctype="multipart/form-data">
+			                {% csrf_token %}
+                            <p><label for="id_name">Name:</label>
+                                <input id="id_name" type="text" name="name" maxlength="100" /></p>
+                            <p><label for="id_description">Description:</label>
+                                <input type="text" name="description" id="id_description" /></p>
+                            <p>Select a file: <input type="file" name="file"></p>
+			                <p>{{ form.non_field_errors }}</p>
+			                <p>{{ form.file.label_tag }} {{ form.file.help_text }}</p>
+			                <p>
+				            {{ form.file.errors }}
+				            {{ form.file }}
+			                </p>
+			                <p><input type="submit" value="Upload" /></p>
+		                </form>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+{% endblock %}
+ </html>
