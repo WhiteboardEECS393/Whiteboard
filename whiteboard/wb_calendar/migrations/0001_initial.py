@@ -15,23 +15,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Calendar',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('name', models.CharField(max_length=50)),
                 ('owner', models.ForeignKey(to='Profiles.StudentUser')),
             ],
         ),
         migrations.CreateModel(
-            name='DaysOfWeek',
-            fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
-                ('day', models.CharField(max_length=20)),
-                ('number', models.IntegerField()),
-            ],
-        ),
-        migrations.CreateModel(
             name='Event',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('title', models.CharField(max_length=200)),
                 ('description', models.CharField(max_length=300)),
                 ('start_time', models.TimeField()),
@@ -39,9 +31,9 @@ class Migration(migrations.Migration):
                 ('start_date', models.DateField()),
                 ('end_date', models.DateField()),
                 ('recurring', models.BooleanField(default=False)),
+                ('recurring_days', models.CharField(blank=True, null=True, max_length=7)),
                 ('calendar', models.ForeignKey(to='wb_calendar.Calendar')),
                 ('course_section', models.ForeignKey(to='class_overviews.Section')),
-                ('recurring_days', models.ManyToManyField(to='wb_calendar.DaysOfWeek')),
             ],
         ),
     ]
