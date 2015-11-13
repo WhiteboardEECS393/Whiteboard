@@ -63,7 +63,7 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
         'students' : students,
         'teaching_assistants' : tas,
         'curr_user' : user,
-        'classes' : curr_classes,
+        'curr_user_classes' : curr_classes,
         'professor' : professor,
     })
     return render_to_response(template, locals(), context)

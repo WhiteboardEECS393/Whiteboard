@@ -1,65 +1,34 @@
 from django import forms
-from django.contrib.auth import authenticate
-from django.contrib.auth.models import User
-from Profiles.models import StudentUser, Major, Minor
+from .models import StudentUser, Major, Minor
+from django.shortcuts import HttpResponse
 
 
-class LoginForm(forms.Form):
-    username = forms.CharField(max_length=255, required=True)
-    password = forms.CharField(widget=forms.PasswordInput, required=True)
-
-    def clean(self):
-        username = self.cleaned_data.get('username')
-        password = self.cleaned_data.get('password')
-        user = authenticate(username=username, password=password)
-        if not user or not user.is_active:
-            raise forms.ValidationError("Incorrect Username or Password")
-        return self.cleaned_data
-
-    def login(self, request):
-        username = self.cleaned_data.get('username')
-        password = self.cleaned_data.get('password')
-        user = authenticate(username=username, password=password)
-        return user
-
-
-class CreateUserForm(forms.Form):
-    username = forms.CharField(max_length=255, required=True)
-    password = forms.CharField(widget=forms.PasswordInput, required=True)
-    confirmpass = forms.CharField(widget=forms.PasswordInput, required=True)
+class EditProfileForm(forms.Form):
     first_name = forms.CharField(max_length=100)
     last_name = forms.CharField(max_length=100)
     email_id = forms.EmailField(max_length=254)
     bio = forms.CharField(max_length=500)
     grad_year = forms.IntegerField()
+    majors = forms.ModelMultipleChoiceField(queryset=Major.objects.all(), widget=forms.SelectMultiple, required=False)
+    minors = forms.ModelMultipleChoiceField(queryset=Minor.objects.all(), widget=forms.SelectMultiple, required=False)
 
     def clean(self):
-        username = self.cleaned_data.get('username')
-        password = self.cleaned_data.get('password')
-        confirmpass = self.cleaned_data.get('confirmpass')
-        if len(User.objects.filter(username=username)) > 0:
-            raise forms.ValidationError("Username already taken")
-        elif confirmpass != password:
-            raise forms.ValidationError("Passwords do not match")
-        return self.cleaned_data
-
-    def create_new_user(self, request):
-        username = self.cleaned_data.get('username')
-        password = self.cleaned_data.get('password')
         first_name = self.cleaned_data.get('first_name')
         last_name = self.cleaned_data.get('last_name')
         email_id = self.cleaned_data.get('email_id')
         bio = self.cleaned_data.get('bio')
         grad_year = self.cleaned_data.get('grad_year')
-        User.objects.create_user(username=username, password=password)
-        user = authenticate(username=username, password=password)
-        new_student = StudentUser(
-            user=user,
-            first_name=first_name,
-            last_name=last_name,
-            email_id=email_id,
-            bio=bio,
-            grad_year=grad_year,
-            )
-        new_student.save()
-        return user
+        majors = self.cleaned_data.get('majors')
+        minors = self.cleaned_data.get('minors')
+        return self.cleaned_data
+
+    def edit_user(self, request):
+        current_user = StudentUser.objects.filter(user=request.user)[0]
+        current_user.first_name = self.cleaned_data.get('first_name')
+        current_user.last_name = self.cleaned_data.get('last_name')
+        current_user.email_id = self.cleaned_data.get('email_id')
+        current_user.bio = self.cleaned_data.get('bio')
+        current_user.grad_year = self.cleaned_data.get('grad_year')
+        current_user.majors = self.cleaned_data.get('majors')
+        current_user.minors = self.cleaned_data.get('minors')
+        current_user.save()
