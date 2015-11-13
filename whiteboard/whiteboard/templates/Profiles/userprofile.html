@@ -3,6 +3,17 @@
 <!DOCTYPE html>
 <html lang="en">
 {% block body %}
+
+<head>
+
+    <link href='{% static 'FullCalendar/fullcalendar.css' %}' rel='stylesheet' />
+    <link href='{% static 'FullCalendar/fullcalendar.print.css' %}' rel='stylesheet' media='print' />
+    <script src='{% static 'FullCalendar/lib/moment.min.js' %}'></script>
+    <script src='{% static 'FullCalendar/lib/jquery.min.js' %}'></script>
+    <script src='{% static 'FullCalendar/fullcalendar.min.js' %}'></script>
+
+    <script src='{% static 'FullCalendar/calendar.js' %}'></script>
+</head>
 <title>{{student.first_name}} {{student.last_name}}</title>	
 <!--div class="class-title">
 	<h2>{{student.first_name}} {{student.last_name}}</h2-->
@@ -89,20 +100,24 @@
             <div class="page-content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-10">
                             <div class="site-container thread-list">
                                 
                                 <div>
                                     
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-pills" role="tablist" id="pill_tabs">
-                                        <li class="active"><a href="#home" aria-controls="home" role="pill" data-toggle="pill">Calandar</a></li>
+                                        <li class="active"><a href="#home" aria-controls="home" role="pill" data-toggle="pill">Calendar</a></li>
                                         <li><a class="righty" href="#profile" aria-controls="profile" role="pill" data-toggle="pill">Recent Posts</a></li>
                                     </ul>
                                     
                                     <!-- Tab panes -->
                                     <div class="tab-content">
-                                        <div role="tabpanel" class="tab-pane active" id="home">Insert Calander here</div>
+                                        <div role="tabpanel" class="tab-pane active" id="home">
+                                            <div class="calendar-section">
+                                                <div id='calendar'></div>
+                                            </div>
+                                        </div>
                                         <div role="tabpanel" class="tab-pane" id="profile">
                                         
                                         

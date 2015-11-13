@@ -222,7 +222,7 @@ hr {
 
 #pill_tabs {
     margin: auto;
-    width: 19.75%;
+    width: 24.25%;
     border: solid 1px rgb(179, 73, 47);
     border-radius: 5px !important;
     margin-bottom: 20px;
@@ -329,4 +329,8 @@ hr {
 
 .office {
     margin-top: -10px;
+}
+
+.calendar-section {
+    width: 100%;
 }
