@@ -50,6 +50,9 @@ def create_board(request):
 
 @login_required
 def thread(request, thread_id, start_post=None):
+    user = StudentUser.objects.get(user=request.user.id)
+    if not user:
+        return HttpResponseRedirect('/')
     if start_post is None:
         start_post = 0
     post_list = Post.objects.filter(thread=thread_id).order_by('time_of_creation')
@@ -57,6 +60,7 @@ def thread(request, thread_id, start_post=None):
     context = {
         'post_list': post_list,
         'thread': current_thread,
+        'curr_user': user,
     }
     return render(request, 'wbMessageBoard/postedthread.html', context)
 
@@ -82,7 +86,8 @@ def create_thread(request, board_id):
                                         + str(board.course.section_number))
     else:
         form = ThreadForm()
-    return render(request, 'wbMessageBoard/createpost.html', {'form': form, 'board': board, 'user': user})
+    return render(request, 'wbMessageBoard/createpost.html', {'form': form, 'board': board, 'user': user,
+                                                              'curr_user': user, })
 
 
 @login_required
@@ -99,4 +104,5 @@ def create_post(request, thread_id):
             return HttpResponseRedirect('/boards/thread/' + thread_id)
     else:
         form = ReplyForm()
-    return render(request, 'wbMessageBoard/create_reply.html', {'form': form, 'thread_id': thread_id, 'user': user})
+    return render(request, 'wbMessageBoard/create_reply.html', {'form': form, 'thread_id': thread_id, 'user': user,
+                                                                'curr_user': user, })

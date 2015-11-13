@@ -53,7 +53,7 @@ def importClasses(request):
         saveEvent(title=c.course.course_name + ' ' +str(c.course.course_number), description=c.section_number,
                   calendar=calendar, start=c.start_time, end=c.end_time, allDay=False, recurring=True,
                   dow=c.days_of_week)
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/Profiles/'+user.first_name+user.last_name+'/'+str(user.id))
 
 
 
