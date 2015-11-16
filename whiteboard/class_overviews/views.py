@@ -104,7 +104,6 @@ def upload_document(request, depart, course_num, section_num):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            #handle_uploaded_file(request.FILES['file'], )
             new_document = Document( name = form.cleaned_data['name'],
                                 description = form.cleaned_data['description'],
                                 file = request.FILES['file'],
@@ -127,10 +126,6 @@ def upload_document(request, depart, course_num, section_num):
 
     return render(request, 'class_overviews/upload_document.html', context)
 
-def handle_uploaded_file(f):
-    with open("static/document/", 'wb+') as destination:
-        for chunk in f.chunks():
-            destination.write(chunk)
 
 
 
