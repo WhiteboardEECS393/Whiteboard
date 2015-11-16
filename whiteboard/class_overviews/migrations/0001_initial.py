@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Course',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('department', models.CharField(max_length=4)),
                 ('course_number', models.IntegerField(default=999)),
                 ('course_name', models.CharField(max_length=200)),
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Document',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=100)),
                 ('description', models.CharField(blank=True, max_length=300)),
                 ('file', models.FileField(upload_to='static/documents')),
@@ -32,8 +32,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Section',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
-                ('season', models.CharField(default='Fall', max_length=10)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
+                ('season', models.CharField(max_length=10, default='Fall')),
                 ('year', models.IntegerField(default=2015)),
                 ('location', models.CharField(max_length=50)),
                 ('start_time', models.TimeField(blank=True)),
