@@ -30,8 +30,7 @@
             <div class="row">
                 
                 <div class="col-md-1">
-                    <!--img class="profile-picture" src="{% static curr_user.photo %}" alt="Tekin"-->
-                    <img class="profile-picture" src="http://art.case.edu/images/2005.10.jpg">
+                    <img class="profile-picture" src="{% static photo %}" alt="No File Found">
                 </div>
                 
                 <div class="col-md-2" id="student_name_bio">
@@ -63,7 +62,7 @@
               </div>
             
             <div class="row" id="bio">
-                <p class="list-group-item-text">&emsp;&emsp;&emsp;{{ student.bio }}</p>
+                <p class="list-group-item-text">&emsp;&emsp;&emsp;{{student.bio}}</p>
                 
             </div>
             

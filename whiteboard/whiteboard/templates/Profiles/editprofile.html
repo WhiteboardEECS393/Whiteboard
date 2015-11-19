@@ -11,7 +11,7 @@
 
 <div class="col-md-4">
 	<div class="site-container">
-		<img class="profile-picture" src="{% static current_user.photo %}" alt="Tekin">
+		<img class="profile-picture" src="{% static photo %}" alt="No File Found">
 		<p>Select a new picture: <input type="file" name="file"></p>
 			                <p>{{ form.non_field_errors }}</p>
 			                <p>{{ form.file.label_tag }} {{ form.file.help_text }}</p>
@@ -47,51 +47,6 @@
 			<button type="sumbit" class="login">Save</button>
 		</form>
 
-	</div>
-
-<div class="site-container">
-	<div class="title-link"><a href="#">classes</a></div>
-		<div class="link-list">
-			<ul class="list-group">
-				<a href="../../../course/EECS325" class="list-group-item">
-					<p class="list-group-item-text">EECS 325: Computer Networks</p>
-				</a>
-				<a href="../../../course/EECS393" class="list-group-item">
-					<p class="list-group-item-text">EECS 393: Software Engineering</p>
-				</a>
-				<a href="#" class="list-group-item">
-					<p class="list-group-item-text">SOCI 113: Problems in Modern Society</p>
-				</a>
-				<a href="#" class="list-group-item">
-					<p class="list-group-item-text">PHIL 201: Intro to Logic</p>
-				</a>
-				<a href="#" class="list-group-item">
-					<p class="list-group-item-text">MATH 201: Intro to Linear Algebra</p>
-				</a>
-			</ul>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-8">
-	<div class="site-container thread-list">
-		<div class="title-link">recent posts</div>
-			<div class="link-list">
-				{% if curr_user.thread_set.all|length > 0 %}
-					<ul class="list-group">
-						{% for thread in curr_user.thread_set.all %}
-							  <a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">{{ thread.subject }}</h4>
-								<p class="list-group-item-text">Posted at: {{thread.time_of_creation}}</p>
-								<p class="list-group-item-text">{{ thread.message }}</p>
-							  </a>
-						{% endfor %}
-					</ul>
-				{% else %}
-					<p><br><br><br><br>&emsp;There are no posts to show.<br><br><br><br></p>
-				{% endif %}
-			</div>
-		</div>
 	</div>
 </div>
 {% endblock %}

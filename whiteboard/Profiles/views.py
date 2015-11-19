@@ -30,6 +30,7 @@ def profile(request, first, last, student_id):
             'curr_user_classes': curr_user_classes,
             'majors': majors,
             'minors': minors,
+            'photo': student.photo.name[16:],
         })
     return render_to_response(template, locals(), context)
 
@@ -55,6 +56,7 @@ def professorProfile(request, first, last):
                                  'curr_user_classes': curr_user_classes,
                                  'prof_curr_classes': prof_curr_classes,
                                  'prof_past_classes': prof_past_classes,
+                                 'photo' : professor.photo.name[16:],
                                   })
     return render_to_response(template, locals(), context)
 
@@ -111,4 +113,7 @@ def edit_profile(request, first, last, student_id):
                                                                                  'threads': threads,
                                                                                  'edit_profile_form': form,
                                                                                  'curr_user_classes': curr_user_classes,
+                                                                                 'photo': curr_user.photo.name[16:],
                                                                                  }))
+
+
