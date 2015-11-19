@@ -128,7 +128,7 @@
 	    		<ul class="list-group">
                 {% if documents %}
                     {% for d in documents %}
-                        <a href="{{d.file.path}}" class="list-group-item" download>
+                        <a href="{{d.file.name}}" class="list-group-item" download>
                             <p class="list-group-item-text">
                                 {{d.name}}
                             </p>
