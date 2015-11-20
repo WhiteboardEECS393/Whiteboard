@@ -93,22 +93,25 @@ def edit_profile(request, first, last, student_id):
     threads = curr_user.thread_set.all()
     curr_user_classes = StudentUser.getCurrentClasses(curr_user)
     if request.method == 'POST':
-        form = EditProfileForm(request.POST)
+        form = EditProfileForm(request.POST, request.FILES)
         if form.is_valid():
             form.edit_user(request,)
+            curr_user.photo = request.FILES['photo']
+            curr_user.save()
             redirect = '/Profiles/' + curr_user.first_name + curr_user.last_name + '/' + str(curr_user.pk) + '/'
             return HttpResponseRedirect(redirect)
         else:
             return HttpResponse("Invalid Form")
     else:
         form = EditProfileForm(initial={'first_name': curr_user.first_name,
-                                                              'last_name': curr_user.last_name,
-                                                              'email_id': curr_user.email_id,
-                                                              'bio': curr_user.bio,
-                                                              'grad_year': curr_user.grad_year,
-                                                              'majors': curr_user.majors.values_list('id', flat=True),
-                                                              'minors': curr_user.minors.values_list('id', flat=True),
-                                                              })
+                                        'last_name': curr_user.last_name,
+                                        'email_id': curr_user.email_id,
+                                        'bio': curr_user.bio,
+                                        'grad_year': curr_user.grad_year,
+                                        'majors': curr_user.majors.values_list('id', flat=True),
+                                        'minors': curr_user.minors.values_list('id', flat=True),
+                                        'photo' : curr_user.photo,
+                                        })
     return render(request, 'Profiles/editprofile.html', RequestContext(request, {'curr_user': curr_user,
                                                                                  'threads': threads,
                                                                                  'edit_profile_form': form,

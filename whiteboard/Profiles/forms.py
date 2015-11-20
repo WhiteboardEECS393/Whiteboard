@@ -4,6 +4,7 @@ from django.shortcuts import HttpResponse
 
 
 class EditProfileForm(forms.Form):
+    photo = forms.FileField()
     first_name = forms.CharField(max_length=100)
     last_name = forms.CharField(max_length=100)
     email_id = forms.EmailField(max_length=254)
@@ -13,6 +14,7 @@ class EditProfileForm(forms.Form):
     minors = forms.ModelMultipleChoiceField(queryset=Minor.objects.all(), widget=forms.SelectMultiple, required=False)
 
     def clean(self):
+        photo = self.cleaned_data.get('photo')
         first_name = self.cleaned_data.get('first_name')
         last_name = self.cleaned_data.get('last_name')
         email_id = self.cleaned_data.get('email_id')
@@ -23,7 +25,9 @@ class EditProfileForm(forms.Form):
         return self.cleaned_data
 
     def edit_user(self, request):
+
         current_user = StudentUser.objects.filter(user=request.user)[0]
+        # current_user.photo = self.cleaned_data.get('photo')
         current_user.first_name = self.cleaned_data.get('first_name')
         current_user.last_name = self.cleaned_data.get('last_name')
         current_user.email_id = self.cleaned_data.get('email_id')

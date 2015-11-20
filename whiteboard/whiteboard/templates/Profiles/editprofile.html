@@ -6,23 +6,19 @@
 <title>{{curr_user.first_name}} {{curr_user.last_name}}</title>	
 <div class="class-title">
 	<h2>{{curr_user.first_name}} {{curr_user.last_name}}</h2>
-	<p>You made it to the edit page!!</p>
 </div>
 
 <div class="col-md-4">
 	<div class="site-container">
-		<img class="profile-picture" src="{% static photo %}" alt="No File Found">
-		<p>Select a new picture: <input type="file" name="file"></p>
-			                <p>{{ form.non_field_errors }}</p>
-			                <p>{{ form.file.label_tag }} {{ form.file.help_text }}</p>
-			                <p>
-				            {{ form.file.errors }}
-				            {{ form.file }}
-			                </p>
-			                <p><input type="submit" value="Upload" /></p>
 		<div class="title-link"><a href="#">overview</a></div>
+		<img class="profile-picture" src="{% static photo %}" alt="No File Found">
+
 		<form id="edit_profile_form" method="post" class="username-pass-fields" action="">
 			{% csrf_token %}
+			<br/>
+			Select a new picture:<br/>
+			{{ edit_profile_form.photo }}
+			<br/>
 			First Name:<br/>
 			{{ edit_profile_form.first_name }}
 			<br/>
@@ -44,7 +40,7 @@
 			Minor(s):<br/>
 			{{ edit_profile_form.minors }}
 			<br/>
-			<button type="sumbit" class="login">Save</button>
+			<button type="submit" class="login">Save</button>
 		</form>
 
 	</div>
