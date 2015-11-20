@@ -1,6 +1,16 @@
 from django.db import models
 
 
+class Semester(models.Model):
+    season = models.CharField(max_length=10, default="Fall")
+    year = models.IntegerField(default=2015)
+    startDate = models.DateField()
+    endDate = models.DateField()
+
+    def __str__(self):
+        return self.season + " " + str(self.year)
+
+
 class Course(models.Model):
     department = models.CharField(max_length=4)
     course_number = models.IntegerField(default=999)
@@ -12,20 +22,16 @@ class Course(models.Model):
 
 
 class Section(models.Model):
-    season = models.CharField(max_length=10, default="Fall")
-    year = models.IntegerField(default=2015)
     location = models.CharField(max_length=50)
     start_time = models.TimeField(auto_now=False, blank=True)
     end_time = models.TimeField(auto_now=False, blank=True)
     days_of_week = models.CharField(max_length=7)
     section_number = models.IntegerField(default=0)
     course = models.ForeignKey(Course)
-
-    class Meta:
-        ordering = ['-year', 'season']
+    semester = models.ForeignKey(Semester)
 
     def __str__(self):
-        return str(self.course) + " (" + str(self.section_number) + ") " + self.season + str(self.year)
+        return str(self.course) + " (" + str(self.section_number) + ") " + self.semester.season + str(self.semester.year)
 
 
 class Document(models.Model):
@@ -36,3 +42,4 @@ class Document(models.Model):
 
     def __str__(self):
         return self.name
+

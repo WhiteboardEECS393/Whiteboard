@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from class_overviews.models import Semester
+
 
 
 class Major(models.Model):
@@ -41,11 +43,13 @@ class StudentUser(models.Model):
         return self.first_name + " " + self.last_name
 
     def getCurrentClasses(self):
-        classes = self.student_classes.filter(season = "Fall", year = 2015)
+        semester = Semester.objects.filter(season = "Fall", year = 2015)[0]
+        classes = self.student_classes.filter(semester = semester)
         return classes
 
     def getOlderClasses(self):
-        classes = self.student_classes.exclude(season = "Fall", year = 2015)
+        semester = Semester.objects.filter(season = "Fall", year = 2015)[0]
+        classes = self.student_classes.exclude(semester = semester)
         return classes
 
     class Meta:
@@ -58,14 +62,6 @@ class Department(models.Model):
     department_info = models.CharField(max_length=500)
     majors = models.ManyToManyField('Major', blank=True)
     minors = models.ManyToManyField('Minor', blank=True)
-
-    def getCurrentClasses(self):
-        classes = self.classes.filter(season = "Fall", year = 2015)
-        return classes
-
-    def getOlderClasses(self):
-        classes = self.classes.exclude(season = "Fall", year = 2015)
-        return classes
 
     def __str__(self):
         return self.department_name
@@ -88,11 +84,13 @@ class Professor(models.Model):
         return self.first_name + " " + self.last_name
 
     def getCurrentClasses(self):
-        classes = self.classes.filter(season = "Fall", year = 2015)
+        semester = Semester.objects.filter(season = "Fall", year = 2015)[0]
+        classes = self.classes.filter(semester = semester)
         return classes
 
     def getOlderClasses(self):
-        classes = self.classes.exclude(season = "Fall", year = 2015)
+        semester = Semester.objects.filter(season = "Fall", year = 2015)[0]
+        classes = self.classes.exclude(semester = semester)
         return classes
 
     class Meta:
