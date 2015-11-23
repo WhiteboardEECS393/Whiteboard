@@ -32,3 +32,6 @@ class EditProfileForm(forms.Form):
         current_user.majors = self.cleaned_data.get('majors')
         current_user.minors = self.cleaned_data.get('minors')
         current_user.save()
+
+class EditProfilePictureForm(forms.Form):
+    file = forms.FileField(label='Select a file')

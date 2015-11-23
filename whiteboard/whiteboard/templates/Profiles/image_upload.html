@@ -1,0 +1,42 @@
+{% extends "basic_page.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block body %}
+<title>Upload Document</title>
+    <div class="class-title">
+        <h2>Upload Image for Profile Picture of {{curr_user.first_name}} {{curr_user.last_name}}</h2>
+    </div>
+
+    <div class="col-md-12">
+        <div class="site-container-post thread-list">
+
+            <div class="new-post">
+                <ul class="new-post-content">
+
+                        <h4 class="new-post-header">New Profile Pic</h4>
+                        <form action="/Profiles/{{curr_user.first_name}}{{curr_user.last_name}}/{{curr_user.pk}}/image_upload" method="post" enctype="multipart/form-data">
+			                {% csrf_token %}
+                            <p>Select an image: <input type="file" name="file"></p>
+			                <p>{{ form.non_field_errors }}</p>
+			                <p>{{ form.file.label_tag }} {{ form.file.help_text }}</p>
+			                <p>
+				            {{ form.file.errors }}
+				            {{ form.file }}
+			                </p>
+			                <p><input type="submit" value="Upload" /></p>
+		                </form>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+{% endblock %}
+ </html>
