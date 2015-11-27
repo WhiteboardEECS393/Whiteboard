@@ -1,5 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
+from class_overviews.models import Semester
+from django.db import models
 from .models import Major
 from .models import Minor
 from .models import StudentUser
@@ -29,6 +31,12 @@ def createProfessor(self):
                              bio = "Something or the other",
                              office_location = "Where the sun don't shine")
     return newProfessor
+def createSemester(self):
+    testSemester = Semester(startDate = models.DateTimeField(auto_now=True,
+                                                             auto_now_add=True),
+                            endDate = models.DateTimeField(auto_now=True,
+                                                           auto_now_add=True))
+    return testSemester
 
 class ProfilesMethodTests(TestCase):
     def test_Major_str(self):
@@ -42,6 +50,14 @@ class ProfilesMethodTests(TestCase):
     def test_Student_str(self):
         testStudentUser = createStudentUser(self)
         self.assertEquals(testStudentUser.first_name + " " + testStudentUser.last_name, testStudentUser.__str__())
+
+#    def testGetCurrentClasses(self):
+#        testSemester = createSemester(self)
+#        testStudent = createStudentUser(self)
+#        testCurrentSemester = Semester.objects.filter(season = "Fall", year = 2015)[0]
+#        testClasses =  testStudent.student_classes.filter(semester = testSemester)
+#        self.assertEquals(testClasses, testStudent.getCurrentClasses())
+
 
     def test_Department_str(self):
         testDepartment = createDepartment(self)
