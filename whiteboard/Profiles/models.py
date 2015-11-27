@@ -32,7 +32,7 @@ class StudentUser(models.Model):
     last_name = models.CharField(max_length=100, default="Last")
     email_id = models.EmailField(max_length=254, default='abc123@case.edu')
     bio = models.CharField(max_length=500, default='none')
-    photo = models.CharField(max_length=200, default='none')  # stores a string that holds the photo file path
+    photo = models.FileField(upload_to='Profiles/static/img')
     grad_year = models.IntegerField(default=2016)
     majors = models.ManyToManyField('Major', blank=True)
     minors = models.ManyToManyField('Minor', blank=True)
@@ -77,7 +77,7 @@ class Professor(models.Model):
     bio = models.CharField(max_length=500)
     current_department = models.ForeignKey('Department', blank=True, null=True)
     office_location = models.CharField(max_length=100)
-    photo = models.CharField(max_length=200, default='none')  # stores a string that holds the photo file path
+    photo = models.FileField(upload_to='Profiles/static/img')  # stores a string that holds the photo file path
     classes = models.ManyToManyField('class_overviews.Section', blank=True)
 
     def __str__(self):

@@ -30,8 +30,7 @@
             <div class="row">
                 
                 <div class="col-md-1">
-                    <!--img class="profile-picture" src="{% static curr_user.photo %}" alt="Tekin"-->
-                    <img class="profile-picture" src="http://art.case.edu/images/2005.10.jpg">
+                    <img class="profile-picture" src="{% static photo %}" alt="No Image Selected">
                 </div>
                 
                 <div class="col-md-2" id="student_name_bio">
@@ -64,7 +63,10 @@
             
             <div class="row" id="bio">
                 <p class="list-group-item-text">&emsp;&emsp;&emsp;{{ student.bio }}</p>
-                
+                {% if curr_user == student %}
+                    <p class="editbutton"><a href="/Profiles/{{curr_user.first_name}}{{curr_user.last_name}}/{{curr_user.id}}/image_upload">Edit Profile Picture</a></p>
+                    <p class="editbutton"><a href="/Profiles/{{curr_user.first_name}}{{curr_user.last_name}}/{{curr_user.id}}/edit">Edit Profile Info</a></p>
+                {% endif %}
             </div>
             
             <div class="profile-classes">
@@ -86,10 +88,6 @@
                     </ul>
                     
                 </div>
-                
-                {% if curr_user == student %}
-                <p class="editbutton"><a href="/Profiles/{{curr_user.first_name}}{{curr_user.last_name}}/{{curr_user.id}}/edit">Edit Profile</a></p>
-                {% endif %}
                 
             </div>
                 
@@ -164,13 +162,9 @@
 
 <!--div class="col-md-4">
 	<div class="site-container">
-
 	</div>
-
 	<div class="site-container">
-
 		<div class="title-link"><a href="#">current classes</a></div>
-
 		<div class="link-list">
 			<ul class="list-group">
 				{% if curr_user_classes %}
@@ -188,7 +182,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="col-md-8">
 	<div class="site-container thread-list">
 		<div class="title-link">recent posts</div>
