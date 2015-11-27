@@ -45,4 +45,3 @@ def create_new_user(request,):
 def logout_view(request,):
     logout(request)
     return HttpResponseRedirect('../')
-

@@ -1,0 +1,96 @@
+
+
+
+* {
+    /*border-top-left-radius: 10px !important;*/
+}
+
+.spacer {
+	/*margin: 40px;*/
+}
+
+.site-container {
+    /*margin: auto;*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    
+    width: 460px;
+    
+
+}
+
+.site-container .thread-list {
+	float: right;
+}
+
+
+
+.link-list {
+	border: solid 1px rgb(179, 73, 47);
+    border-radius: 13px !important;
+}
+
+a.list-group-item .list-group-item-heading,
+button.list-group-item .list-group-item-heading{
+    color: rgb(111, 67, 57);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    
+    margin: 20px;
+}
+
+.list-group-item-heading {
+    background-color: rgb(179, 73, 47);
+    padding-top: 20px;
+    color: rgb(255, 255, 255);
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+}
+
+.list-group {
+	margin-bottom: 30px;
+}
+
+.list-group-item-heading {
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.list-group-item-text {
+    padding: 12px;
+    margin-top: 5px;
+    margin-left: 115px;
+}
+
+.username-pass-fields {
+    margin-left: 150px;
+    margin-top: 30px;
+}
+
+.login {
+    margin-top: 10px;
+    margin-left: -2px;
+    background-color: rgb(179, 73, 47);
+    color: rgb(255, 255, 255);
+    width: 164px;
+}
+    
+.ta-check{
+    margin-top:50px;
+}
+
+.login-error-msg{
+	margin-left: 125px;
+	margin-top: 20px;
+	color: red;
+	font-size: 110%;
+}
+
+
+
+
+
+

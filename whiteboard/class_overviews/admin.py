@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Course, Section, Document
+from .models import Course, Section, Document, Semester
 
 
 class Sections(admin.StackedInline):
@@ -13,4 +13,5 @@ class CourseAdmin(admin.ModelAdmin):
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Document)
+admin.site.register(Semester)
 

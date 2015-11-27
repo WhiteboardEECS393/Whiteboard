@@ -1,0 +1,220 @@
+ {% extends "basic_page.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block body %}
+<title>{{student.first_name}} {{student.last_name}}</title>	
+<!--div class="class-title">
+	<h2>{{student.first_name}} {{student.last_name}}</h2-->
+	{% if curr_user == student %}
+		<p><a href="/Profiles/{{curr_user.first_name}}{{curr_user.last_name}}/{{curr_user.id}}/edit">Edit</a></p>
+	{% endif %}
+</div>
+
+
+<div class = "site-container">
+    
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <div class="row">
+                
+                <div class="col-md-4" id="department_name">
+                    <h3 id="prof-pic-name">{{department.department_name}}</h3>
+                    <div class="link-list" id="overview">
+                        {% if department.department_head != null %}
+						<a href="../../../Profiles/Professor/{{professor.first_name}}/{{professor.last_name}}" class="department_head">Department Head: {{ department.department_head.first_name }} {{ department.department_head.last_name }}</a>
+						{% else %}
+						<p>There is not currently a department head.</p>
+						{% endif %}
+                        <p class="department_info">Info: {{ department.department_info }}</p>
+                    </div>
+                </div>
+                
+              </div>
+            
+            <div class="row" id="bio">
+                <p class="list-group-item-text">&emsp;&emsp;&emsp;{{ student.bio }}</p>
+                
+            </div>
+            
+            <div class="profile-classes" id="professor_list">
+                <div class="title-link"><a href="#">department professors</a></div>
+                
+                <div class="link-list">
+                    <ul class="list-group" id="prof_and_majors_lists">
+                        {% for professor in department.professor_set.all %}
+							<li><a href="../../../Profiles/Professor/{{professor.first_name}}/{{professor.last_name}}">{{ professor.first_name }} {{ professor.last_name }}</a></li>
+						{% endfor %}
+                    </ul>
+                    
+                </div>
+                
+                <div class="title-link"><a href="#">department majors</a></div>
+                
+                <div class="link-list">
+                    <ul class="list-group" id="prof_and_majors_lists">
+                        {% for major in department.majors.all %}
+						<li><p>{{ major }}</p></li>
+						{% endfor %}
+                    </ul>
+                    
+                </div>
+                
+				<div class="title-link"><a href="#">department minors</a></div>
+                
+                <div class="link-list">
+                    <ul class="list-group" id="prof_and_majors_lists">
+                        {% for minor in department.minors.all %}
+						<li><p>{{ minor }}</li>
+						{% endfor %}
+                    </ul>
+                    
+                </div>
+
+                
+            </div>
+                
+                
+            </ul>
+        </div>
+        <div id="page-content-wrapper">
+            <div class="page-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="site-container thread-list">
+                                
+                                <div>
+                                    
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-pills" role="tablist" id="pill_tabs_department">
+                                        <li class="active"><a href="#home" aria-controls="home" role="pill" data-toggle="pill">Current Classes</a></li>
+                                        <li><a class="righty" href="#profile" aria-controls="profile" role="pill" data-toggle="pill">Past Classes</a></li>
+                                    </ul>
+                                    
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="home">
+                                            
+                                            <div class="professor_currrent_classes">
+                                                
+                                                <div class="link-list">
+                                                    <ul class="list-group">
+                                                        {% if dept_curr_classes %}
+                                                        {% for c in dept_curr_classes %}
+                                                        <a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
+                                                            <p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}}</p>
+                                                        </a>
+                                                        {% endfor %}
+                                                        {% else %}
+                                                        <a href="#" class="list-group-item">
+                                                            <p class="list-group-item-text">You are not registered for any courses at this time.</p>
+                                                        </a>
+                                                        {% endif %}
+                                                    </ul>
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="profile">
+                                            
+                                            
+                                            <div class="professor_currrent_classes">
+                                                
+                                                <div class="link-list">
+                                                    <ul class="list-group">
+                                                        {% if dept_past_classes %}
+                                                        {% for c in dept_past_classes %}
+                                                        <a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
+                                                            <p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}} and Memes</p>
+                                                        </a>
+                                                        {% endfor %}
+                                                        {% else %}
+                                                        <a href="#" class="list-group-item">
+                                                            <p class="list-group-item-text">You are not registered for any courses at this time.</p>
+                                                        </a>
+                                                        {% endif %}
+                                                    </ul>
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--div class="col-md-4">
+	<div class="site-container">
+
+	</div>
+
+	<div class="site-container">
+
+		<div class="title-link"><a href="#">current classes</a></div>
+
+		<div class="link-list">
+			<ul class="list-group">
+				{% if curr_user_classes %}
+					{% for c in curr_user_classes %}
+					<a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
+						<p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}}</p>
+					</a>
+					{% endfor %}
+                {% else %}
+					<a href="#" class="list-group-item">
+						<p class="list-group-item-text">You are not registered for any courses at this time.</p>
+					</a>
+                {% endif %}
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-8">
+	<div class="site-container thread-list">
+		<div class="title-link">recent posts</div>
+			<div class="link-list">
+				{% if curr_user.thread_set.all|length > 0 %}
+					<ul class="list-group">
+						{% for thread in curr_user.thread_set.all %}
+							  <a href="#" class="list-group-item">
+								<h4 class="list-group-item-heading">{{ thread.subject }}</h4>
+								<p class="list-group-item-text">Posted at: {{thread.time_of_creation}}</p>
+								<p class="list-group-item-text">{{ thread.message }}</p>
+							  </a>
+						{% endfor %}
+					</ul>
+				{% else %}
+					<p><br><br><br><br>&emsp;There are no posts to show.<br><br><br><br></p>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div-->
+</div>
+{% endblock %}
+</html>

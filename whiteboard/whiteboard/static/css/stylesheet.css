@@ -1,0 +1,386 @@
+
+* {
+    border-radius: 0 !important;
+}
+
+.spacer {
+	margin: 40px;
+}
+
+.site-container {
+	margin: 0px 20px;
+    padding-top: 80px;
+}
+
+.site-container .thread-list {
+    margin-left: 50px;
+    margin-top: -80px;
+    position: relative;
+}
+
+.department_head {
+    color: rgb(111, 67, 57);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.department_info {
+    color: rgb(111, 67, 57);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 15px;
+    margin-top: 10px;
+    width: 300px;
+}
+
+#prof_and_majors_lists {
+    color: rgb(111, 67, 57);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.link-list {
+	border: solid 1px rgb(179, 73, 47);
+}
+
+.class-title {
+    margin: 100px 35px 0px 35px;
+    font-weight: normal;
+    color: rgb(140, 140, 140);
+    font-style: inherit;
+    border-bottom: solid 1px rgb(179, 73, 47);
+}
+
+#overview {
+    border: none;
+}
+
+#prof-pic-name {
+    padding-left: 15px;
+    margin-top: -16px;
+    color: rgb(179, 73, 47);
+    text-decoration: none;
+    margin-bottom: 0px;
+}
+
+a.list-group-item .list-group-item-heading, 
+button.list-group-item .list-group-item-heading{
+	color: rgb(111, 67, 57);
+    text-decoration: none;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+#professor_info {
+    color: rgb(111, 67, 57);
+    margin-left: 15px;
+    padding-top: 10px;
+}
+
+a.list-group-item .list-group-item-heading h4{
+	font-size: 11px;
+}
+
+a.list-group-item, li.list-group-item {
+	border:none;
+}
+
+.list-group {
+	margin-bottom: 0px;
+}
+
+.link-list.a.list-group-item {
+	color: rgb(179, 73, 47);
+    text-decoration: none;
+}
+
+.link-list a, .link-list a:hover, .link-list a:focus {
+	color: rgb(111, 67, 57);
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.title-link {
+    color: rgb(179, 73, 47);
+}
+
+.title-link a, .title-link a:hover, .title-link a:focus {
+    color: rgb(179, 73, 47);
+    text-decoration: none;
+}
+
+.navbar {
+	border:none;
+    background-color: rgb(179, 73, 47);
+	margin-bottom: 0px;
+	margin-top: 0px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
+
+.navbar-default .navbar-brand {
+	color: rgb(245, 245, 245);
+	font-size: 3.5rem;
+	font-weight: bold;
+	padding-left: 50px;
+    margin: 0px 0px;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: rgb(125, 0, 0);
+}
+
+.navbar-default .navbar-nav {
+	padding-right: 50px;
+	bottom: 0px;
+	margin-bottom: 6px;
+}
+
+.professor_prof_sidebar {
+    margin-top: 30px;
+}
+
+.nav.navbar-nav.navbar-right > li > a{
+	padding-top: 25px;
+	padding-bottom: 0px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: rgb(255, 255, 255);
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.navbar-default .navbar-nav > li {
+	padding-left: 20px;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: rgb(125, 0, 0);
+}
+
+hr { 
+	margin: 0px 0px;
+	width:100%; 
+	height:0px;
+    background: rgb(110, 0, 0);
+}
+
+.list-separator {
+	width: 50%;
+	margin-left: 25%;
+    background-color: rgb(255, 255, 255);
+    height:1px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 51px;
+    background: rgb(255,255,255);
+}
+
+.navbar .nav > li.dropdown.open.active > a:hover,
+.navbar .nav > li.dropdown.open > a
+{
+    color: rgb(125, 0, 0);
+    background-color: transparent;
+}
+
+.navbar-toggle {
+    color: rgb(255, 255, 255);
+}
+
+.profile-picture {
+    width:130px;
+    height:160px;
+    margin-left: 0px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    border-radius: 2px !important;
+    
+    box-shadow: 3px 3px 6px #999;
+}
+
+.sidebar {
+    background-color: rgba(179, 73, 47, .24);
+    height: 100%;
+}
+
+#student_name_bio {
+    margin-left: 100px;
+    margin-top: 60px;
+}
+
+#department_name {
+    margin-left: -20px;
+    margin-top: 60px;
+    width: 400px;
+}
+
+.row {
+    margin-left: 20px;
+}
+
+.nav-pills > li.active > a:hover{
+    color: white;
+    background-color: rgba(179, 73, 47, .80);
+}
+
+.nav-pills > li > a {
+    color: rgb(179, 73, 47);
+}
+
+.righty {
+    margin-left:-2px;
+}
+
+.nav-pills > li > a:hover{
+    background-color: rgba(179, 73, 47, .14);
+}
+
+.nav-pills > li.active > a {
+    background-color: rgb(179, 73, 47);
+}
+
+#professor_list {
+    margin-top: -30px;
+}
+
+#pill_tabs {
+    margin: auto;
+    width: 24.25%;
+    border: solid 1px rgb(179, 73, 47);
+    border-radius: 5px !important;
+    margin-bottom: 20px;
+    margin-top: -15px;
+}
+
+#pill_tabs_professor {
+    margin: auto;
+    width: 24.25%;
+    border: solid 1px rgb(179, 73, 47);
+    border-radius: 5px !important;
+    margin-bottom: 20px;
+    margin-top: -15px;
+}
+
+#pill_tabs_department {
+    margin: auto;
+    width: 24.25%;
+    border: solid 1px rgb(179, 73, 47);
+    border-radius: 5px !important;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.nav-pills > li{
+    padding: 0;
+}
+
+.thread_divide {
+    margin-top: 15px;
+    color: gray;
+}
+
+.editbutton {
+}
+
+#bio {
+    margin-left: 30px;
+    margin-top: 10px;
+    width: 290px;
+    color: rgb(111, 67, 57);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.profile-classes {
+    margin-top: 30px;
+    width: 300px;
+    margin-left: 20px;
+}
+
+
+
+#wrapper {
+    padding-left: 250px;
+    transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+    margin-left: -250px;
+    margin-top: -49px;
+    left: 250px;
+    width: 340px;
+    background-color: rgba(179, 73, 47, .24);
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: all 0.4s ease 0s;
+    padding-top: 15px;
+}
+
+.department_info {
+
+}
+
+#page-content-wrapper {
+    width: 100%;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width:767px) {
+    
+    #wrapper {
+        padding-left: 0;
+    }
+    
+    #sidebar-wrapper {
+        left: 0;
+    }
+    
+    #wrapper.active {
+        position: relative;
+        left: 250px;
+    }
+    
+    #wrapper.active #sidebar-wrapper {
+        left: 340px;
+        width: 250px;
+        transition: all 0.4s ease 0s;
+    }
+    
+}
+
+.department {
+    margin-top: -10px;
+}
+
+.office {
+    margin-top: -10px;
+}
+
+.calendar-section {
+    width: 100%;
+}
