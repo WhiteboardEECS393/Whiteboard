@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+from django.conf.global_settings import MEDIA_ROOT
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -122,5 +124,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/documents'),
     os.path.join(BASE_DIR, 'whiteboard/static'),
 )
+
+MEDIA_ROOT = '/home/vagrant/whiteboard/whiteboard/static/'
+MEDIA_URL = 'uploads/'
 
 LOGIN_URL = '/login/'

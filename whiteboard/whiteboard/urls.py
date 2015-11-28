@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from . import views
 from django.views.generic import RedirectView
+from django.conf import settings
 
 
 urlpatterns = [
@@ -30,3 +31,9 @@ urlpatterns = [
     url(r'^logout', views.logout_view, name='logout_view'),
     url(r'^calendars/', include('wb_calendar.urls')),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += url(r'^uploads/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT,
+    }),

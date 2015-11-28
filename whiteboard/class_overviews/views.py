@@ -81,6 +81,7 @@ def getThreads(s):
     threads = Thread.objects.filter(board = b)
     return threads
 
+
 @login_required
 def upload_document(request, depart, course_num, section_num):
 
@@ -111,7 +112,7 @@ def upload_document(request, depart, course_num, section_num):
             new_document.save()
             return HttpResponseRedirect('/course/' + c.department
                                         + str(c.course_number) + '/'
-                                        + s.season + str(s.year) + '/'
+                                        + s.semester.season + str(s.semester.year) + '/'
                                         + str(s.section_number))
         else:
             for field in form:
