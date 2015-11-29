@@ -22,11 +22,20 @@
                     <h3 id="prof-pic-name">{{department.department_name}}</h3>
                     <div class="link-list" id="overview">
                         {% if department.department_head != null %}
+<<<<<<< Updated upstream
 						<a href="../../../Profiles/Professor/{{professor.first_name}}/{{professor.last_name}}" class="department_head">Department Head: {{ department.department_head.first_name }} {{ department.department_head.last_name }}</a>
 						{% else %}
 						<p>There is not currently a department head.</p>
 						{% endif %}
                         <p class="department_info">Info: {{ department.department_info }}</p>
+=======
+                        <p class="department_head">{{department.department_head}}</p>
+                        {% else %}
+                        <p class="department_head">There is not currently a department head</p>
+                        {% endif %}
+                        <p class="department_head">Location: Olin</p>
+                        <p class="department_info">Info: The department for losers who spend all their god damn time on their computers</p>
+>>>>>>> Stashed changes
                     </div>
                 </div>
                 
