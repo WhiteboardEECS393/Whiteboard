@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Calendar',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
                 ('name', models.CharField(max_length=50)),
                 ('owner', models.ForeignKey(to='Profiles.StudentUser')),
             ],
@@ -22,14 +22,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Event',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
                 ('title', models.CharField(max_length=200)),
                 ('description', models.CharField(max_length=300)),
                 ('start', models.TimeField()),
                 ('end', models.TimeField()),
                 ('allDay', models.BooleanField(default=False)),
                 ('recurring', models.BooleanField(default=False)),
-                ('dow', models.CharField(max_length=7, blank=True, null=True)),
+                ('dow', models.CharField(null=True, max_length=7, blank=True)),
                 ('calendar', models.ForeignKey(to='wb_calendar.Calendar')),
             ],
         ),
