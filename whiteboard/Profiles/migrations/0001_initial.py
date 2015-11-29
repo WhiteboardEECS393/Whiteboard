@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Department',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
                 ('department_code', models.CharField(max_length=4)),
                 ('department_name', models.CharField(max_length=100)),
                 ('department_info', models.CharField(max_length=500)),
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Major',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
                 ('major', models.CharField(max_length=50)),
                 ('required_classes', models.ManyToManyField(to='class_overviews.Course', blank=True)),
             ],
@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Minor',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
                 ('minor', models.CharField(max_length=50)),
                 ('required_classes', models.ManyToManyField(to='class_overviews.Course', blank=True)),
             ],
@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Professor',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
                 ('first_name', models.CharField(max_length=100)),
                 ('last_name', models.CharField(max_length=100)),
                 ('email_id', models.EmailField(max_length=254)),
@@ -58,7 +58,7 @@ class Migration(migrations.Migration):
                 ('office_location', models.CharField(max_length=100)),
                 ('photo', models.CharField(default='none', max_length=200)),
                 ('classes', models.ManyToManyField(to='class_overviews.Section', blank=True)),
-                ('current_department', models.ForeignKey(to='Profiles.Department', blank=True, null=True)),
+                ('current_department', models.ForeignKey(blank=True, null=True, to='Profiles.Department')),
             ],
             options={
                 'ordering': ['last_name', 'first_name'],
@@ -67,7 +67,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='StudentUser',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
                 ('first_name', models.CharField(default='First', max_length=100)),
                 ('last_name', models.CharField(default='Last', max_length=100)),
                 ('email_id', models.EmailField(default='abc123@case.edu', max_length=254)),
@@ -87,7 +87,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='department',
             name='department_head',
-            field=models.ForeignKey(to='Profiles.Professor', blank=True, null=True),
+            field=models.ForeignKey(blank=True, null=True, to='Profiles.Professor'),
         ),
         migrations.AddField(
             model_name='department',
