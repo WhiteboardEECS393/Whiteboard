@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from class_overviews.models import Semester
+from class_overviews.models import Semester, Section, Course
 
 
 
@@ -65,6 +65,26 @@ class Department(models.Model):
 
     def __str__(self):
         return self.department_name
+
+    def getCurrentClasses(self):
+        semester = Semester.objects.filter(season = "Fall", year = 2015)[0]
+        courses = Course.objects.filter(department = self.department_code)
+        classes = []
+        for course in courses:
+            sections = Section.objects.filter(semester = semester, course = course)
+            if len(sections) > 0:
+                classes.extend(sections)
+        return classes
+
+    def getOlderClasses(self):
+        semester = Semester.objects.filter(season = "Fall", year = 2015)[0]
+        courses = Course.objects.filter(department = self.department_code)
+        classes = []
+        for course in courses:
+            sections = Section.objects.filter(course = course).exclude(semester = semester)
+            if len(sections) > 0:
+                classes.extend(sections)
+        return classes
 
     class Meta:
         ordering = ['department_name']
