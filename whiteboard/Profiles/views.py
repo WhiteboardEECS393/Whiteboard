@@ -3,7 +3,7 @@ from django.template import RequestContext
 from .models import StudentUser, Minor, Major, Professor, Department
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from .forms import EditProfileForm
+from .forms import EditProfileForm, EditProfilePictureForm
 
 
 @login_required
@@ -30,8 +30,10 @@ def profile(request, first, last, student_id):
             'curr_user_classes': curr_user_classes,
             'majors': majors,
             'minors': minors,
+            'photo': student.photo.name[16:],
         })
     return render_to_response(template, locals(), context)
+
 
 @login_required
 def professorProfile(request, first, last):
@@ -55,8 +57,10 @@ def professorProfile(request, first, last):
                                  'curr_user_classes': curr_user_classes,
                                  'prof_curr_classes': prof_curr_classes,
                                  'prof_past_classes': prof_past_classes,
+                                 'photo': professor.photo.name[16:],
                                   })
     return render_to_response(template, locals(), context)
+
 
 @login_required
 def departmentProfile(request, code):
@@ -70,19 +74,18 @@ def departmentProfile(request, code):
         department = depart[0]
         user = StudentUser.objects.filter(user=request.user)[0]
         curr_user_classes = StudentUser.getCurrentClasses(user)
-        #dept_curr_classes = Department.getCurrentClasses(department)
-        #dept_past_classes = Department.getCurrentClasses(department)
+        dept_curr_classes = Department.getCurrentClasses(department)
+        dept_past_classes = Department.getOlderClasses(department)
+
 
         context = RequestContext(request, {
                                  'department': department,
                                  'curr_user': user,
                                  'curr_user_classes': curr_user_classes,
-                                 'dept_curr_classes': "",
-                                 'dept_past_classes': "",
+                                 'dept_curr_classes': dept_curr_classes,
+                                 'dept_past_classes': dept_past_classes,
                                  })
     return render_to_response(template, locals(), context)
-
-
 
 
 @login_required
@@ -99,16 +102,40 @@ def edit_profile(request, first, last, student_id):
         else:
             return HttpResponse("Invalid Form")
     else:
+        current_classes = curr_user.getCurrentClasses
         form = EditProfileForm(initial={'first_name': curr_user.first_name,
-                                                              'last_name': curr_user.last_name,
-                                                              'email_id': curr_user.email_id,
-                                                              'bio': curr_user.bio,
-                                                              'grad_year': curr_user.grad_year,
-                                                              'majors': curr_user.majors.values_list('id', flat=True),
-                                                              'minors': curr_user.minors.values_list('id', flat=True),
-                                                              })
+                                        'last_name': curr_user.last_name,
+                                        'email_id': curr_user.email_id,
+                                        'bio': curr_user.bio,
+                                        'grad_year': curr_user.grad_year,
+                                        'majors': curr_user.majors.values_list('id', flat=True),
+                                        'minors': curr_user.minors.values_list('id', flat=True),
+                                        'curr_classes': current_classes,
+                                         })
     return render(request, 'Profiles/editprofile.html', RequestContext(request, {'curr_user': curr_user,
                                                                                  'threads': threads,
                                                                                  'edit_profile_form': form,
                                                                                  'curr_user_classes': curr_user_classes,
+                                                                                 'photo': curr_user.photo.name[16:],
+                                                                                 }))
+
+
+@login_required
+def edit_picture(request, first, last, student_id):
+    curr_user = StudentUser.objects.filter(user=request.user)[0]
+
+    if request.method == 'POST':
+        form = EditProfilePictureForm(request.POST, request.FILES)
+        if form.is_valid():
+            file = request.FILES['file']
+            curr_user.photo = file
+            curr_user.save()
+            redirect = '/Profiles/' + curr_user.first_name + curr_user.last_name + '/' + str(curr_user.pk) + '/'
+            return HttpResponseRedirect(redirect)
+        else:
+            return HttpResponse("Invalid Form")
+    else:
+        form = EditProfilePictureForm(initial={'photo': curr_user.photo, })
+    return render(request, 'Profiles/image_upload.html', RequestContext(request, {'curr_user': curr_user,
+                                                                                 'photo' : curr_user.photo.name[16:],
                                                                                  }))

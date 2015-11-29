@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from class_overviews.models import Semester
+from class_overviews.models import Semester, Section, Course
 
 
 
@@ -32,7 +32,7 @@ class StudentUser(models.Model):
     last_name = models.CharField(max_length=100, default="Last")
     email_id = models.EmailField(max_length=254, default='abc123@case.edu')
     bio = models.CharField(max_length=500, default='none')
-    photo = models.CharField(max_length=200, default='none')  # stores a string that holds the photo file path
+    photo = models.FileField(upload_to='Profiles/static/img')
     grad_year = models.IntegerField(default=2016)
     majors = models.ManyToManyField('Major', blank=True)
     minors = models.ManyToManyField('Minor', blank=True)
@@ -66,6 +66,26 @@ class Department(models.Model):
     def __str__(self):
         return self.department_name
 
+    def getCurrentClasses(self):
+        semester = Semester.objects.filter(season = "Fall", year = 2015)[0]
+        courses = Course.objects.filter(department = self.department_code)
+        classes = []
+        for course in courses:
+            sections = Section.objects.filter(semester = semester, course = course)
+            if len(sections) > 0:
+                classes.extend(sections)
+        return classes
+
+    def getOlderClasses(self):
+        semester = Semester.objects.filter(season = "Fall", year = 2015)[0]
+        courses = Course.objects.filter(department = self.department_code)
+        classes = []
+        for course in courses:
+            sections = Section.objects.filter(course = course).exclude(semester = semester)
+            if len(sections) > 0:
+                classes.extend(sections)
+        return classes
+
     class Meta:
         ordering = ['department_name']
 
@@ -77,7 +97,7 @@ class Professor(models.Model):
     bio = models.CharField(max_length=500)
     current_department = models.ForeignKey('Department', blank=True, null=True)
     office_location = models.CharField(max_length=100)
-    photo = models.CharField(max_length=200, default='none')  # stores a string that holds the photo file path
+    photo = models.FileField(upload_to='Profiles/static/img')  # stores a string that holds the photo file path
     classes = models.ManyToManyField('class_overviews.Section', blank=True)
 
     def __str__(self):
