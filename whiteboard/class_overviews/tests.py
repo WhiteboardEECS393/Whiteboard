@@ -28,6 +28,5 @@ class ClassOverViewTests(TestCase):
 
     def test_Document_str(self):
         testDocument = Document(name = "Syllabus",
-                                path = "Through the woods",
                                 course_section = createSection(self))
         self.assertEquals(testDocument.name, testDocument.__str__())
