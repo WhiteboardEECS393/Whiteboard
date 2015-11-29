@@ -19,8 +19,7 @@
             <div class="row">
                 
                 <div class="col-md-1">
-                    <!--img class="profile-picture" src="{% static curr_user.photo %}" alt="Tekin"-->
-                    <img class="profile-picture" src="http://art.case.edu/images/2005.10.jpg">
+					<img class="profile-picture" src="{% static photo %}" alt="No Image Selected">
                 </div>
                 
                 <div class="col-md-2" id="student_name_bio">
@@ -30,7 +29,6 @@
                             <a href="http://www.ratemyprofessors.com/ShowRatings.jsp?tid=16820">RateMyProfessor</a>
                             <p>Email: {{professor.email_id}}</p>
                             <p class="office">Office: {{office_location}}</p>
-                            <a href="/Profiles/Department/{{professor.current_department.department_code}}"><p class="department">Department: {{professor.current_department.department_code}}</p></a>
                         </ul>
                     </div>
                 </div>
@@ -38,6 +36,7 @@
               </div>
             
             <div class="row" id="bio">
+				<a href="/Profiles/Department/{{professor.current_department.department_code}}"><p class="department">Department:<br>{{professor.current_department.department_name}}</p></a>
                 <p class="list-group-item-text">{{ professor.bio }}</p>
                 
             </div>

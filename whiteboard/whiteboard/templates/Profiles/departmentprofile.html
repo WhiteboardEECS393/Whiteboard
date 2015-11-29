@@ -41,7 +41,7 @@
                 <div class="title-link"><a href="#">department professors</a></div>
                 
                 <div class="link-list">
-                    <ul class="list-group" id="prof_and_majors_lists">
+                    <ul class="list-group" id="prof_and_majors_lists" style="list-style-type:none">
                         {% for professor in department.professor_set.all %}
 							<li><a href="../../../Profiles/Professor/{{professor.first_name}}/{{professor.last_name}}">{{ professor.first_name }} {{ professor.last_name }}</a></li>
 						{% endfor %}
@@ -52,10 +52,14 @@
                 <div class="title-link"><a href="#">department majors</a></div>
                 
                 <div class="link-list">
-                    <ul class="list-group" id="prof_and_majors_lists">
-                        {% for major in department.majors.all %}
-						<li><p>{{ major }}</p></li>
-						{% endfor %}
+                    <ul class="list-group" id="prof_and_majors_lists" style="list-style-type:none">
+						{% if department.majors.all|length > 0 %}
+							{% for major in department.majors.all %}
+							<li><p>{{ major }}</p></li>
+							{% endfor %}
+						{% else %}
+							<p>There are no majors in the department yet.</p>
+						{% endif %}
                     </ul>
                     
                 </div>
@@ -63,10 +67,14 @@
 				<div class="title-link"><a href="#">department minors</a></div>
                 
                 <div class="link-list">
-                    <ul class="list-group" id="prof_and_majors_lists">
-                        {% for minor in department.minors.all %}
-						<li><p>{{ minor }}</li>
-						{% endfor %}
+                    <ul class="list-group" id="prof_and_majors_lists" style="list-style-type:none">
+                        {% if department.minors.all|length > 0 %}
+							{% for major in department.minors.all %}
+							<li><p>{{ minors }}</p></li>
+							{% endfor %}
+						{% else %}
+							<p>There are no minors in the department yet.</p>
+						{% endif %}
                     </ul>
                     
                 </div>
