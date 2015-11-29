@@ -1,10 +1,15 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.template import RequestContext, loader
 from .models import Course, Section, Document
 from wbMessageBoard.models import DiscussionBoard, Thread
 from Profiles.models import StudentUser, Professor, Department
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
+from .forms import UploadFileForm
+from django.utils import timezone
+import sys
 
 
 @login_required
@@ -77,4 +82,53 @@ def getThreads(s):
 
     threads = Thread.objects.filter(board = b)
     return threads
+
+
+@login_required
+def upload_document(request, depart, course_num, section_num):
+
+    c = Course.objects.filter(department = depart, course_number=course_num)
+    if len(c) == 0:
+        template = 'class_overviews/classnotfoundpage.html'
+        context = RequestContext(request,)
+        return render_to_response(template, locals(), context)
+    else:
+        c = c[0]
+
+    s = Section.objects.filter(course = c, section_number = section_num)
+    if len(s) == 0:
+        template = 'class_overviews/classnotfoundpage.html'
+        context = RequestContext(request,)
+        return render_to_response(template, locals(), context)
+    else:
+        s = s[0]
+    print(request.method)
+
+    if request.method == 'POST':
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            new_document = Document( name = form.cleaned_data['name'],
+                                description = form.cleaned_data['description'],
+                                file = request.FILES['file'],
+                                course_section = s,)
+            new_document.save()
+            return HttpResponseRedirect('/course/' + c.department
+                                        + str(c.course_number) + '/'
+                                        + s.semester.season + str(s.semester.year) + '/'
+                                        + str(s.section_number))
+        else:
+            for field in form:
+                sys.stderr.write(field.errors)
+    else:
+        form = UploadFileForm()
+
+    context = {
+        'course': c,
+        'section' : s,
+    }
+
+    return render(request, 'class_overviews/upload_document.html', context)
+
+
+
 

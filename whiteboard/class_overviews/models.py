@@ -36,10 +36,9 @@ class Section(models.Model):
 
 class Document(models.Model):
     name = models.CharField(max_length=100)
-    path = models.CharField(max_length=100)
     description = models.CharField(max_length=300, blank=True)
+    file = models.FileField(upload_to='documents')
     course_section = models.ForeignKey(Section)
 
     def __str__(self):
         return self.name
-

@@ -164,3 +164,21 @@ hr {
     margin-bottom: 20px;
     border-radius: 10px !important;
 }
+
+.tooltip-wrap {
+  position: relative;
+}
+
+.tooltip-wrap .tooltip-content {
+  display: none;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+  background-color: #fff;
+  padding: .5em;
+}
+
+.tooltip-wrap:hover .tooltip-content {
+  display: block;
+}
