@@ -389,7 +389,7 @@ hr {
 
 .form-control, .btn {
     height: 30px;
-    margin-top: 5px;
+    margin-top: 8px;
     background-color: rgb(255, 246, 247);
     color: black;
 }

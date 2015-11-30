@@ -25,11 +25,25 @@ def index(request):
 @login_required
 def boards(request, board_id):
     thread_list = Thread.objects.filter(board=board_id).order_by('-time_of_creation')
+    
+    student = student_list[0]
+    classes = student.student_classes.all()
+    
+    user = StudentUser.objects.filter(user=request.user)[0]
+    curr_user_classes = StudentUser.getCurrentClasses(student)
+    majors = student.majors.all()
+    minors = student.minors.all()
 
     template = loader.get_template('wbMessageBoard/board.html')
     context = RequestContext(request, {
         'thread_list': thread_list,
         'board': board_id,
+        'student': student,
+        'classes': classes,
+        'curr_user': user,
+        'curr_user_classes': curr_user_classes,
+        'majors': majors,
+        'minors': minors,
     })
     return HttpResponse(template.render(context))
 
