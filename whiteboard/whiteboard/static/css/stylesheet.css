@@ -138,7 +138,7 @@ a.list-group-item, li.list-group-item {
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: rgb(125, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .navbar-default .navbar-nav {
@@ -167,7 +167,7 @@ a.list-group-item, li.list-group-item {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: rgb(125, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 hr { 
@@ -186,15 +186,28 @@ hr {
 
 .dropdown-menu {
     position: absolute;
-    top: 51px;
-    background: rgb(255,255,255);
+    top: 59px;
+    width: 300px;
+    background: rgb(179, 73, 47);
+    border: none;
+    box-shadow: none;
 }
 
 .navbar .nav > li.dropdown.open.active > a:hover,
 .navbar .nav > li.dropdown.open > a
 {
-    color: rgb(125, 0, 0);
+    color: rgb(255, 255, 255);
     background-color: transparent;
+
+}
+
+.dropdown-menu > .list-group-item {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    margin-top: 4px;
 }
 
 .navbar-toggle {
@@ -385,3 +398,15 @@ hr {
 .calendar-section {
     width: 100%;
 }
+
+.input-group {
+    width: 180px;
+}
+
+.form-control, .btn {
+    height: 30px;
+    margin-top: 12px;
+    background-color: rgb(255, 246, 247);
+}
+
+

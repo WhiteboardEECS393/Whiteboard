@@ -36,9 +36,10 @@ class EditProfileForm(forms.Form):
         current_user.grad_year = self.cleaned_data.get('grad_year')
         current_user.majors = self.cleaned_data.get('majors')
         current_user.minors = self.cleaned_data.get('minors')
-        semester = Semester.objects.filter(season = "Fall", year = 2015)[0]
-        current_user.student_classes.remove(*(current_user.student_classes.filter(semester = semester)))
-        current_user.student_classes.add(*(self.cleaned_data.get('curr_classes')))
+        #if Semester.objects.len() > 0:
+        #    semester = Semester.objects.get(season = "Fall", year = 2015)
+        #    current_user.student_classes.remove(*(current_user.student_classes.filter(semester = semester)))
+        #    current_user.student_classes.add(*(self.cleaned_data.get('curr_classes')))
         current_user.save()
 
 class EditProfilePictureForm(forms.Form):
