@@ -105,19 +105,23 @@
                                 <div>
                                     
                                     <!-- Nav tabs -->
+                                    {% if curr_user == student %}
                                     <ul class="nav nav-pills" role="tablist" id="pill_tabs">
                                         <li class="active"><a href="#home" aria-controls="home" role="pill" data-toggle="pill">Calendar</a></li>
                                         <li><a class="righty" href="#profile" aria-controls="profile" role="pill" data-toggle="pill">Recent Posts</a></li>
                                     </ul>
+                                    {% endif %}
                                     
                                     <!-- Tab panes -->
                                     <div class="tab-content">
+                                        {% if curr_user == student %}
                                         <div role="tabpanel" class="tab-pane active" id="home">
                                             <div class="calendar-section">
                                                 <div id='calendar'></div>
                                             </div>
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="profile">
+                                        {% endif %}
                                         
                                         
                                         <div class="title-link">recent posts</div>
