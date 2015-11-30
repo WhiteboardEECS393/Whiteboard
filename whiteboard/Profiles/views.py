@@ -48,7 +48,7 @@ def professorProfile(request, first, last):
         user = StudentUser.objects.filter(user=request.user)[0]
         curr_user_classes = StudentUser.getCurrentClasses(user)
         prof_curr_classes = Professor.getCurrentClasses(professor)
-        prof_past_classes = Professor.getCurrentClasses(professor)
+        prof_past_classes = Professor.getOlderClasses(professor)
 
 
         context = RequestContext(request, {

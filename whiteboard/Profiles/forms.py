@@ -12,7 +12,7 @@ class EditProfileForm(forms.Form):
     grad_year = forms.IntegerField()
     majors = forms.ModelMultipleChoiceField(queryset=Major.objects.all(), widget=forms.SelectMultiple, required=False)
     minors = forms.ModelMultipleChoiceField(queryset=Minor.objects.all(), widget=forms.SelectMultiple, required=False)
-    semester = Semester.objects.filter(season = "Fall", year = 2015)[0]
+    semester = Semester(season = "Fall", year = 2015, startDate = 2015-8-24, endDate = 2015-12-4)
     curr_classes = forms.ModelMultipleChoiceField(queryset=Section.objects.filter(semester = semester), widget=forms.SelectMultiple, required=False)
 
 
@@ -36,7 +36,7 @@ class EditProfileForm(forms.Form):
         current_user.grad_year = self.cleaned_data.get('grad_year')
         current_user.majors = self.cleaned_data.get('majors')
         current_user.minors = self.cleaned_data.get('minors')
-        semester = Semester.objects.filter(season = "Fall", year = 2015)[0]
+        semester = Semester(season = "Fall", year = 2015, startDate = 2015-8-24, endDate = 2015-12-4)
         current_user.student_classes.remove(*(current_user.student_classes.filter(semester = semester)))
         current_user.student_classes.add(*(self.cleaned_data.get('curr_classes')))
         current_user.save()
