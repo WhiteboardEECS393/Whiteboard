@@ -48,7 +48,7 @@
                                 {% endif %}
                                 </p>
                                 {% if minors %}
-                                <p> class="list-group-item-text">Minor:&emsp;&emsp;&emsp;&emsp;
+                                <p class="list-group-item-text">Minor:&emsp;&emsp;&emsp;&emsp;
                                 {% for min in minors %}
                                 {{min.minor}}
                                 {% endfor %}
@@ -62,6 +62,7 @@
               </div>
             
             <div class="row" id="bio">
+                <p class="list-group-item-text">Email: {{ student.email_id }}</p>
                 <p class="list-group-item-text">&emsp;&emsp;&emsp;{{ student.bio }}</p>
                 {% if curr_user == student %}
                     <p class="editbutton"><a href="/Profiles/{{curr_user.first_name}}{{curr_user.last_name}}/{{curr_user.id}}/image_upload">Edit Profile Picture</a></p>
