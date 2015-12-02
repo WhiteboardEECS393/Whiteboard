@@ -94,7 +94,7 @@ class Department(models.Model):
 class Professor(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    full_name  = models.CharField(max_length=200)
+    full_name  = models.CharField(max_length=200, default="albert einstein")
     email_id = models.EmailField(max_length=254)
     bio = models.CharField(max_length=500)
     current_department = models.ForeignKey('Department', blank=True, null=True)
