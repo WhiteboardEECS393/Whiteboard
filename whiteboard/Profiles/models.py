@@ -30,6 +30,7 @@ class StudentUser(models.Model):
     user = models.OneToOneField(User)
     first_name = models.CharField(max_length=100, default='First')
     last_name = models.CharField(max_length=100, default="Last")
+    full_name = models.CharField(max_length=200, default='First Last')
     email_id = models.EmailField(max_length=254, default='abc123@case.edu')
     bio = models.CharField(max_length=500, default='none')
     photo = models.FileField(upload_to='Profiles/static/img')
@@ -93,6 +94,7 @@ class Department(models.Model):
 class Professor(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    full_name  = models.CharField(max_length=200)
     email_id = models.EmailField(max_length=254)
     bio = models.CharField(max_length=500)
     current_department = models.ForeignKey('Department', blank=True, null=True)
