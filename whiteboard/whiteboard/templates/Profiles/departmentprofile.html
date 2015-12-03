@@ -22,7 +22,7 @@
                     <h3 id="prof-pic-name">{{department.department_name}}</h3>
                     <div class="link-list" id="overview">
                         {% if department.department_head != null %}
-						<a href="../../../Profiles/Professor/{{professor.first_name}}/{{professor.last_name}}" class="department_head">Department Head: {{ department.department_head.first_name }} {{ department.department_head.last_name }}</a>
+						<a href="../../../Profiles/Professor/{{department.department_head.first_name}}/{{department.department_head.last_name}}" class="department_head">Department Head: {{ department.department_head.first_name }} {{ department.department_head.last_name }}</a>
 						{% else %}
 						<p>There is not currently a department head.</p>
 						{% endif %}
@@ -69,8 +69,8 @@
                 <div class="link-list">
                     <ul class="list-group" id="prof_and_majors_lists" style="list-style-type:none">
                         {% if department.minors.all|length > 0 %}
-							{% for major in department.minors.all %}
-							<li><p>{{ minors }}</p></li>
+							{% for minor in department.minors.all %}
+							<li><p>{{ minor }}</p></li>
 							{% endfor %}
 						{% else %}
 							<p>There are no minors in the department yet.</p>
