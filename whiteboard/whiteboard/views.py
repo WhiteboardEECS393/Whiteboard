@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response, render
 from django.template import RequestContext
 from Profiles.models import StudentUser, Professor
+from wb_calendar.models import Calendar
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import login, logout
 from .forms import LoginForm, CreateUserForm
@@ -35,6 +36,7 @@ def create_new_user(request,):
                 if user.is_active:
                     login(request, user)
                     student = StudentUser.objects.filter(user=user)[0]
+                    c= Calendar(owner=student, name=student.full_name)
                     redirect = '/Profiles/' + student.first_name + student.last_name + '/' + str(student.pk) + '/'
                     return HttpResponseRedirect(redirect)
                 else:

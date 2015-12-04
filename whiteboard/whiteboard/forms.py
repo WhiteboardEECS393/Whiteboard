@@ -57,6 +57,7 @@ class CreateUserForm(forms.Form):
             user=user,
             first_name=first_name,
             last_name=last_name,
+            full_name=first_name + ' ' + last_name,
             email_id=email_id,
             bio=bio,
             grad_year=grad_year,
