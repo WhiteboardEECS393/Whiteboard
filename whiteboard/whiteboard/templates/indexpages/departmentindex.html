@@ -17,10 +17,10 @@
 
            <div class="link-list">
                <ul class="list-group">
-                {% if threads %}
+                {% if departments %}
                     {% for d in departments %}
-                    <a href="../../../Profiles/Department/{{department.department_code}}" class="list-group-item">
-                       <h4 class="list-group-item-heading">{{department.department_code}}: {{department.department_name}}</h4>
+                    <a href="../../../Profiles/Department/{{d.department_code}}" class="list-group-item">
+                       <h4 class="list-group-item-heading">{{d.department_code}}: {{d.department_name}}</h4>
                 </a>
                 <hr class="list-separator">
               {% endfor %}

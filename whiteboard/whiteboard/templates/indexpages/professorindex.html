@@ -17,11 +17,11 @@
 
            <div class="link-list">
                <ul class="list-group">
-                {% if threads %}
+                {% if professors %}
                     {% for professor in professors %}
                     <a href="../../../Profiles/Professor/{{professor.first_name}}/{{professor.last_name}}" class="list-group-item">
                        <h4 class="list-group-item-heading">{{professor.first_name}} {{professor.last_name}}</h4>
-                    <p class="list-group-item-text">email: {{professor.email}}, department: {{professor.department}}, office: {{professor.office}}</p>
+                    <p class="list-group-item-text">email: {{professor.email_id}}, department: {{professor.current_department}}, office: {{professor.office_location}}</p>
                 </a>
                 <hr class="list-separator">
               {% endfor %}

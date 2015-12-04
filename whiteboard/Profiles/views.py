@@ -171,3 +171,54 @@ def all_classes(request, first, last, student_id):
             'photo': student.photo.name[16:],
         })
     return render_to_response(template, locals(), context)
+
+@login_required
+def professor_index(request):
+    template = 'indexpages/professorindex.html'
+    student_list = StudentUser.objects.filter(user=request.user)
+
+    if len(student_list) != 1:
+        template = 'Profiles/usernotfound.html'
+        context = RequestContext(request,)
+    else:
+        student = student_list[0]
+        profs = Professor.objects.all()
+        context = RequestContext(request, {
+            'curr_user': student,
+            'professors': profs,
+        })
+    return  render_to_response(template, locals(), context)
+
+@login_required
+def department_index(request):
+    template = 'indexpages/departmentindex.html'
+    student_list = StudentUser.objects.filter(user=request.user)
+
+    if len(student_list) != 1:
+        template = 'Profiles/usernotfound.html'
+        context = RequestContext(request,)
+    else:
+        student = student_list[0]
+        dept = Department.objects.all()
+        context = RequestContext(request, {
+            'curr_user': student,
+            'departments': dept,
+        })
+    return  render_to_response(template, locals(), context)
+
+@login_required
+def student_index(request):
+    template = 'indexpages/studentindex.html'
+    student_list = StudentUser.objects.filter(user=request.user)
+
+    if len(student_list) != 1:
+        template = 'Profiles/usernotfound.html'
+        context = RequestContext(request,)
+    else:
+        student = student_list[0]
+        students = StudentUser.objects.all()
+        context = RequestContext(request, {
+            'curr_user': student,
+            'students': students,
+        })
+    return  render_to_response(template, locals(), context)
