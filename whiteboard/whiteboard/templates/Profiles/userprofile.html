@@ -97,6 +97,10 @@
                         <li class="active"><a href="#home" aria-controls="home" role="pill" data-toggle="pill">calendar</a></li>
                         <li><a class="righty" href="#profile" aria-controls="profile" role="pill" data-toggle="pill">recent posts</a></li>
                     </ul>
+                    {% else %}
+                        <ul class="nav nav-pills" role="tablist" id="pill_tabs">
+                            <li class="active"><a href="#profile" aria-controls="profile" role="pill" data-toggle="pill">recent posts</a></li>
+                        </ul>
                     {% endif %}
                     
                     <!-- Tab panes -->
@@ -107,13 +111,17 @@
                                     <div id='calendar'></div>
                                 </div>
                             </div>
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                        {% else %}
+                            <div role="tabpanel" class="tab-pane active" id="profile">
                         {% endif %}
-                        <div role="tabpanel" class="tab-pane" id="profile">
+
+
                             <div class="title-link">recent posts</div>
                             <div class="link-list">
-                                {% if curr_user.thread_set.all|length > 0 %}
+                                {% if student.thread_set.all|length > 0 %}
                                 <ul class="list-group">
-                                    {% for thread in curr_user.thread_set.all %}
+                                    {% for thread in student.thread_set.all %}
                                     <a href="#" class="list-group-item">
                                         <h4 class="list-group-item-heading">{{ thread.subject }}</h4>
                                         <p class="list-group-item-text">Posted at: {{thread.time_of_creation}}</p>
