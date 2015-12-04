@@ -1,0 +1,40 @@
+{% extends 'basic_page.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% block body %}
+    <div class="class-title">
+        <h2>all departments</h2>
+    </div>
+    </br>
+    <div class="col-md-3">
+        
+    </div>
+
+    <div class="col-md-6">
+        <div class="site-container thread-list">
+
+           <div class="link-list">
+               <ul class="list-group">
+                {% if threads %}
+                    {% for d in departments %}
+                    <a href="../../../Profiles/Department/{{department.department_code}}" class="list-group-item">
+                       <h4 class="list-group-item-heading">{{department.department_code}}: {{department.department_name}}</h4>
+                </a>
+                <hr class="list-separator">
+              {% endfor %}
+            {% else %}
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">no departments</h4>
+              </a>
+              <hr class="list-separator">
+            {% endif %}
+            </ul>
+          </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+ </html>
