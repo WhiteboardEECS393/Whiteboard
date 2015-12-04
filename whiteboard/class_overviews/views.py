@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext, loader
 from .models import Course, Section, Document
 from wbMessageBoard.models import DiscussionBoard, Thread
+from wb_calendar.models import Calendar, Event
 from Profiles.models import StudentUser, Professor, Department
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
@@ -73,7 +74,19 @@ def courseDetail(request, depart, course_num, sea="", yr=2015, section_num=0):
         'professor' : professor,
         'department': department,
     })
+
+    if(request.GET.get('mybtn')):
+        addClass(s, user)
+
     return render_to_response(template, locals(), context)
+
+def addClass(section, user):
+    user.student_classes.add(section)
+
+    calendar = Calendar.objects.filter(owner = user)[0]
+    title = section.course.department + str(section.course.course_number)
+    event = Event(title=title, description=section.course.course_name, calendar=calendar, start=section.start_time, end=section.end_time, recurring=False, dow=section.days_of_week)
+    event.save()
 
 
 @login_required
