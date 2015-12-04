@@ -20,6 +20,7 @@ def profile(request, first, last, student_id):
 
         user = StudentUser.objects.filter(user=request.user)[0]
         curr_user_classes = StudentUser.getCurrentClasses(student)
+        curr_user_all_classes = StudentUser.getOlderClasses(student)
         majors = student.majors.all()
         minors = student.minors.all()
 
@@ -28,6 +29,7 @@ def profile(request, first, last, student_id):
             'classes': classes,
             'curr_user': user,
             'curr_user_classes': curr_user_classes,
+            'curr_user_all_classes': curr_user_all_classes,
             'majors': majors,
             'minors': minors,
             'photo': student.photo.name[16:],

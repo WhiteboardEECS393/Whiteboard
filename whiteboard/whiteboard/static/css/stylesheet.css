@@ -7,14 +7,20 @@
 	margin: 40px;
 }
 
+.body, .html {
+    overflow: hidden;
+}
+
 .site-container {
-	margin: 0px 20px;
-    padding-top: 80px;
+	/*margin: 0px 20px;*/
+    padding-top: 0px;
+    padding-left: 0px;
+    margin-left: 0px;
 }
 
 .site-container .thread-list {
     margin-left: 50px;
-    margin-top: -80px;
+    margin-top: 80px;
     position: relative;
 }
 
@@ -63,7 +69,7 @@
 
 #prof-pic-name {
     padding-left: 15px;
-    margin-top: -16px;
+    /*margin-top: -16px;*/
     color: rgb(179, 73, 47);
     text-decoration: none;
     margin-bottom: 0px;
@@ -129,7 +135,7 @@ a.list-group-item, li.list-group-item {
 }
 
 .navbar-default .navbar-brand {
-	color: rgb(245, 245, 245);
+	color: rgb(255, 255, 255);
 	font-size: 3.5rem;
 	font-weight: bold;
 	padding-left: 50px;
@@ -149,6 +155,7 @@ a.list-group-item, li.list-group-item {
 
 .professor_prof_sidebar {
     margin-top: 30px;
+    margin-left: 15px;
 }
 
 .nav.navbar-nav.navbar-right > li > a{
@@ -186,7 +193,7 @@ hr {
 
 .dropdown-menu {
     position: absolute;
-    top: 59px;
+    top: 44px;
     width: 300px;
     background: rgb(179, 73, 47);
     border: none;
@@ -208,6 +215,7 @@ hr {
     margin-right: 8px;
     margin-bottom: 4px;
     margin-top: 4px;
+    /*text-align: right;*/
 }
 
 .navbar-toggle {
@@ -217,32 +225,28 @@ hr {
 .profile-picture {
     width:130px;
     height:160px;
-    margin-left: 0px;
+    margin-left: 10px;
     margin-bottom: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
     border-radius: 2px !important;
     
     box-shadow: 3px 3px 6px #999;
 }
 
 .sidebar {
-    background-color: rgba(179, 73, 47, .24);
+    background-color: rgba(179, 73, 47, 1);
     height: 100%;
 }
-
+/*
 #student_name_bio {
     margin-left: 100px;
     margin-top: 60px;
-}
+}*/
 
 #department_name {
-    margin-left: -20px;
+    margin-left: 10px;
     margin-top: 60px;
     width: 400px;
-}
-
-.row {
-    margin-left: 20px;
 }
 
 .nav-pills > li.active > a:hover{
@@ -281,7 +285,7 @@ hr {
 
 #pill_tabs_professor {
     margin: auto;
-    width: 24.25%;
+    width: 29.25%;
     border: solid 1px rgb(179, 73, 47);
     border-radius: 5px !important;
     margin-bottom: 20px;
@@ -290,7 +294,7 @@ hr {
 
 #pill_tabs_department {
     margin: auto;
-    width: 24.25%;
+    width: 29.25%;
     border: solid 1px rgb(179, 73, 47);
     border-radius: 5px !important;
     margin-bottom: 20px;
@@ -310,9 +314,9 @@ hr {
 }
 
 #bio {
-    margin-left: 30px;
+    margin-left: 10px;
     margin-top: 10px;
-    width: 290px;
+    margin-right: 10px;
     color: rgb(111, 67, 57);
     text-decoration: none;
     font-size: 14px;
@@ -321,29 +325,35 @@ hr {
 
 .profile-classes {
     margin-top: 30px;
-    width: 300px;
-    margin-left: 20px;
+    /*width: 300px;*/
+    margin-left: 10px;
 }
 
 
 
 #wrapper {
-    padding-left: 250px;
+    /*padding-left: 250px;*/
     transition: all 0.4s ease 0s;
+    width: 100%;
 }
 
 #sidebar-wrapper {
-    margin-left: -250px;
-    margin-top: -49px;
-    left: 250px;
-    width: 340px;
-    background-color: rgba(179, 73, 47, .24);
-    position: fixed;
-    height: 100%;
-    overflow-y: auto;
-    z-index: 1000;
-    transition: all 0.4s ease 0s;
-    padding-top: 15px;
+    position: absolute;
+    /*margin-left: -250px;*/
+    margin-top: 38px;
+    /*left: 250px;*/
+    /*background-color: rgba(179, 73, 47, .2);*/
+    background-color: #EEE;
+    /*position: fixed;*/
+    /*height: 100%;*/
+    /*overflow-y: auto;*/
+    /*z-index: 1000;*/
+    /*transition: all 0.4s ease 0s;*/
+   /* padding-top: 15px;
+    margin-left: 0px;
+    padding-left: 0px;*/
+    width: 25%;
+    overflow-y: scroll; 
 }
 
 .department_info {
@@ -351,7 +361,10 @@ hr {
 }
 
 #page-content-wrapper {
-    width: 100%;
+    position: absolute;
+    top: 20px;
+    overflow-y: scroll;
+    width: 75%;
 }
 
 .sidebar-nav {
@@ -363,7 +376,7 @@ hr {
     padding: 0;
 }
 
-@media (max-width:767px) {
+/*@media (max-width:767px) {
     
     #wrapper {
         padding-left: 0;
@@ -384,6 +397,27 @@ hr {
         transition: all 0.4s ease 0s;
     }
     
+}*/
+
+@media {
+  #left {
+    position: absolute;
+    margin-top: 38px;
+    background-color: #EEE;
+    width: 25%;
+    bottom: 0px;
+    top: 30px;
+    overflow-y: scroll; 
+  }
+  
+  .right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow-y: scroll;
+    width: 75%;
+  }
 }
 
 .department {
@@ -409,4 +443,12 @@ hr {
     background-color: rgb(255, 246, 247);
 }
 
-
+.fixed {
+        position: fixed;
+        width: 25%;
+        overflow-y: scroll;
+}
+.scrollit {
+        float: right;
+        width: 75%
+}

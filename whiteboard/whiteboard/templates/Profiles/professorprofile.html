@@ -13,125 +13,88 @@
 
 
 <div class = "site-container">
-    
-    <div id="wrapper" class="professor_prof_sidebar">
-        <div id="sidebar-wrapper">
-            <div class="row">
-                
-                <div class="col-md-1">
-					<img class="profile-picture" src="{% static photo %}" alt="No Image Selected">
-                </div>
-                
-                <div class="col-md-2" id="student_name_bio">
-                    <h3 id="prof-pic-name">{{professor.first_name}} {{professor.last_name}}</h3>
-                    <div class="link-list" id="overview">
-                        <ul class="list-group" id="professor_info">
-                            <p>Email: {{professor.email_id}}</p>
-                            <p class="office">Office: {{professor.office_location}}</p>
-                        </ul>
+    <div class="row">
+        <div class="col-mid-3" id="left">
+                <div class="row">
+                    <div class="col-md-6">
+    					<img class="profile-picture" src="../../../uploads/Profiles/static/{{ photo }}" alt="No Image Selected" style="margin-left: 20px">
                     </div>
+                    
+                    <div class="col-md-6" id="student_name_bio">
+                        <h3 id="prof-pic-name">{{professor.first_name}} {{professor.last_name}}</h3>
+                        <div class="link-list" id="overview">
+                            <ul class="list-group" id="professor_info">
+                                <p>Email: {{professor.email_id}}</p>
+                                <p class="office">Office: {{professor.office_location}}</p>
+                            </ul>
+                        </div>
+                    </div> 
                 </div>
                 
-              </div>
-            
-            <div class="row" id="bio">
-				<a href="/Profiles/Department/{{professor.current_department.department_code}}"><p class="department">Department:<br>{{professor.current_department.department_name}}</p></a>
-                <p class="list-group-item-text">{{ professor.bio }}</p>
-                
+                <div class="row" id="bio" style="margin-left: 20px;">
+    				<a href="/Profiles/Department/{{professor.current_department.department_code}}"><p class="department">Department:<br>{{professor.current_department.department_name}}</p></a>
+                    <p class="list-group-item-text">{{ professor.bio }}</p>
+                </div>
             </div>
-            
-                
-            </ul>
         </div>
-        <div id="page-content-wrapper">
+        <div class="col-mid-9 right" id="page-content-wrapper">
             <div class="page-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="site-container thread-list">
+                    <div class="site-container thread-list">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-pills" role="tablist" id="pill_tabs_professor">
+                            <li class="active"><a href="#home" aria-controls="home" role="pill" data-toggle="pill">Current Classes</a></li>
+                            <li><a class="righty" href="#profile" aria-controls="profile" role="pill" data-toggle="pill">Past Classes</a></li>
+                        </ul>
                                 
-                                <div>
-                                    
-                                    <!-- Nav tabs -->
-                                    <ul class="nav nav-pills" role="tablist" id="pill_tabs_professor">
-                                        <li class="active"><a href="#home" aria-controls="home" role="pill" data-toggle="pill">Current Classes</a></li>
-                                        <li><a class="righty" href="#profile" aria-controls="profile" role="pill" data-toggle="pill">Past Classes</a></li>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="home">
+                            
+                            <div class="professor_currrent_classes"> 
+                                <div class="link-list">
+                                    <ul class="list-group">
+                                        {% if prof_curr_classes %}
+                                        {% for c in prof_curr_classes %}
+                                        <a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
+                                            <p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}}</p>
+                                        </a>
+                                        {% endfor %}
+                                        {% else %}
+                                        <a href="#" class="list-group-item">
+                                            <p class="list-group-item-text">{{ professor.first_name }} {{ professor.last_name }} is not teaching any courses at this time.</p>
+                                        </a>
+                                        {% endif %}
                                     </ul>
                                     
-                                    <!-- Tab panes -->
-                                    <div class="tab-content">
-                                        <div role="tabpanel" class="tab-pane active" id="home">
-                                        
-                                        <div class="professor_currrent_classes">
-                                            
-                                            <div class="link-list">
-                                                <ul class="list-group">
-                                                    {% if prof_curr_classes %}
-                                                    {% for c in prof_curr_classes %}
-                                                    <a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
-                                                        <p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}}</p>
-                                                    </a>
-                                                    {% endfor %}
-                                                    {% else %}
-                                                    <a href="#" class="list-group-item">
-                                                        <p class="list-group-item-text">{{ professor.first_name }} {{ professor.last_name }} is not teaching any courses at this time.</p>
-                                                    </a>
-                                                    {% endif %}
-                                                </ul>
-                                                
-                                            </div>
-                                            
-                                            
-                                            
-                                        </div>
-                                        
-                                        </div>
-                                        <div role="tabpanel" class="tab-pane" id="profile">
-                                        
-                                        
-                                        <div class="professor_currrent_classes">
-                                            
-                                            <div class="link-list">
-                                                <ul class="list-group">
-                                                    {% if prof_past_classes %}
-                                                    {% for c in prof_past_classes %}
-                                                    <a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
-                                                        <p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}}</p>
-                                                    </a>
-                                                    {% endfor %}
-                                                    {% else %}
-                                                    <a href="#" class="list-group-item">
-                                                        <p class="list-group-item-text">{{ professor.first_name }} {{ professor.last_name }} has not taught any courses in the past.</p>
-                                                    </a>
-                                                    {% endif %}
-                                                </ul>
-                                                
-                                            </div>
-                                            
-                                            
-                                            
-                                        </div>
-                                        
-                                    </div>
-                                    
                                 </div>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-
                             </div>
-                        </div>
-                        </div>
+                            
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                                <div class="professor_currrent_classes">
+                                    <div class="link-list">
+                                        <ul class="list-group">
+                                            {% if prof_past_classes %}
+                                            {% for c in prof_past_classes %}
+                                            <a href="../../../course/{{c.course.department}}{{c.course.course_number}}/{{c.section_number}}" class="list-group-item">
+                                                <p class="list-group-item-text">{{c.course.department}}{{c.course.course_number}}: {{c.course.course_name}}</p>
+                                            </a>
+                                            {% endfor %}
+                                            {% else %}
+                                            <a href="#" class="list-group-item">
+                                                <p class="list-group-item-text">{{ professor.first_name }} {{ professor.last_name }} has not taught any courses in the past.</p>
+                                            </a>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                </div> 
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <!--div class="col-md-4">
 	<div class="site-container">

@@ -13,28 +13,22 @@
 
 
 <div class = "site-container">
-    
-    <div id="wrapper">
-        <div id="sidebar-wrapper">
-            <div class="row">
-                
-                <div class="col-md-4" id="department_name">
-                    <h3 id="prof-pic-name">{{department.department_name}}</h3>
-                    <div class="link-list" id="overview">
-                        {% if department.department_head != null %}
-						<a href="../../../Profiles/Professor/{{department.department_head.first_name}}/{{department.department_head.last_name}}" class="department_head">Department Head: {{ department.department_head.first_name }} {{ department.department_head.last_name }}</a>
-						{% else %}
-						<p>There is not currently a department head.</p>
-						{% endif %}
-                        <p class="department_info">Info: {{ department.department_info }}</p>
-                    </div>
+    <div class="row">
+        <div class="col-md-3" id="left">
+            <div id="department_name">
+                <h3 id="prof-pic-name">{{department.department_name}}</h3>
+                <div class="link-list" id="overview">
+                    {% if department.department_head != null %}
+					<a href="../../../Profiles/Professor/{{department.department_head.first_name}}/{{department.department_head.last_name}}" class="department_head">Department Head: {{ department.department_head.first_name }} {{ department.department_head.last_name }}</a>
+					{% else %}
+					<p>There is not currently a department head.</p>
+					{% endif %}
+                    <p class="department_info">Info: {{ department.department_info }}</p>
                 </div>
-                
-              </div>
+            </div>
             
             <div class="row" id="bio">
                 <p class="list-group-item-text">&emsp;&emsp;&emsp;{{ student.bio }}</p>
-                
             </div>
             
             <div class="profile-classes" id="professor_list">
@@ -46,7 +40,6 @@
 							<li><a href="../../../Profiles/Professor/{{professor.first_name}}/{{professor.last_name}}">{{ professor.first_name }} {{ professor.last_name }}</a></li>
 						{% endfor %}
                     </ul>
-                    
                 </div>
                 
                 <div class="title-link"><a href="#">department majors</a></div>
@@ -61,7 +54,6 @@
 							<p>There are no majors in the department yet.</p>
 						{% endif %}
                     </ul>
-                    
                 </div>
                 
 				<div class="title-link"><a href="#">department minors</a></div>
@@ -76,20 +68,11 @@
 							<p>There are no minors in the department yet.</p>
 						{% endif %}
                     </ul>
-                    
                 </div>
-
-                
             </div>
-                
-                
-            </ul>
         </div>
-        <div id="page-content-wrapper">
+        <div class="col-md-9 right" id="page-content-wrapper">
             <div class="page-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
                             <div class="site-container thread-list">
                                 
                                 <div>
@@ -172,8 +155,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
 <!--div class="col-md-4">
 	<div class="site-container">
