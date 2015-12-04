@@ -7,10 +7,11 @@
 <div class="class-title">
 	<h2>{{curr_user.first_name}} {{curr_user.last_name}}</h2>
 </div>
-
-<div class="col-md-4">
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+		<img class="profile-picture" src="../../../uploads/Profiles/static/{{ photo }}" alt="No Image Selected" style="width: 450px;height:600px;"></div>
+<div class="col-md-6">
 	<div class="site-container">
-		<img class="profile-picture" src="../../../uploads/Profiles/static/{{ photo }}" alt="No Image Selected">
 		<div class="title-link"><a href="#">overview</a></div>
 		<form id="edit_profile_form" method="post" class="username-pass-fields" action="">
 			{% csrf_token %}
