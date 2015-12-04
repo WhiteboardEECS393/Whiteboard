@@ -141,3 +141,33 @@ def edit_picture(request, first, last, student_id):
     return render(request, 'Profiles/image_upload.html', RequestContext(request, {'curr_user': curr_user,
                                                                                  'photo' : curr_user.photo.name[16:],
                                                                                  }))
+
+@login_required
+def all_classes(request, first, last, student_id):
+    template = 'Profiles/allclasses.html'
+    student_list = StudentUser.objects.filter(pk=student_id)
+
+    if len(student_list) != 1:
+        template = 'Profiles/usernotfound.html'
+        context = RequestContext(request,)
+    else:
+        student = student_list[0]
+        classes = student.student_classes.all()
+
+        user = StudentUser.objects.filter(user=request.user)[0]
+        curr_user_classes = StudentUser.getCurrentClasses(student)
+        curr_user_all_classes = student.student_classes.all()
+        majors = student.majors.all()
+        minors = student.minors.all()
+
+        context = RequestContext(request, {
+            'student': student,
+            'classes': classes,
+            'curr_user': user,
+            'curr_user_classes': curr_user_classes,
+            'curr_user_all_classes': curr_user_all_classes,
+            'majors': majors,
+            'minors': minors,
+            'photo': student.photo.name[16:],
+        })
+    return render_to_response(template, locals(), context)
