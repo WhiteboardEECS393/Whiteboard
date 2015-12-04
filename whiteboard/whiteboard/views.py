@@ -37,6 +37,7 @@ def create_new_user(request,):
                     login(request, user)
                     student = StudentUser.objects.filter(user=user)[0]
                     c= Calendar(owner=student, name=student.full_name)
+                    c.save();
                     redirect = '/Profiles/' + student.first_name + student.last_name + '/' + str(student.pk) + '/'
                     return HttpResponseRedirect(redirect)
                 else:
