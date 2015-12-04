@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from wbMessageBoard.models import DiscussionBoard
+import sys
 
 
 class Semester(models.Model):
@@ -50,7 +51,7 @@ class Document(models.Model):
 
 @receiver(post_save, sender=Section)
 def create_board(sender, instance, created, **kwargs):
-    if created:
+    if created and 'test' not in sys.argv and 'migrate' not in sys.argv and 'loaddata' not in sys.argv:
         board, created = DiscussionBoard.objects.get_or_create(course=instance,
                                                                name= instance.course.course_name + ' ' + str(instance.section_number),
                                                                description='Blah')
