@@ -1,0 +1,3588 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "logentry",
+    "app_label": "admin"
+  },
+  "pk": 1
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "permission",
+    "app_label": "auth"
+  },
+  "pk": 2
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "group",
+    "app_label": "auth"
+  },
+  "pk": 3
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "user",
+    "app_label": "auth"
+  },
+  "pk": 4
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "contenttype",
+    "app_label": "contenttypes"
+  },
+  "pk": 5
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "session",
+    "app_label": "sessions"
+  },
+  "pk": 6
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "major",
+    "app_label": "Profiles"
+  },
+  "pk": 7
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "minor",
+    "app_label": "Profiles"
+  },
+  "pk": 8
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "studentuser",
+    "app_label": "Profiles"
+  },
+  "pk": 9
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "department",
+    "app_label": "Profiles"
+  },
+  "pk": 10
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "professor",
+    "app_label": "Profiles"
+  },
+  "pk": 11
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "discussionboard",
+    "app_label": "wbMessageBoard"
+  },
+  "pk": 12
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "thread",
+    "app_label": "wbMessageBoard"
+  },
+  "pk": 13
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "post",
+    "app_label": "wbMessageBoard"
+  },
+  "pk": 14
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "semester",
+    "app_label": "class_overviews"
+  },
+  "pk": 15
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "course",
+    "app_label": "class_overviews"
+  },
+  "pk": 16
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "section",
+    "app_label": "class_overviews"
+  },
+  "pk": 17
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "document",
+    "app_label": "class_overviews"
+  },
+  "pk": 18
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "event",
+    "app_label": "wb_calendar"
+  },
+  "pk": 19
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "model": "calendar",
+    "app_label": "wb_calendar"
+  },
+  "pk": 20
+},
+{
+  "model": "sessions.session",
+  "fields": {
+    "session_data": "NDU5OWEzMjkyY2JlYzU1ZmE4YzkyODJmNTI3ODFlZDJlZDUxNDE3Yjp7Il9hdXRoX3VzZXJfaGFzaCI6ImJiYjk3MGUzYTg0YmMyZWE3ZTBhOTFiMGVjNmVmNzhmODMwYjNhZTIiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+    "expire_date": "2015-12-17T04:28:07.452Z"
+  },
+  "pk": "orsrcnlwihp600s72v31iuttqd4wjnxw"
+},
+{
+  "model": "Profiles.major",
+  "fields": {
+    "major": "Computer Science",
+    "required_classes": []
+  },
+  "pk": 1
+},
+{
+  "model": "Profiles.major",
+  "fields": {
+    "major": "Cognitive Science",
+    "required_classes": []
+  },
+  "pk": 2
+},
+{
+  "model": "Profiles.major",
+  "fields": {
+    "major": "Electrical Engineering",
+    "required_classes": []
+  },
+  "pk": 3
+},
+{
+  "model": "Profiles.major",
+  "fields": {
+    "major": "Computer Engineering",
+    "required_classes": []
+  },
+  "pk": 4
+},
+{
+  "model": "Profiles.major",
+  "fields": {
+    "major": "Systems and Control Engineering",
+    "required_classes": []
+  },
+  "pk": 5
+},
+{
+  "model": "Profiles.major",
+  "fields": {
+    "major": "German",
+    "required_classes": []
+  },
+  "pk": 6
+},
+{
+  "model": "Profiles.major",
+  "fields": {
+    "major": "Psychology",
+    "required_classes": []
+  },
+  "pk": 7
+},
+{
+  "model": "Profiles.major",
+  "fields": {
+    "major": "Mathematics",
+    "required_classes": []
+  },
+  "pk": 8
+},
+{
+  "model": "Profiles.major",
+  "fields": {
+    "major": "Applied Mathematics",
+    "required_classes": []
+  },
+  "pk": 9
+},
+{
+  "model": "Profiles.major",
+  "fields": {
+    "major": "Statistics",
+    "required_classes": []
+  },
+  "pk": 10
+},
+{
+  "model": "Profiles.minor",
+  "fields": {
+    "minor": "Game Design",
+    "required_classes": []
+  },
+  "pk": 1
+},
+{
+  "model": "Profiles.minor",
+  "fields": {
+    "minor": "German",
+    "required_classes": []
+  },
+  "pk": 2
+},
+{
+  "model": "Profiles.minor",
+  "fields": {
+    "minor": "Math",
+    "required_classes": []
+  },
+  "pk": 3
+},
+{
+  "model": "Profiles.minor",
+  "fields": {
+    "minor": "Artificial Intelligence",
+    "required_classes": []
+  },
+  "pk": 4
+},
+{
+  "model": "Profiles.minor",
+  "fields": {
+    "minor": "Cognitive Science",
+    "required_classes": []
+  },
+  "pk": 5
+},
+{
+  "model": "Profiles.minor",
+  "fields": {
+    "minor": "Psychology",
+    "required_classes": []
+  },
+  "pk": 6
+},
+{
+  "model": "Profiles.minor",
+  "fields": {
+    "minor": "Mathematics",
+    "required_classes": []
+  },
+  "pk": 7
+},
+{
+  "model": "Profiles.minor",
+  "fields": {
+    "minor": "Statistics",
+    "required_classes": []
+  },
+  "pk": 8
+},
+{
+  "model": "Profiles.department",
+  "fields": {
+    "department_info": "The Department of Electrical Engineering and Computer Science at Case Western Reserve University is motivated by synergetic research thrusts exploring the intersections of bio-micro-info in the ever-changing world of technology.  To achieve this goal, the department is organized into two divisions--Computer Science (CS), and Electrical, Computer, and Systems Engineering (ECSE)--and offers four related undergraduate and graduate degree programs.",
+    "department_head": 1,
+    "majors": [
+      4,
+      1,
+      3,
+      5
+    ],
+    "department_name": "Electrical Engineering and Computer Science",
+    "minors": [
+      4,
+      1
+    ],
+    "department_code": "EECS"
+  },
+  "pk": 1
+},
+{
+  "model": "Profiles.department",
+  "fields": {
+    "department_info": "Cognitive science is the transdisciplinary study of the human mind. The Department of Cognitive Science at CWRU is unique in its focus on human higher-order cognition, in particular our remarkably sophisticated capacities for creativity, innovation, communication, and social cognition. ",
+    "department_head": 8,
+    "majors": [
+      1
+    ],
+    "department_name": "Cognitive Science",
+    "minors": [
+      5
+    ],
+    "department_code": "COGS"
+  },
+  "pk": 2
+},
+{
+  "model": "Profiles.department",
+  "fields": {
+    "department_info": "The Department of Modern Languages and Literatures at Case Western Reserve University is committed to helping students become informed and liberally educated citizens of a diverse world. By teaching students to participate fully in cultures other than their own, through the acquisition of language skills and cultural awareness, we prepare them for lifelong learning in an increasingly multilingual and multicultural world. ",
+    "department_head": 10,
+    "majors": [
+      6
+    ],
+    "department_name": "German",
+    "minors": [
+      2
+    ],
+    "department_code": "GRMN"
+  },
+  "pk": 3
+},
+{
+  "model": "Profiles.department",
+  "fields": {
+    "department_info": "The Department of Psychological Sciences represents the combined strengths of the fields of psychology and communication sciences. Approved by Case Western Reserve University\u2019s Board of Trustees and effective January 1, 2011, this distinctive new department was formed by merging the Department of Psychology\u2019s and the Department of Communication Science\u2019s faculty, staff, research, and undergraduate and graduate training programs.",
+    "department_head": 12,
+    "majors": [
+      7
+    ],
+    "department_name": "Psychology",
+    "minors": [
+      6
+    ],
+    "department_code": "PSCL"
+  },
+  "pk": 4
+},
+{
+  "model": "Profiles.department",
+  "fields": {
+    "department_info": "The Department of Mathematics, Applied Mathematics and Statistics at Case Western Reserve University is an active center for mathematical research. Faculty members conduct research in algebra, analysis, applied mathematics, convexity, dynamical systems, geometry, imaging, inverse problems, life sciences applications, mathematical biology, modeling, numerical analysis, probability, scientific computing, stochastic systems and other areas.",
+    "department_head": 14,
+    "majors": [
+      9,
+      8,
+      10
+    ],
+    "department_name": "Mathematics, Applied Mathematics and Statistics",
+    "minors": [
+      7,
+      8
+    ],
+    "department_code": "MATH"
+  },
+  "pk": 5
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "kenneth.loparo@case.edu",
+    "bio": "I'm the head of the EECS department",
+    "current_department": 1,
+    "last_name": "Loparo",
+    "first_name": "Kenneth",
+    "photo": "Profiles/static/img/loparo.jpg",
+    "office_location": "Olin",
+    "classes": []
+  },
+  "pk": 1
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "swarup.bhunia@case.edu",
+    "bio": "I love Computer Architecture. ",
+    "current_department": 1,
+    "last_name": "Bhunia",
+    "first_name": "Swarup",
+    "photo": "Profiles/static/img/bhunia.jpg",
+    "office_location": "Olin",
+    "classes": [
+      13
+    ]
+  },
+  "pk": 2
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "tekin@case.edu",
+    "bio": "My interests include: Graph databases and data mining problems in metabolic networks, metabolomics, and systems biology, bioinformatics, web data mining",
+    "current_department": 1,
+    "last_name": "Ozsoyoglu",
+    "first_name": "Tekin",
+    "photo": "Profiles/static/img/tekin.jpg",
+    "office_location": "Olin 506",
+    "classes": [
+      12,
+      14
+    ]
+  },
+  "pk": 3
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "harold.connamacher@case.edu",
+    "bio": "B.A.: Computer Science, Oberlin College  M.S.: Computer and Information Science, University of Oregon  Ph.D.: Computer Science, University of Toronto",
+    "current_department": 1,
+    "last_name": "Connamacher",
+    "first_name": "Harold",
+    "photo": "Profiles/static/img/connamacher.jpg",
+    "office_location": "Olin 502",
+    "classes": [
+      1
+    ]
+  },
+  "pk": 4
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "meral@case.edu",
+    "bio": "My interests include: Database systems, database query languages and optimization, data models, index structures, bioinformatics, medical informatics",
+    "current_department": 1,
+    "last_name": "Ozsoyoglu",
+    "first_name": "Meral",
+    "photo": "Profiles/static/img/meral.jpg",
+    "office_location": "Olin 511",
+    "classes": [
+      4
+    ]
+  },
+  "pk": 5
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "michael.rabinovich@case.edu",
+    "bio": "My interests include: Computer networks, Internet performance evaluation, databases, utility computing",
+    "current_department": 1,
+    "last_name": "Rabinovich",
+    "first_name": "Michael",
+    "photo": "Profiles/static/img/rabinovich.jpg",
+    "office_location": "Olin 507",
+    "classes": [
+      3
+    ]
+  },
+  "pk": 6
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "hap@case.edu",
+    "bio": "My interests include: Software engineering methodology and tools, especially use of data mining, machine learning, and program analysis techniques in software testing, fault detection and localization, reliable engineering and software security, electronic mediacal records, privacy",
+    "current_department": 1,
+    "last_name": "Podgurski",
+    "first_name": "Andy",
+    "photo": "Profiles/static/img/podgurski.jpg",
+    "office_location": "Olin 510",
+    "classes": [
+      2
+    ]
+  },
+  "pk": 7
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "william.deal@case.edu",
+    "bio": "William E. Deal is Chair of the Department of Cognitive Science, Professor of Cognitive Science, and Severance Professor of the History of Religion in the Department of Religious Studies at Case Western Reserve University. He is also Associate Director for Digital Humanities at the Baker-Nord Center for the Humanities in the College of Arts and Sciences.",
+    "current_department": 2,
+    "last_name": "Deal",
+    "first_name": "William",
+    "photo": "Profiles/static/img/deal.jpeg",
+    "office_location": "Crawford 610",
+    "classes": []
+  },
+  "pk": 8
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "fey.parrill@case.edu",
+    "bio": "Director, Language and Cognition Lab  Research interests: Co-speech gesture, pragmatics, embodied cognition, construction grammar, social cognition, attention.",
+    "current_department": 2,
+    "last_name": "Parrill",
+    "first_name": "Fey",
+    "photo": "Profiles/static/img/parrill.jpg",
+    "office_location": "Crawford 612B",
+    "classes": [
+      10
+    ]
+  },
+  "pk": 9
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "daley@case.edu",
+    "bio": "Associate Professor of German",
+    "current_department": 3,
+    "last_name": "Daley",
+    "first_name": "Margaretmary",
+    "photo": "Profiles/static/img/Daley.gif",
+    "office_location": "Guilford 303",
+    "classes": []
+  },
+  "pk": 10
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "yang@case.edu",
+    "bio": "Associate Professor of German, Chinese and Comparative Literature",
+    "current_department": 3,
+    "last_name": "Yang",
+    "first_name": "Peter",
+    "photo": "Profiles/static/img/Screen_Shot_2015-12-02_at_10.49.36_PM.png",
+    "office_location": "Guilford 307",
+    "classes": [
+      7
+    ]
+  },
+  "pk": 11
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "lee.thompson@case.edu",
+    "bio": "The primary focus of my research is to explain what makes each of us unique in terms of genetic and environmental causes. Most of my work has explored the development of cognitive skills, temperament, and language from infancy through childhood using siblings, twins and genetic techniques. I am particularly interested in how the genetic code is translated into complex behavior at the level of brain function.",
+    "current_department": 4,
+    "last_name": "Thompson",
+    "first_name": "Lee",
+    "photo": "Profiles/static/img/thompson_lee.jpg",
+    "office_location": "Mather Memorial Building 127A",
+    "classes": []
+  },
+  "pk": 12
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "elizabeth.short@case.edu",
+    "bio": "My primary research focus is to better understand the processes underlying cognitive development in preschoolers and school-aged children. Specifically, I am interested in cognitive, metacognitive, affective, and motivational factors that impact academic achievement. Much of my research has focused on individual differences in learning. ",
+    "current_department": 4,
+    "last_name": "Short",
+    "first_name": "Elizabeth",
+    "photo": "Profiles/static/img/Screen_Shot_2015-12-02_at_11.00.39_PM.png",
+    "office_location": "Mather Memorial Building 147",
+    "classes": [
+      8
+    ]
+  },
+  "pk": 13
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "david.singer@case.edu",
+    "bio": "Professor and Interim Chair Department of Mathematics, Applied Mathematics, and Statistics Research interest: Geometry Dynamical Systems Variational Problems",
+    "current_department": 5,
+    "last_name": "Singer",
+    "first_name": "David",
+    "photo": "Profiles/static/img/singer.jpg",
+    "office_location": "Yost Hall 307",
+    "classes": []
+  },
+  "pk": 14
+},
+{
+  "model": "Profiles.professor",
+  "fields": {
+    "email_id": "margaret.callahan@case.edu",
+    "bio": "I am a Graduate student in the Math department.",
+    "current_department": 5,
+    "last_name": "Callahan",
+    "first_name": "Margaret",
+    "photo": "Profiles/static/img/Margaret-Callahan.jpg",
+    "office_location": "Yost",
+    "classes": [
+      9
+    ]
+  },
+  "pk": 15
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "CompArch",
+    "course": 13
+  },
+  "pk": 1
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "OS",
+    "course": 12
+  },
+  "pk": 2
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "GRMN4",
+    "course": 11
+  },
+  "pk": 3
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "Networks",
+    "course": 3
+  },
+  "pk": 4
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "Cognitive Diversity",
+    "course": 10
+  },
+  "pk": 5
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "Linear",
+    "course": 9
+  },
+  "pk": 6
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "Child Psych",
+    "course": 8
+  },
+  "pk": 7
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "German Cinema",
+    "course": 7
+  },
+  "pk": 8
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "Game Design",
+    "course": 6
+  },
+  "pk": 9
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "Machine",
+    "course": 5
+  },
+  "pk": 10
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "Databases",
+    "course": 4
+  },
+  "pk": 11
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "Software Engineering",
+    "course": 2
+  },
+  "pk": 12
+},
+{
+  "model": "wbMessageBoard.discussionboard",
+  "fields": {
+    "description": "Stuff",
+    "name": "Java",
+    "course": 1
+  },
+  "pk": 13
+},
+{
+  "model": "wbMessageBoard.thread",
+  "fields": {
+    "subject": "Agile Methods - What are those???",
+    "creator": 1,
+    "message": "Can anyone help me out?",
+    "time_of_creation": "2015-10-12T05:21:29Z",
+    "board": 12
+  },
+  "pk": 4
+},
+{
+  "model": "wbMessageBoard.thread",
+  "fields": {
+    "subject": "I need a group for the project! Can anyone help me out?",
+    "creator": 2,
+    "message": "I want to work on something with Django",
+    "time_of_creation": "2015-10-13T05:26:40Z",
+    "board": 12
+  },
+  "pk": 5
+},
+{
+  "model": "wbMessageBoard.thread",
+  "fields": {
+    "subject": "What should we put in the project presention?",
+    "creator": 4,
+    "message": "Did he say anything in class?",
+    "time_of_creation": "2015-11-16T05:27:58Z",
+    "board": 12
+  },
+  "pk": 6
+},
+{
+  "model": "wbMessageBoard.thread",
+  "fields": {
+    "subject": "Do we have class the Wednesday before break?",
+    "creator": 3,
+    "message": "Just wondering.",
+    "time_of_creation": "2015-11-23T05:28:39Z",
+    "board": 12
+  },
+  "pk": 7
+},
+{
+  "model": "wbMessageBoard.thread",
+  "fields": {
+    "subject": "Do we have a quiz coming up?",
+    "creator": 5,
+    "message": "Don't want to miss one!",
+    "time_of_creation": "2015-11-30T05:29:33Z",
+    "board": 12
+  },
+  "pk": 8
+},
+{
+  "model": "wbMessageBoard.post",
+  "fields": {
+    "content": "I put a document on the page to help you out!",
+    "creator": 5,
+    "time_of_creation": "2015-10-12T05:21:39Z",
+    "thread": 4
+  },
+  "pk": 7
+},
+{
+  "model": "wbMessageBoard.post",
+  "fields": {
+    "content": "Come work with us! We want to do something with Django",
+    "creator": 1,
+    "time_of_creation": "2015-10-13T05:26:52Z",
+    "thread": 5
+  },
+  "pk": 8
+},
+{
+  "model": "wbMessageBoard.post",
+  "fields": {
+    "content": "Awesome, thanks!",
+    "creator": 2,
+    "time_of_creation": "2015-10-13T05:27:20Z",
+    "thread": 5
+  },
+  "pk": 9
+},
+{
+  "model": "wbMessageBoard.post",
+  "fields": {
+    "content": "Just some background info and a demo.",
+    "creator": 5,
+    "time_of_creation": "2015-11-16T05:28:07Z",
+    "thread": 6
+  },
+  "pk": 10
+},
+{
+  "model": "wbMessageBoard.post",
+  "fields": {
+    "content": "Nope, he cancelled!",
+    "creator": 6,
+    "time_of_creation": "2015-11-23T05:28:48Z",
+    "thread": 7
+  },
+  "pk": 11
+},
+{
+  "model": "wbMessageBoard.post",
+  "fields": {
+    "content": "He says we might have one on the last day of class.",
+    "creator": 1,
+    "time_of_creation": "2015-11-30T05:29:39Z",
+    "thread": 8
+  },
+  "pk": 12
+},
+{
+  "model": "wbMessageBoard.post",
+  "fields": {
+    "content": "And it'll probably be over the project demos.",
+    "creator": 6,
+    "time_of_creation": "2015-11-30T05:29:54Z",
+    "thread": 8
+  },
+  "pk": 13
+},
+{
+  "model": "wbMessageBoard.post",
+  "fields": {
+    "content": "Thanks guys!",
+    "creator": 5,
+    "time_of_creation": "2015-11-30T05:30:09Z",
+    "thread": 8
+  },
+  "pk": 14
+},
+{
+  "model": "class_overviews.semester",
+  "fields": {
+    "startDate": "2015-08-24",
+    "season": "Fall",
+    "year": 2015,
+    "endDate": "2015-12-04"
+  },
+  "pk": 1
+},
+{
+  "model": "class_overviews.semester",
+  "fields": {
+    "startDate": "2015-11-29",
+    "season": "Spring",
+    "year": 2015,
+    "endDate": "2015-11-29"
+  },
+  "pk": 2
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Introduction to Programming in Java",
+    "department": "EECS",
+    "course_number": 132,
+    "description": "Introduction to computer programming and problem solving with the Java language.  Computers, operating systems, and Java applications; software development; conditional statements; loops; methods; arrays; classes and objects; object-oriented design; unit testing; strings and text I/O; inheritance "
+  },
+  "pk": 1
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Software Engineering",
+    "department": "EECS",
+    "course_number": 393,
+    "description": "Topics: Introduction to software engineering; software lifecycle models; development team organization and project management; requirements analysis and specification techniques; software design techniques; programming practices; software validation techniques; software maintenance practices; softwa"
+  },
+  "pk": 2
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Computer Networks I",
+    "department": "EECS",
+    "course_number": 325,
+    "description": "An introduction to computer networks and the Internet.  Applications: http, ftp, e-mail, DNS, socket programming.  Transport: UDP, TCP, reliable data transfer, and congestion control.  Network layer: IP, routing, and NAT.  Link layer: taxonomy, Ethernet, 802.11."
+  },
+  "pk": 3
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Introduction to Databases",
+    "department": "EECS",
+    "course_number": 341,
+    "description": "Relational model, ER model, relational algebra and calculus, SQL, OBE, security, views, files and physical database structures, query processing and query optimization, normalization theory, concurrency control, object relational systems, multimedia databases, Oracle SQL server, Microsoft SQL server"
+  },
+  "pk": 4
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Machine Learning",
+    "department": "EECS",
+    "course_number": 440,
+    "description": "Machine learning is a subfield of Artificial Intelligence that is concerned with the design and analysis of algorithms that \"learn\" and improve with experience,  While the broad aim behind research in this area is to build systems that can simulate or even improve on certain aspects of human intelli"
+  },
+  "pk": 5
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Advanced Game Development Project",
+    "department": "EECS",
+    "course_number": 390,
+    "description": "This game development project course will bring together an interdisciplinary group of advanced undergraduate students in the fields of Electrical Engineering and Computer Science, Art, Music, and English to focus on the design and development of a complete, fully-functioning computer game (as an in"
+  },
+  "pk": 6
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Topics in German Cinema",
+    "department": "GRMN",
+    "course_number": 330,
+    "description": "Overview of German Cinema from the beginning to the present. Film selection representative of major directors, major periods (such as expressionism or The New German Cinema), particular themes from different historical perspectives, and literature in film. All films are in German. Taught in German."
+  },
+  "pk": 7
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Child Psychology",
+    "department": "PSCL",
+    "course_number": 230,
+    "description": "Basic facts and principles of psychological development from the prenatal period through adolescence. Recommended preparation: PSCL 101."
+  },
+  "pk": 8
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Linear Algebra",
+    "department": "MATH",
+    "course_number": 201,
+    "description": "Matrix operations, systems of linear equations, vector spaces, subspaces, bases and linear independence, eigenvalues and eigenvectors, diagonalization of matrices, linear transformations, determinants. Less theoretical than MATH 307."
+  },
+  "pk": 9
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Cognitive Diversity",
+    "department": "COGS",
+    "course_number": 317,
+    "description": "This course surveys research from cognitive science (psychology, linguistics, neuroscience, etc.) on the ways that different people think differently.  We will consider dimensions such as sex, gender, sexual orientation, race/ethnicity, bodily differences, cultural differences, and effects of speaki"
+  },
+  "pk": 10
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Intermediate German II",
+    "department": "GRMN",
+    "course_number": 202,
+    "description": "Continuation of GRMN 201; conducted in German. Study of texts and videotapes which focus on contemporary life in Germany."
+  },
+  "pk": 11
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Introduction to Operating Systems",
+    "department": "EECS",
+    "course_number": 338,
+    "description": "CPU scheduling, memory management, concurrent processes, semaphores, monitors, deadlocks, secondary storage management, file systems, protection, UNIX operating system, fork, exec, wait, UNIX System V IPCs, sockets, remote procedure calls, threads. Must be proficient in \"C\" programming language."
+  },
+  "pk": 12
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Computer Architecture",
+    "department": "EECS",
+    "course_number": 314,
+    "description": "This course provides students the opportunity to study and evaluate a modern computer architecture design.  The course covers topics in fundamentals of computer design, performance, cost, instruction set design, processor implementation, control unit, pipelining, communication and network, memory hi"
+  },
+  "pk": 13
+},
+{
+  "model": "class_overviews.course",
+  "fields": {
+    "course_name": "Intro to Operating Systems and Concurrent Programming",
+    "department": "EECS",
+    "course_number": 338,
+    "description": "Intro to OS: OS Structures, processes, threads, CPU scheduling, deadlocks, memory management, file system implementations, virtual machines, cloud computing. Concurrent programming: fork, join, concurrent statement, critical section problem, safety and liveness properties of concurrent programs, pro"
+  },
+  "pk": 14
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "14:50:00",
+    "start_time": "14:00:00",
+    "location": "Rockefeller 301",
+    "days_of_week": "MWF",
+    "semester": 1,
+    "section_number": 4529,
+    "course": 1
+  },
+  "pk": 1
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "12:30:00",
+    "start_time": "11:30:00",
+    "location": "Nord Hall 410",
+    "days_of_week": "MWF",
+    "semester": 1,
+    "section_number": 3931,
+    "course": 2
+  },
+  "pk": 2
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "10:15:00",
+    "start_time": "09:00:00",
+    "location": "Rockefeller 301",
+    "days_of_week": "WF",
+    "semester": 1,
+    "section_number": 3915,
+    "course": 3
+  },
+  "pk": 3
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "13:45:00",
+    "start_time": "12:30:00",
+    "location": "White 324",
+    "days_of_week": "MW",
+    "semester": 1,
+    "section_number": 11267,
+    "course": 4
+  },
+  "pk": 4
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "11:15:00",
+    "start_time": "10:00:00",
+    "location": "Sears 354",
+    "days_of_week": "TH",
+    "semester": 1,
+    "section_number": 4378,
+    "course": 5
+  },
+  "pk": 5
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "09:45:00",
+    "start_time": "08:30:00",
+    "location": "CIA/Glennan 716",
+    "days_of_week": "TH",
+    "semester": 1,
+    "section_number": 3921,
+    "course": 6
+  },
+  "pk": 6
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "10:15:00",
+    "start_time": "09:00:00",
+    "location": "Clark 110",
+    "days_of_week": "MW",
+    "semester": 1,
+    "section_number": 10841,
+    "course": 7
+  },
+  "pk": 7
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "02:30:00",
+    "start_time": "01:15:00",
+    "location": "Rockefeller 309",
+    "days_of_week": "TH",
+    "semester": 1,
+    "section_number": 1378,
+    "course": 8
+  },
+  "pk": 8
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "11:15:00",
+    "start_time": "10:00:00",
+    "location": "Wickenden 322",
+    "days_of_week": "TH",
+    "semester": 1,
+    "section_number": 1256,
+    "course": 9
+  },
+  "pk": 9
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "04:00:00",
+    "start_time": "02:45:00",
+    "location": "Nord 204",
+    "days_of_week": "TH",
+    "semester": 2,
+    "section_number": 3443,
+    "course": 10
+  },
+  "pk": 10
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "12:30:00",
+    "start_time": "11:30:00",
+    "location": "Clark Hall 112",
+    "days_of_week": "MWF",
+    "semester": 2,
+    "section_number": 1936,
+    "course": 11
+  },
+  "pk": 11
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "17:15:00",
+    "start_time": "16:00:00",
+    "location": "DeGrace 312",
+    "days_of_week": "MW",
+    "semester": 2,
+    "section_number": 4691,
+    "course": 12
+  },
+  "pk": 12
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "17:30:00",
+    "start_time": "16:15:00",
+    "location": "Bingham 103",
+    "days_of_week": "TH",
+    "semester": 2,
+    "section_number": 4117,
+    "course": 13
+  },
+  "pk": 13
+},
+{
+  "model": "class_overviews.section",
+  "fields": {
+    "end_time": "11:15:00",
+    "start_time": "10:00:00",
+    "location": "Rockefeller 301",
+    "days_of_week": "TH",
+    "semester": 1,
+    "section_number": 10914,
+    "course": 14
+  },
+  "pk": 14
+},
+{
+  "model": "class_overviews.document",
+  "fields": {
+    "file": "documents/Intro_to_Agile.pdf",
+    "description": "Help with Agile Method",
+    "name": "Agile Method Help",
+    "course_section": 2
+  },
+  "pk": 1
+},
+{
+  "model": "wb_calendar.event",
+  "fields": {
+    "description": "Linear Algebra",
+    "allDay": false,
+    "calendar": 1,
+    "recurring": true,
+    "title": "MATH201",
+    "end": "11:15:00",
+    "start": "10:00:00",
+    "dow": "TR"
+  },
+  "pk": 1
+},
+{
+  "model": "wb_calendar.event",
+  "fields": {
+    "description": "Introduction to German Cinema",
+    "allDay": false,
+    "calendar": 1,
+    "recurring": true,
+    "title": "GRMN330",
+    "end": "10:15:00",
+    "start": "09:00:00",
+    "dow": "MW"
+  },
+  "pk": 2
+},
+{
+  "model": "wb_calendar.event",
+  "fields": {
+    "description": "Software Engineering",
+    "allDay": false,
+    "calendar": 1,
+    "recurring": true,
+    "title": "EECS393",
+    "end": "12:30:00",
+    "start": "11:30:00",
+    "dow": "MWF"
+  },
+  "pk": 3
+},
+{
+  "model": "wb_calendar.event",
+  "fields": {
+    "description": "Child Psychology",
+    "allDay": false,
+    "calendar": 1,
+    "recurring": true,
+    "title": "PSCL230",
+    "end": "14:30:00",
+    "start": "13:15:00",
+    "dow": "TR"
+  },
+  "pk": 4
+},
+{
+  "model": "wb_calendar.calendar",
+  "fields": {
+    "owner": 5,
+    "name": "Karen's Calendar"
+  },
+  "pk": 1
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  },
+  "pk": 1
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  },
+  "pk": 2
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  },
+  "pk": 3
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  },
+  "pk": 4
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  },
+  "pk": 5
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  },
+  "pk": 6
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  },
+  "pk": 7
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  },
+  "pk": 8
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  },
+  "pk": 9
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  },
+  "pk": 10
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  },
+  "pk": 11
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  },
+  "pk": 12
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  },
+  "pk": 13
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  },
+  "pk": 14
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  },
+  "pk": 15
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  },
+  "pk": 16
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  },
+  "pk": 17
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  },
+  "pk": 18
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add major",
+    "content_type": 7,
+    "codename": "add_major"
+  },
+  "pk": 19
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change major",
+    "content_type": 7,
+    "codename": "change_major"
+  },
+  "pk": 20
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete major",
+    "content_type": 7,
+    "codename": "delete_major"
+  },
+  "pk": 21
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add minor",
+    "content_type": 8,
+    "codename": "add_minor"
+  },
+  "pk": 22
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change minor",
+    "content_type": 8,
+    "codename": "change_minor"
+  },
+  "pk": 23
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete minor",
+    "content_type": 8,
+    "codename": "delete_minor"
+  },
+  "pk": 24
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add student user",
+    "content_type": 9,
+    "codename": "add_studentuser"
+  },
+  "pk": 25
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change student user",
+    "content_type": 9,
+    "codename": "change_studentuser"
+  },
+  "pk": 26
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete student user",
+    "content_type": 9,
+    "codename": "delete_studentuser"
+  },
+  "pk": 27
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add department",
+    "content_type": 10,
+    "codename": "add_department"
+  },
+  "pk": 28
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change department",
+    "content_type": 10,
+    "codename": "change_department"
+  },
+  "pk": 29
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete department",
+    "content_type": 10,
+    "codename": "delete_department"
+  },
+  "pk": 30
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add professor",
+    "content_type": 11,
+    "codename": "add_professor"
+  },
+  "pk": 31
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change professor",
+    "content_type": 11,
+    "codename": "change_professor"
+  },
+  "pk": 32
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete professor",
+    "content_type": 11,
+    "codename": "delete_professor"
+  },
+  "pk": 33
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add discussion board",
+    "content_type": 12,
+    "codename": "add_discussionboard"
+  },
+  "pk": 34
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change discussion board",
+    "content_type": 12,
+    "codename": "change_discussionboard"
+  },
+  "pk": 35
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete discussion board",
+    "content_type": 12,
+    "codename": "delete_discussionboard"
+  },
+  "pk": 36
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add thread",
+    "content_type": 13,
+    "codename": "add_thread"
+  },
+  "pk": 37
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change thread",
+    "content_type": 13,
+    "codename": "change_thread"
+  },
+  "pk": 38
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete thread",
+    "content_type": 13,
+    "codename": "delete_thread"
+  },
+  "pk": 39
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add post",
+    "content_type": 14,
+    "codename": "add_post"
+  },
+  "pk": 40
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change post",
+    "content_type": 14,
+    "codename": "change_post"
+  },
+  "pk": 41
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete post",
+    "content_type": 14,
+    "codename": "delete_post"
+  },
+  "pk": 42
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add semester",
+    "content_type": 15,
+    "codename": "add_semester"
+  },
+  "pk": 43
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change semester",
+    "content_type": 15,
+    "codename": "change_semester"
+  },
+  "pk": 44
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete semester",
+    "content_type": 15,
+    "codename": "delete_semester"
+  },
+  "pk": 45
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add course",
+    "content_type": 16,
+    "codename": "add_course"
+  },
+  "pk": 46
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change course",
+    "content_type": 16,
+    "codename": "change_course"
+  },
+  "pk": 47
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete course",
+    "content_type": 16,
+    "codename": "delete_course"
+  },
+  "pk": 48
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add section",
+    "content_type": 17,
+    "codename": "add_section"
+  },
+  "pk": 49
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change section",
+    "content_type": 17,
+    "codename": "change_section"
+  },
+  "pk": 50
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete section",
+    "content_type": 17,
+    "codename": "delete_section"
+  },
+  "pk": 51
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add document",
+    "content_type": 18,
+    "codename": "add_document"
+  },
+  "pk": 52
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change document",
+    "content_type": 18,
+    "codename": "change_document"
+  },
+  "pk": 53
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete document",
+    "content_type": 18,
+    "codename": "delete_document"
+  },
+  "pk": 54
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add event",
+    "content_type": 19,
+    "codename": "add_event"
+  },
+  "pk": 55
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change event",
+    "content_type": 19,
+    "codename": "change_event"
+  },
+  "pk": 56
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete event",
+    "content_type": 19,
+    "codename": "delete_event"
+  },
+  "pk": 57
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add calendar",
+    "content_type": 20,
+    "codename": "add_calendar"
+  },
+  "pk": 58
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change calendar",
+    "content_type": 20,
+    "codename": "change_calendar"
+  },
+  "pk": 59
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete calendar",
+    "content_type": 20,
+    "codename": "delete_calendar"
+  },
+  "pk": 60
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "user_permissions": [],
+    "first_name": "",
+    "last_login": "2015-12-03T04:24:38.871Z",
+    "password": "pbkdf2_sha256$20000$smE3YK23uc2M$0zD7foJL+jGAjrM0kcksmSeipAME9pZgY+W94RZSEx4=",
+    "is_superuser": true,
+    "email": "",
+    "username": "vagrant",
+    "is_active": true,
+    "is_staff": true,
+    "last_name": "",
+    "date_joined": "2015-11-30T03:45:13.836Z",
+    "groups": []
+  },
+  "pk": 1
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "user_permissions": [],
+    "first_name": "",
+    "last_login": "2015-12-03T04:28:07.443Z",
+    "password": "pbkdf2_sha256$20000$k9WW9b2EyCh4$wo6N+tU011/qdAEtlYx4fpxBoz8QkoOVZStTgQzzsTI=",
+    "is_superuser": false,
+    "email": "",
+    "username": "karen",
+    "is_active": true,
+    "is_staff": false,
+    "last_name": "",
+    "date_joined": "2015-11-30T03:45:59Z",
+    "groups": []
+  },
+  "pk": 2
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "user_permissions": [],
+    "first_name": "",
+    "last_login": null,
+    "password": "pbkdf2_sha256$20000$ZzJGAEQhuCaJ$F9tePK8xEggsB24mnx/onNdcrJOQhrrqzXD6PlhJYH8=",
+    "is_superuser": false,
+    "email": "",
+    "username": "matt",
+    "is_active": true,
+    "is_staff": false,
+    "last_name": "",
+    "date_joined": "2015-11-30T03:46:18Z",
+    "groups": []
+  },
+  "pk": 3
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "user_permissions": [],
+    "first_name": "",
+    "last_login": null,
+    "password": "pbkdf2_sha256$20000$fqJSYuHcLyWT$hpESsaOLjSULYmCrlencd7DtLtdEH6f+usWysbq33Vk=",
+    "is_superuser": false,
+    "email": "",
+    "username": "justin",
+    "is_active": true,
+    "is_staff": false,
+    "last_name": "",
+    "date_joined": "2015-11-30T03:46:35Z",
+    "groups": []
+  },
+  "pk": 4
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "user_permissions": [],
+    "first_name": "",
+    "last_login": null,
+    "password": "pbkdf2_sha256$20000$AQj5sFRCBM1d$a8U7wxp4JhsgEvZjxG6nQmiYpZ6wGZNP/KxWzoeLqCQ=",
+    "is_superuser": false,
+    "email": "",
+    "username": "joe",
+    "is_active": true,
+    "is_staff": false,
+    "last_name": "",
+    "date_joined": "2015-11-30T03:46:57Z",
+    "groups": []
+  },
+  "pk": 5
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "user_permissions": [],
+    "first_name": "",
+    "last_login": null,
+    "password": "pbkdf2_sha256$20000$H7v3kboZaaX6$v2UEpYVA9NKWyXfAUQnBo/o2JWqN8EyzItca4bikhwE=",
+    "is_superuser": false,
+    "email": "",
+    "username": "daniel",
+    "is_active": true,
+    "is_staff": false,
+    "last_name": "",
+    "date_joined": "2015-11-30T03:47:13Z",
+    "groups": []
+  },
+  "pk": 6
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "user_permissions": [],
+    "first_name": "",
+    "last_login": null,
+    "password": "pbkdf2_sha256$20000$Bs8NNVW8gchA$MbjQ8fkC8ucZuXgFvTh5cfVvKxbmwTivB3qqtnh1QLw=",
+    "is_superuser": false,
+    "email": "",
+    "username": "adam",
+    "is_active": true,
+    "is_staff": false,
+    "last_name": "",
+    "date_joined": "2015-11-30T03:47:26Z",
+    "groups": []
+  },
+  "pk": 7
+},
+{
+  "model": "Profiles.studentuser",
+  "fields": {
+    "student_classes": [
+      2,
+      3,
+      9
+    ],
+    "email_id": "adam.defranco@case.edu",
+    "user": 7,
+    "ta_classes": [],
+    "grad_year": 2016,
+    "majors": [
+      1
+    ],
+    "last_name": "DeFranco",
+    "first_name": "Adam",
+    "photo": "Profiles/static/img/adam.jpg",
+    "minors": [],
+    "bio": "Hi guys! My name is Adam, I'm hugely sarcastic and have some pretty great vines! Check them out: https://vine.co/u/1110009197736722432 I'm a senior computer science student."
+  },
+  "pk": 1
+},
+{
+  "model": "Profiles.studentuser",
+  "fields": {
+    "student_classes": [
+      2,
+      3,
+      12,
+      13
+    ],
+    "email_id": "daniel.mckinnon@case.edu",
+    "user": 6,
+    "ta_classes": [
+      1
+    ],
+    "grad_year": 2016,
+    "majors": [
+      1
+    ],
+    "last_name": "McKinon",
+    "first_name": "Daniel",
+    "photo": "Profiles/static/img/daniel.jpg",
+    "minors": [],
+    "bio": "My name is Daniel and I love raisins. If I could my entire diet would consist only of raisins. My skills include braiding girls hair and basketball. I'm a senior computer science student and a TA for Intro to Java."
+  },
+  "pk": 2
+},
+{
+  "model": "Profiles.studentuser",
+  "fields": {
+    "student_classes": [
+      2,
+      3,
+      6
+    ],
+    "email_id": "joseph.satterfield@case.edu",
+    "user": 5,
+    "ta_classes": [],
+    "grad_year": 2016,
+    "majors": [
+      1
+    ],
+    "last_name": "Satterfield",
+    "first_name": "Joe",
+    "photo": "Profiles/static/img/joe.jpg",
+    "minors": [
+      1
+    ],
+    "bio": "Hi I'm Joe and I love free T-shirts! Have you heard about all the free T-shirts deals online right now? Message me if you would like any info! I'm a senior computer science student."
+  },
+  "pk": 3
+},
+{
+  "model": "Profiles.studentuser",
+  "fields": {
+    "student_classes": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "email_id": "justin.renjilian@case.edu",
+    "user": 4,
+    "ta_classes": [],
+    "grad_year": 2016,
+    "majors": [
+      1
+    ],
+    "last_name": "Renjilian",
+    "first_name": "Justin",
+    "photo": "Profiles/static/img/justin.jpg",
+    "minors": [
+      1
+    ],
+    "bio": "I'm a computer science student and a saxophone player in Case's marching band. Call me Big Jazz Boy."
+  },
+  "pk": 4
+},
+{
+  "model": "Profiles.studentuser",
+  "fields": {
+    "student_classes": [
+      2,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "email_id": "kaz14@case.edu",
+    "user": 2,
+    "ta_classes": [
+      4
+    ],
+    "grad_year": 2016,
+    "majors": [
+      1
+    ],
+    "last_name": "Zoeller",
+    "first_name": "Karen",
+    "photo": "Profiles/static/img/karen.jpg",
+    "minors": [
+      2
+    ],
+    "bio": "Hey I'm Karen Zoeller and I'm a senior computer science student. I'm an SI for Math 122 and a TA/grader for EECS 341 (Meral's section)."
+  },
+  "pk": 5
+},
+{
+  "model": "Profiles.studentuser",
+  "fields": {
+    "student_classes": [
+      2
+    ],
+    "email_id": "matthew.ehland@case.edu",
+    "user": 3,
+    "ta_classes": [],
+    "grad_year": 2016,
+    "majors": [
+      3
+    ],
+    "last_name": "Ehland",
+    "first_name": "Matt",
+    "photo": "Profiles/static/img/matt.jpg",
+    "minors": [],
+    "bio": "I'm a senior Electrical Engineering student so don't ask me how I got stuck creating a website! I like South Park and Rolling Rock."
+  },
+  "pk": 6
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T03:45:59.653Z",
+    "object_repr": "karen",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 4
+  },
+  "pk": 1
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "No fields changed.",
+    "action_flag": 2,
+    "action_time": "2015-11-30T03:46:04.160Z",
+    "object_repr": "karen",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 4
+  },
+  "pk": 2
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T03:46:18.313Z",
+    "object_repr": "matt",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 4
+  },
+  "pk": 3
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "No fields changed.",
+    "action_flag": 2,
+    "action_time": "2015-11-30T03:46:22.294Z",
+    "object_repr": "matt",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 4
+  },
+  "pk": 4
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T03:46:35.116Z",
+    "object_repr": "justin",
+    "user": 1,
+    "object_id": "4",
+    "content_type": 4
+  },
+  "pk": 5
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "No fields changed.",
+    "action_flag": 2,
+    "action_time": "2015-11-30T03:46:39.088Z",
+    "object_repr": "justin",
+    "user": 1,
+    "object_id": "4",
+    "content_type": 4
+  },
+  "pk": 6
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T03:46:57.960Z",
+    "object_repr": "joe",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 4
+  },
+  "pk": 7
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "No fields changed.",
+    "action_flag": 2,
+    "action_time": "2015-11-30T03:47:01.706Z",
+    "object_repr": "joe",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 4
+  },
+  "pk": 8
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T03:47:13.497Z",
+    "object_repr": "daniel",
+    "user": 1,
+    "object_id": "6",
+    "content_type": 4
+  },
+  "pk": 9
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "No fields changed.",
+    "action_flag": 2,
+    "action_time": "2015-11-30T03:47:17.464Z",
+    "object_repr": "daniel",
+    "user": 1,
+    "object_id": "6",
+    "content_type": 4
+  },
+  "pk": 10
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T03:47:26.656Z",
+    "object_repr": "adam",
+    "user": 1,
+    "object_id": "7",
+    "content_type": 4
+  },
+  "pk": 11
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "No fields changed.",
+    "action_flag": 2,
+    "action_time": "2015-11-30T03:47:30.155Z",
+    "object_repr": "adam",
+    "user": 1,
+    "object_id": "7",
+    "content_type": 4
+  },
+  "pk": 12
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T03:51:24.932Z",
+    "object_repr": "Fall 2015",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 15
+  },
+  "pk": 13
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T03:51:29.120Z",
+    "object_repr": "EECS132: Introduction to Programming in Java",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 16
+  },
+  "pk": 14
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T03:53:08.594Z",
+    "object_repr": "EECS393: Software Engineering",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 16
+  },
+  "pk": 15
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T03:54:26.896Z",
+    "object_repr": "EECS325: Computer Networks I",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 16
+  },
+  "pk": 16
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T03:55:39.920Z",
+    "object_repr": "EECS341: Introduction to Databases",
+    "user": 1,
+    "object_id": "4",
+    "content_type": 16
+  },
+  "pk": 17
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T03:57:13.160Z",
+    "object_repr": "EECS440: Machine Learning",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 16
+  },
+  "pk": 18
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:00:08.902Z",
+    "object_repr": "EECS390: Advanced Game Development Project",
+    "user": 1,
+    "object_id": "6",
+    "content_type": 16
+  },
+  "pk": 19
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:01:40.656Z",
+    "object_repr": "GRMN330: Topics in German Cinema",
+    "user": 1,
+    "object_id": "7",
+    "content_type": 16
+  },
+  "pk": 20
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:02:46.908Z",
+    "object_repr": "PSCL230: Child Psychology",
+    "user": 1,
+    "object_id": "8",
+    "content_type": 16
+  },
+  "pk": 21
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:04:06.947Z",
+    "object_repr": "MATH201: Linear Algebra",
+    "user": 1,
+    "object_id": "9",
+    "content_type": 16
+  },
+  "pk": 22
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:06:12.369Z",
+    "object_repr": "Spring 2015",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 15
+  },
+  "pk": 23
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:06:17.325Z",
+    "object_repr": "COGS317: Cognitive Diversity",
+    "user": 1,
+    "object_id": "10",
+    "content_type": 16
+  },
+  "pk": 24
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:11:06.510Z",
+    "object_repr": "GRMN202: Intermediate German II",
+    "user": 1,
+    "object_id": "11",
+    "content_type": 16
+  },
+  "pk": 25
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:13:02.110Z",
+    "object_repr": "EECS338: Introduction to Operating Systems",
+    "user": 1,
+    "object_id": "12",
+    "content_type": 16
+  },
+  "pk": 26
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:14:10.099Z",
+    "object_repr": "EECS314: Computer Architecture",
+    "user": 1,
+    "object_id": "13",
+    "content_type": 16
+  },
+  "pk": 27
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:14:58.884Z",
+    "object_repr": "CompArch",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 12
+  },
+  "pk": 28
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:15:19.905Z",
+    "object_repr": "OS",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 12
+  },
+  "pk": 29
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:15:34.240Z",
+    "object_repr": "GRMN4",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 12
+  },
+  "pk": 30
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:15:55.720Z",
+    "object_repr": "Networks",
+    "user": 1,
+    "object_id": "4",
+    "content_type": 12
+  },
+  "pk": 31
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:16:14.340Z",
+    "object_repr": "Cognitive Diversity",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 12
+  },
+  "pk": 32
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:16:27.212Z",
+    "object_repr": "Linear",
+    "user": 1,
+    "object_id": "6",
+    "content_type": 12
+  },
+  "pk": 33
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:16:41.486Z",
+    "object_repr": "Child Psych",
+    "user": 1,
+    "object_id": "7",
+    "content_type": 12
+  },
+  "pk": 34
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:17:40.489Z",
+    "object_repr": "German Cinema",
+    "user": 1,
+    "object_id": "8",
+    "content_type": 12
+  },
+  "pk": 35
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:17:58.338Z",
+    "object_repr": "Game Design",
+    "user": 1,
+    "object_id": "9",
+    "content_type": 12
+  },
+  "pk": 36
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:18:19.853Z",
+    "object_repr": "Machine",
+    "user": 1,
+    "object_id": "10",
+    "content_type": 12
+  },
+  "pk": 37
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:18:30.841Z",
+    "object_repr": "Databases",
+    "user": 1,
+    "object_id": "11",
+    "content_type": 12
+  },
+  "pk": 38
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:18:50.496Z",
+    "object_repr": "Software Engineering",
+    "user": 1,
+    "object_id": "12",
+    "content_type": 12
+  },
+  "pk": 39
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:19:00.778Z",
+    "object_repr": "Java",
+    "user": 1,
+    "object_id": "13",
+    "content_type": 12
+  },
+  "pk": 40
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:20:05.943Z",
+    "object_repr": "Computer Science",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 7
+  },
+  "pk": 41
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:20:35.998Z",
+    "object_repr": "Adam DeFranco",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 9
+  },
+  "pk": 42
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:21:35.551Z",
+    "object_repr": "Daniel McKinon",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 9
+  },
+  "pk": 43
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:22:25.645Z",
+    "object_repr": "Game Design",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 8
+  },
+  "pk": 44
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:22:41.741Z",
+    "object_repr": "Joe Satterfield",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 9
+  },
+  "pk": 45
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:23:32.697Z",
+    "object_repr": "Justin Renjilian",
+    "user": 1,
+    "object_id": "4",
+    "content_type": 9
+  },
+  "pk": 46
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:24:07.472Z",
+    "object_repr": "Cognitive Science",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 7
+  },
+  "pk": 47
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:24:16.695Z",
+    "object_repr": "German",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 8
+  },
+  "pk": 48
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:24:23.992Z",
+    "object_repr": "Math",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 8
+  },
+  "pk": 49
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:24:43.908Z",
+    "object_repr": "Karen Zoeller",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 9
+  },
+  "pk": 50
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:25:23.894Z",
+    "object_repr": "Electrical Engineering",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 7
+  },
+  "pk": 51
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:25:44.082Z",
+    "object_repr": "Matt Ehland",
+    "user": 1,
+    "object_id": "6",
+    "content_type": 9
+  },
+  "pk": 52
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:27:13.897Z",
+    "object_repr": "Computer Engineering",
+    "user": 1,
+    "object_id": "4",
+    "content_type": 7
+  },
+  "pk": 53
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:27:29.848Z",
+    "object_repr": "Systems and Control Engineering",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 7
+  },
+  "pk": 54
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:27:52.138Z",
+    "object_repr": "Artificial Intelligence",
+    "user": 1,
+    "object_id": "4",
+    "content_type": 8
+  },
+  "pk": 55
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:29:53.311Z",
+    "object_repr": "Kenneth Loparo",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 11
+  },
+  "pk": 56
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:32:06.882Z",
+    "object_repr": "Electrical Engineering and Computer Science",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 10
+  },
+  "pk": 57
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "Changed current_department.",
+    "action_flag": 2,
+    "action_time": "2015-11-30T04:32:19.134Z",
+    "object_repr": "Kenneth Loparo",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 11
+  },
+  "pk": 58
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:34:38.942Z",
+    "object_repr": "Swarup Bhunia",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 11
+  },
+  "pk": 59
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:36:11.359Z",
+    "object_repr": "Tekin Ozsoyoglu",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 11
+  },
+  "pk": 60
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:38:37.726Z",
+    "object_repr": "Harold Connamacher",
+    "user": 1,
+    "object_id": "4",
+    "content_type": 11
+  },
+  "pk": 61
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:40:09.881Z",
+    "object_repr": "Meral Ozsoyoglu",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 11
+  },
+  "pk": 62
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:41:26.741Z",
+    "object_repr": "Michael Rabinovich",
+    "user": 1,
+    "object_id": "6",
+    "content_type": 11
+  },
+  "pk": 63
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T04:43:11.759Z",
+    "object_repr": "Andy Podgurski",
+    "user": 1,
+    "object_id": "7",
+    "content_type": 11
+  },
+  "pk": 64
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "Changed majors and minors.",
+    "action_flag": 2,
+    "action_time": "2015-11-30T04:46:33.113Z",
+    "object_repr": "Karen Zoeller",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 9
+  },
+  "pk": 65
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "Changed bio.",
+    "action_flag": 2,
+    "action_time": "2015-11-30T04:47:48.187Z",
+    "object_repr": "Karen Zoeller",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 9
+  },
+  "pk": 66
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:06:38.870Z",
+    "object_repr": "EECS338: Intro to Operating Systems and Concurrent Programming",
+    "user": 1,
+    "object_id": "14",
+    "content_type": 16
+  },
+  "pk": 67
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "Changed classes.",
+    "action_flag": 2,
+    "action_time": "2015-11-30T05:06:59.678Z",
+    "object_repr": "Tekin Ozsoyoglu",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 11
+  },
+  "pk": 68
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:08:22.366Z",
+    "object_repr": "Calendar object",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 20
+  },
+  "pk": 69
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:08:40.442Z",
+    "object_repr": "Event object",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 19
+  },
+  "pk": 70
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:09:21.436Z",
+    "object_repr": "Event object",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 19
+  },
+  "pk": 71
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:09:54.117Z",
+    "object_repr": "Event object",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 19
+  },
+  "pk": 72
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:10:45.033Z",
+    "object_repr": "Event object",
+    "user": 1,
+    "object_id": "4",
+    "content_type": 19
+  },
+  "pk": 73
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "Changed dow.",
+    "action_flag": 2,
+    "action_time": "2015-11-30T05:11:21.542Z",
+    "object_repr": "Event object",
+    "user": 1,
+    "object_id": "4",
+    "content_type": 19
+  },
+  "pk": 74
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "Changed dow.",
+    "action_flag": 2,
+    "action_time": "2015-11-30T05:11:50.090Z",
+    "object_repr": "Event object",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 19
+  },
+  "pk": 75
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:17:47.865Z",
+    "object_repr": "Do we have a quiz soon?",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 13
+  },
+  "pk": 76
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:18:59.454Z",
+    "object_repr": "Do we have class the Wednesday before break?",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 13
+  },
+  "pk": 77
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:20:41.684Z",
+    "object_repr": "What should we put in the project presentations?",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 13
+  },
+  "pk": 78
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:21:52.156Z",
+    "object_repr": "Agile Methods - What are those???",
+    "user": 1,
+    "object_id": "4",
+    "content_type": 13
+  },
+  "pk": 79
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 3,
+    "action_time": "2015-11-30T05:25:40.848Z",
+    "object_repr": "What should we put in the project presentations?",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 13
+  },
+  "pk": 80
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 3,
+    "action_time": "2015-11-30T05:25:40.854Z",
+    "object_repr": "Do we have class the Wednesday before break?",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 13
+  },
+  "pk": 81
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 3,
+    "action_time": "2015-11-30T05:25:40.857Z",
+    "object_repr": "Do we have a quiz soon?",
+    "user": 1,
+    "object_id": "1",
+    "content_type": 13
+  },
+  "pk": 82
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:27:08.510Z",
+    "object_repr": "I need a group for the project! Can anyone help me out?",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 13
+  },
+  "pk": 83
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "Added post \"I need a group for the project! Can anyone help me out? Daniel McKinon\".",
+    "action_flag": 2,
+    "action_time": "2015-11-30T05:27:27.821Z",
+    "object_repr": "I need a group for the project! Can anyone help me out?",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 13
+  },
+  "pk": 84
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:28:18.640Z",
+    "object_repr": "What should we put in the project presention?",
+    "user": 1,
+    "object_id": "6",
+    "content_type": 13
+  },
+  "pk": 85
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:28:52.660Z",
+    "object_repr": "Do we have class the Wednesday before break?",
+    "user": 1,
+    "object_id": "7",
+    "content_type": 13
+  },
+  "pk": 86
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-11-30T05:30:14.095Z",
+    "object_repr": "Do we have a quiz coming up?",
+    "user": 1,
+    "object_id": "8",
+    "content_type": 13
+  },
+  "pk": 87
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T03:33:37.455Z",
+    "object_repr": "Cognitive Science",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 8
+  },
+  "pk": 88
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T03:35:20.747Z",
+    "object_repr": "William Deal",
+    "user": 1,
+    "object_id": "8",
+    "content_type": 11
+  },
+  "pk": 89
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T03:35:26.063Z",
+    "object_repr": "Cognitive Science",
+    "user": 1,
+    "object_id": "2",
+    "content_type": 10
+  },
+  "pk": 90
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "Changed current_department.",
+    "action_flag": 2,
+    "action_time": "2015-12-03T03:35:36.459Z",
+    "object_repr": "William Deal",
+    "user": 1,
+    "object_id": "8",
+    "content_type": 11
+  },
+  "pk": 91
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T03:38:20.232Z",
+    "object_repr": "Fey Parrill",
+    "user": 1,
+    "object_id": "9",
+    "content_type": 11
+  },
+  "pk": 92
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T03:44:16.077Z",
+    "object_repr": "Margaretmary Daley",
+    "user": 1,
+    "object_id": "10",
+    "content_type": 11
+  },
+  "pk": 93
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T03:48:03.481Z",
+    "object_repr": "German",
+    "user": 1,
+    "object_id": "6",
+    "content_type": 7
+  },
+  "pk": 94
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T03:48:06.781Z",
+    "object_repr": "German",
+    "user": 1,
+    "object_id": "3",
+    "content_type": 10
+  },
+  "pk": 95
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "Changed current_department.",
+    "action_flag": 2,
+    "action_time": "2015-12-03T03:48:17.333Z",
+    "object_repr": "Margaretmary Daley",
+    "user": 1,
+    "object_id": "10",
+    "content_type": 11
+  },
+  "pk": 96
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T03:50:25.862Z",
+    "object_repr": "Peter Yang",
+    "user": 1,
+    "object_id": "11",
+    "content_type": 11
+  },
+  "pk": 97
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "Changed photo.",
+    "action_flag": 2,
+    "action_time": "2015-12-03T03:50:40.043Z",
+    "object_repr": "Margaretmary Daley",
+    "user": 1,
+    "object_id": "10",
+    "content_type": 11
+  },
+  "pk": 98
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T03:57:24.087Z",
+    "object_repr": "Psychology",
+    "user": 1,
+    "object_id": "7",
+    "content_type": 7
+  },
+  "pk": 99
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T03:57:30.905Z",
+    "object_repr": "Psychology",
+    "user": 1,
+    "object_id": "6",
+    "content_type": 8
+  },
+  "pk": 100
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T03:59:48.976Z",
+    "object_repr": "Lee Thompson",
+    "user": 1,
+    "object_id": "12",
+    "content_type": 11
+  },
+  "pk": 101
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T03:59:53.433Z",
+    "object_repr": "Psychology",
+    "user": 1,
+    "object_id": "4",
+    "content_type": 10
+  },
+  "pk": 102
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "Changed current_department.",
+    "action_flag": 2,
+    "action_time": "2015-12-03T04:00:04.352Z",
+    "object_repr": "Lee Thompson",
+    "user": 1,
+    "object_id": "12",
+    "content_type": 11
+  },
+  "pk": 103
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T04:01:31.190Z",
+    "object_repr": "Elizabeth Short",
+    "user": 1,
+    "object_id": "13",
+    "content_type": 11
+  },
+  "pk": 104
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T04:03:18.174Z",
+    "object_repr": "Mathematics",
+    "user": 1,
+    "object_id": "8",
+    "content_type": 7
+  },
+  "pk": 105
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T04:03:24.978Z",
+    "object_repr": "Applied Mathematics",
+    "user": 1,
+    "object_id": "9",
+    "content_type": 7
+  },
+  "pk": 106
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T04:03:31.935Z",
+    "object_repr": "Statistics",
+    "user": 1,
+    "object_id": "10",
+    "content_type": 7
+  },
+  "pk": 107
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T04:03:38.254Z",
+    "object_repr": "Mathematics",
+    "user": 1,
+    "object_id": "7",
+    "content_type": 8
+  },
+  "pk": 108
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T04:03:56.515Z",
+    "object_repr": "Statistics",
+    "user": 1,
+    "object_id": "8",
+    "content_type": 8
+  },
+  "pk": 109
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T04:05:24.610Z",
+    "object_repr": "David Singer",
+    "user": 1,
+    "object_id": "14",
+    "content_type": 11
+  },
+  "pk": 110
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T04:05:28.656Z",
+    "object_repr": "Mathematics, Applied Mathematics and Statistics",
+    "user": 1,
+    "object_id": "5",
+    "content_type": 10
+  },
+  "pk": 111
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "Changed current_department.",
+    "action_flag": 2,
+    "action_time": "2015-12-03T04:05:46.524Z",
+    "object_repr": "David Singer",
+    "user": 1,
+    "object_id": "14",
+    "content_type": 11
+  },
+  "pk": 112
+},
+{
+  "model": "admin.logentry",
+  "fields": {
+    "change_message": "",
+    "action_flag": 1,
+    "action_time": "2015-12-03T04:07:41.928Z",
+    "object_repr": "Margaret Callahan",
+    "user": 1,
+    "object_id": "15",
+    "content_type": 11
+  },
+  "pk": 113
+}
+]

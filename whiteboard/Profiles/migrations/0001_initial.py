@@ -8,15 +8,15 @@ from django.conf import settings
 class Migration(migrations.Migration):
 
     dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('class_overviews', '__first__'),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Department',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('department_code', models.CharField(max_length=4)),
                 ('department_name', models.CharField(max_length=100)),
                 ('department_info', models.CharField(max_length=500)),
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Major',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('major', models.CharField(max_length=50)),
                 ('required_classes', models.ManyToManyField(to='class_overviews.Course', blank=True)),
             ],
@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Minor',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('minor', models.CharField(max_length=50)),
                 ('required_classes', models.ManyToManyField(to='class_overviews.Course', blank=True)),
             ],
@@ -50,9 +50,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Professor',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('first_name', models.CharField(max_length=100)),
                 ('last_name', models.CharField(max_length=100)),
+                ('full_name', models.CharField(default='albert einstein', max_length=200)),
                 ('email_id', models.EmailField(max_length=254)),
                 ('bio', models.CharField(max_length=500)),
                 ('office_location', models.CharField(max_length=100)),
@@ -67,9 +68,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='StudentUser',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('first_name', models.CharField(default='First', max_length=100)),
                 ('last_name', models.CharField(default='Last', max_length=100)),
+                ('full_name', models.CharField(default='First Last', max_length=200)),
                 ('email_id', models.EmailField(default='abc123@case.edu', max_length=254)),
                 ('bio', models.CharField(default='none', max_length=500)),
                 ('photo', models.FileField(upload_to='Profiles/static/img')),
