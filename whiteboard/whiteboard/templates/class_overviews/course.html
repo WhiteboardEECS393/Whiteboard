@@ -6,17 +6,17 @@
 {% block body %}
     <div class="class-title">
         <div class="row">
-+            <div class="col-md-11">
-+                <h2>{{course.department}}{{course.course_number}}: {{course.course_name}} {{section.season}}{{section.year}}</h2>
-+            </div>
-+            <div class="col-mid-1">
-+                {% if curr_user not in students %}
-+                    <form action="#" method="get">
-+                        <button type="button"><input type="submit" class="btn" value="add class" name="mybtn"></button>
-+                    </form>
-+                {% endif %}
-+            </div>
-+        </div>
+            <div class="col-md-11">
+                <h2>{{course.department}}{{course.course_number}}: {{course.course_name}} {{section.season}}{{section.year}}</h2>
+            </div>
+            <div class="col-mid-1">
+                {% if curr_user not in students %}
+                    <form action="#" method="get">
+                        <button type="button"><input type="submit" class="btn" value="add class" name="mybtn"></button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
     </div>
 
     <div class="col-md-4">
@@ -106,6 +106,10 @@
 	    		</ul>
 	    	</div>
 	    </div>
+
+        <form action="#" method="get">
+            <input type="submit" class="btn" value="Add Class" name="mybtn">
+        </form>
 
         {% if sections|length > 1 %}
         <div class="site-container">
