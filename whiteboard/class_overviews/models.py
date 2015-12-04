@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from wbMessageBoard.models import DiscussionBoard
 
 
 class Semester(models.Model):
@@ -19,6 +22,8 @@ class Course(models.Model):
 
     def __str__(self):
         return self.department + str(self.course_number) + ": " + self.course_name
+
+
 
 
 class Section(models.Model):
@@ -42,3 +47,10 @@ class Document(models.Model):
 
     def __str__(self):
         return self.name
+
+@receiver(post_save, sender=Section)
+def create_board(sender, instance, created, **kwargs):
+    if created:
+        board, created = DiscussionBoard.objects.get_or_create(course=instance,
+                                                               name= instance.course.course_name + ' ' + str(instance.section_number),
+                                                               description='Blah')
